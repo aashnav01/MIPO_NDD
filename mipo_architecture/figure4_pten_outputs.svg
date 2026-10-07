@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="280" viewBox="0 0 1100 280" role="img" aria-label="Rank of four PTEN variants among all variants in each assay, real measurement versus MIPO prediction. Activity: C124S measured 0.5, predicted 7.0; G129E 0.1 and 19.9; R130G 19.9 and 24.7; K289E 77.6 and 91.8. Abundance: C124S measured 88.0, predicted 6.1; G129E 36.1 and 23.5; R130G 94.2 and 18.1; K289E 65.6 and 93.5.">
+<style><![CDATA[
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+svg { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+/* SVG styling from the page stylesheet */
+.box { fill: #ffffff; stroke-width: 1.75; }
+.core { fill: #f5f7fa; stroke: #1b2430; stroke-width: 1.25; }
+.chipbox { fill: #ffffff; stroke: #b3bcc7; stroke-width: 1; }
+.ln { fill: none; stroke-width: 1.7; }
+.dash { stroke-dasharray: 4 4; }
+.sep { stroke: #dde2e8; stroke-width: 1; }
+.k-ink { stroke: #1b2430; } .k-seq { stroke: #2a78d6; } .k-mut { stroke: #4a3aa7; }
+.k-str { stroke: #008300; } .k-llr { stroke: #e87ba4; } .k-assay { stroke: #eda100; }
+.f-ink { fill: #1b2430; } .f-seq { fill: #2a78d6; } .f-mut { fill: #4a3aa7; }
+.f-str { fill: #008300; } .f-llr { fill: #e87ba4; } .f-assay { fill: #eda100; }
+.f-rest { fill: #8b95a1; } .f-unused { fill: #e6e9ed; } .f-bg { fill: #ffffff; }
+.pick { cursor: pointer; }
+.pick .hitbox { fill: #1b2430; fill-opacity: 0; stroke: none; transition: fill-opacity .12s; }
+.pick:hover .hitbox { fill-opacity: .05; }
+.pick:focus { outline: none; }
+.pick:focus-visible .hitbox, .pick.on .hitbox { fill-opacity: .06; stroke: #1b2430; stroke-width: 2.5; stroke-dasharray: 6 4; }
+.t-title { font: 600 14px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-line { font: 400 12px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #5b6472; }
+.t-ink { font: 400 12px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-small { font: 400 11px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #5b6472; }
+.t-chip { font: 500 11px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-code { font: 400 11px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #1b2430; }
+.t-eye { font: 600 10px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .08em; fill: #5b6472; }
+.t-arrow { font: 500 11px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #5b6472; }
+.t-num { font: 600 24px 'IBM Plex Sans Condensed', 'Arial Narrow', 'Helvetica Neue', sans-serif; fill: #1b2430; }
+.t-stage { font: 600 14px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-bead { font: 500 10px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #1b2430; }
+.t-axis { font: 400 11px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #5b6472; }
+.chainline { fill: none; stroke: #b3bcc7; stroke-width: 4; stroke-linecap: round; }
+.bead { fill: #ffffff; stroke: #b3bcc7; stroke-width: 1.5; }
+.bead-mut { fill: #4a3aa7; stroke: #4a3aa7; stroke-width: 1.5; }
+.bead-seq { fill: #ffffff; stroke: #2a78d6; stroke-width: 2.5; }
+.bead-str { fill: #ffffff; stroke: #008300; stroke-width: 2.5; }
+.grid { stroke: #dde2e8; stroke-width: 1; }
+.meas { fill: #ffffff; stroke: #1b2430; stroke-width: 2; }
+.pred { fill: #1b2430; }
+.conn { stroke: #b3bcc7; stroke-width: 2; }
+.hit { fill: #ffffff; fill-opacity: 0; }
+
+]]></style>
+<rect width="1100" height="280" fill="#ffffff"/>
+          <text class="t-title" x="110" y="30">Activity (Mighell 2018)</text>
+          <line class="grid" x1="110.0" y1="48" x2="110.0" y2="206"/><text class="t-axis" x="110.0" y="222" text-anchor="middle">0</text>
+          <line class="grid" x1="207.5" y1="48" x2="207.5" y2="206"/><text class="t-axis" x="207.5" y="222" text-anchor="middle">25</text>
+          <line class="grid" x1="305.0" y1="48" x2="305.0" y2="206"/><text class="t-axis" x="305.0" y="222" text-anchor="middle">50</text>
+          <line class="grid" x1="402.5" y1="48" x2="402.5" y2="206"/><text class="t-axis" x="402.5" y="222" text-anchor="middle">75</text>
+          <line class="grid" x1="500.0" y1="48" x2="500.0" y2="206"/><text class="t-axis" x="500.0" y="222" text-anchor="middle">100</text>
+          <text class="t-small" x="305.0" y="240" text-anchor="middle">rank among all variants (0 = lowest score)</text>
+          <text class="t-ink" x="96" y="74" text-anchor="end">C124S</text>
+          <line class="conn" x1="112.0" y1="70" x2="137.2" y2="70"/>
+          <g><title>C124S activity: real measurement, rank 0.5 (score -4.90)</title><circle class="hit" cx="112.0" cy="70" r="12"/><circle class="meas" cx="112.0" cy="70" r="6"/></g>
+          <g><title>C124S activity: MIPO prediction, rank 7.0 (μ -0.95)</title><circle class="hit" cx="137.2" cy="70" r="12"/><polygon class="pred" points="137.2,63 144.2,70 137.2,77 130.2,70"/></g>
+          <text class="t-ink" x="96" y="114" text-anchor="end">G129E</text>
+          <line class="conn" x1="110.3" y1="110" x2="187.5" y2="110"/>
+          <g><title>G129E activity: real measurement, rank 0.1 (score -5.41)</title><circle class="hit" cx="110.3" cy="110" r="12"/><circle class="meas" cx="110.3" cy="110" r="6"/></g>
+          <g><title>G129E activity: MIPO prediction, rank 19.9 (μ -0.81)</title><circle class="hit" cx="187.5" cy="110" r="12"/><polygon class="pred" points="187.5,103 194.5,110 187.5,117 180.5,110"/></g>
+          <text class="t-ink" x="96" y="154" text-anchor="end">R130G</text>
+          <line class="conn" x1="187.7" y1="150" x2="206.4" y2="150"/>
+          <g><title>R130G activity: real measurement, rank 19.9 (score -2.14)</title><circle class="hit" cx="187.7" cy="150" r="12"/><circle class="meas" cx="187.7" cy="150" r="6"/></g>
+          <g><title>R130G activity: MIPO prediction, rank 24.7 (μ -0.74)</title><circle class="hit" cx="206.4" cy="150" r="12"/><polygon class="pred" points="206.4,143 213.4,150 206.4,157 199.4,150"/></g>
+          <text class="t-ink" x="96" y="194" text-anchor="end">K289E</text>
+          <line class="conn" x1="412.6" y1="190" x2="468.1" y2="190"/>
+          <g><title>K289E activity: real measurement, rank 77.6 (score 0.14)</title><circle class="hit" cx="412.6" cy="190" r="12"/><circle class="meas" cx="412.6" cy="190" r="6"/></g>
+          <g><title>K289E activity: MIPO prediction, rank 91.8 (μ 0.41)</title><circle class="hit" cx="468.1" cy="190" r="12"/><polygon class="pred" points="468.1,183 475.1,190 468.1,197 461.1,190"/></g>
+          <text class="t-title" x="640" y="30">Abundance (Matreyek 2021)</text>
+          <line class="grid" x1="640.0" y1="48" x2="640.0" y2="206"/><text class="t-axis" x="640.0" y="222" text-anchor="middle">0</text>
+          <line class="grid" x1="737.5" y1="48" x2="737.5" y2="206"/><text class="t-axis" x="737.5" y="222" text-anchor="middle">25</text>
+          <line class="grid" x1="835.0" y1="48" x2="835.0" y2="206"/><text class="t-axis" x="835.0" y="222" text-anchor="middle">50</text>
+          <line class="grid" x1="932.5" y1="48" x2="932.5" y2="206"/><text class="t-axis" x="932.5" y="222" text-anchor="middle">75</text>
+          <line class="grid" x1="1030.0" y1="48" x2="1030.0" y2="206"/><text class="t-axis" x="1030.0" y="222" text-anchor="middle">100</text>
+          <text class="t-small" x="835.0" y="240" text-anchor="middle">rank among all variants (0 = lowest score)</text>
+          <text class="t-ink" x="626" y="74" text-anchor="end">C124S</text>
+          <line class="conn" x1="983.4" y1="70" x2="663.8" y2="70"/>
+          <g><title>C124S abundance: real measurement, rank 88.0 (score 1.05)</title><circle class="hit" cx="983.4" cy="70" r="12"/><circle class="meas" cx="983.4" cy="70" r="6"/></g>
+          <g><title>C124S abundance: MIPO prediction, rank 6.1 (μ -0.44)</title><circle class="hit" cx="663.8" cy="70" r="12"/><polygon class="pred" points="663.8,63 670.8,70 663.8,77 656.8,70"/></g>
+          <text class="t-ink" x="626" y="114" text-anchor="end">G129E</text>
+          <line class="conn" x1="780.9" y1="110" x2="731.5" y2="110"/>
+          <g><title>G129E abundance: real measurement, rank 36.1 (score 0.64)</title><circle class="hit" cx="780.9" cy="110" r="12"/><circle class="meas" cx="780.9" cy="110" r="6"/></g>
+          <g><title>G129E abundance: MIPO prediction, rank 23.4 (μ -0.21)</title><circle class="hit" cx="731.5" cy="110" r="12"/><polygon class="pred" points="731.5,103 738.5,110 731.5,117 724.5,110"/></g>
+          <text class="t-ink" x="626" y="154" text-anchor="end">R130G</text>
+          <line class="conn" x1="1007.5" y1="150" x2="710.4" y2="150"/>
+          <g><title>R130G abundance: real measurement, rank 94.2 (score 1.12)</title><circle class="hit" cx="1007.5" cy="150" r="12"/><circle class="meas" cx="1007.5" cy="150" r="6"/></g>
+          <g><title>R130G abundance: MIPO prediction, rank 18.1 (μ -0.28)</title><circle class="hit" cx="710.4" cy="150" r="12"/><polygon class="pred" points="710.4,143 717.4,150 710.4,157 703.4,150"/></g>
+          <text class="t-ink" x="626" y="194" text-anchor="end">K289E</text>
+          <line class="conn" x1="895.9" y1="190" x2="1004.7" y2="190"/>
+          <g><title>K289E abundance: real measurement, rank 65.6 (score 0.89)</title><circle class="hit" cx="895.9" cy="190" r="12"/><circle class="meas" cx="895.9" cy="190" r="6"/></g>
+          <g><title>K289E abundance: MIPO prediction, rank 93.5 (μ 0.83)</title><circle class="hit" cx="1004.7" cy="190" r="12"/><polygon class="pred" points="1004.7,183 1011.7,190 1004.7,197 997.7,190"/></g>
+          <circle class="meas" cx="116" cy="262" r="6"/><text class="t-ink" x="130" y="266">real measurement (published experiment)</text>
+          <polygon class="pred" points="410,255 417,262 410,269 403,262"/><text class="t-ink" x="425" y="266">our prediction (MIPO)</text>
+        </svg>

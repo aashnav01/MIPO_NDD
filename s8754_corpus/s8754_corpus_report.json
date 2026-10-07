@@ -1,0 +1,45 @@
+{
+  "homology_dedupe": {
+    "rule": {
+      "span": 50,
+      "identity": 0.4,
+      "local alignment": "match 2, mismatch -1, open -2, extend -0.5"
+    },
+    "level": "test-site",
+    "proteins_dropped": 61,
+    "variants_dropped": 912
+  },
+  "teacher_variants_in": 2798,
+  "teacher_proteins_in": 159,
+  "proteins_overlapping_corpus": 15,
+  "overlapping_corpus_ids": [
+    "BRCA1__9606__80d7199c8d15",
+    "CALM1__9606__4a9f2f38a0af",
+    "CKS1B__9606__5eacfaa833f6",
+    "CRYGD__9606__7d483153c8e2",
+    "FYN__9606__4c913494c94f",
+    "MYB__9606__a3a0ff83bf1d",
+    "PIN1__9606__32f6115513f3",
+    "PRKN__9606__f1c95f90cb66",
+    "PRPF40A__9606__4c0794fea109",
+    "SERPINE1__9606__85dcfe09ecc8",
+    "SRC__9606__d2f882771368",
+    "TP53__9606__a5cec053cd19",
+    "YAP1__9606__1f9731060cb9"
+  ],
+  "dropped_overlap_variants": 380,
+  "evaluation_genes_checked": 134,
+  "stages_reached": [
+    "generic_and_legacy_auxiliary"
+  ],
+  "tier_checked_against": "s8754_config_15b.json",
+  "final": {
+    "rows": 2418,
+    "proteins": 144,
+    "residues_needing_features": 26198,
+    "tier": "F_STABILITY_FIELD_TEACHER",
+    "assay_id": "s8754_ddg",
+    "ddG_mean": 0.7818,
+    "destabilizing_share": 0.6894
+  }
+}

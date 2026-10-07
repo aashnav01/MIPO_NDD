@@ -1,0 +1,4 @@
+{
+  "interpretation": "Signed correlation against as-supplied targets. Score orientation and original LLR provenance are not inferred from the held-out gene.",
+  "limitation": "Existing LLR columns cover Tier A only; run cached-LLR evaluation for an identical feature-generation protocol."
+}

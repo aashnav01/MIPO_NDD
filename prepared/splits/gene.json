@@ -1,0 +1,1373 @@
+{
+  "corpus_sha256": "9fc238ea9a499f78694f5334a32284a2ab89d1b009a122fcf3a425a70878df2b",
+  "seed": 42,
+  "group_kind": "gene",
+  "gene_to_group": {
+    "ADSL": "ADSL",
+    "AIRE": "AIRE",
+    "ASPA": "ASPA",
+    "BRCA1": "BRCA1",
+    "BRCA2": "BRCA2",
+    "CBS": "CBS",
+    "CRX": "CRX",
+    "DLG4": "DLG4",
+    "FKRP": "FKRP",
+    "GDI1": "GDI1",
+    "HMGCR": "HMGCR",
+    "HRAS": "HRAS",
+    "JAG1": "JAG1",
+    "KCNE1": "KCNE1",
+    "KCNQ1": "KCNQ1",
+    "KCNQ2": "KCNQ2",
+    "KRAS": "KRAS",
+    "LARGE1": "LARGE1",
+    "MAPK1": "MAPK1",
+    "MTHFR": "MTHFR",
+    "OTC": "OTC",
+    "PALB2": "PALB2",
+    "PAX6": "PAX6",
+    "PSAT1": "PSAT1",
+    "PTEN": "PTEN",
+    "SHOC2": "SHOC2",
+    "SPOP": "SPOP",
+    "SUMO1": "SUMO1",
+    "TPK1": "TPK1",
+    "TSC2": "TSC2",
+    "UBR5": "UBR5"
+  },
+  "folds": [
+    {
+      "test": [
+        "ADSL"
+      ],
+      "validation": [
+        "UBR5"
+      ],
+      "calibration": [
+        "LARGE1"
+      ],
+      "train": [
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2"
+      ],
+      "fold": 0,
+      "held_out_group": "ADSL"
+    },
+    {
+      "test": [
+        "AIRE"
+      ],
+      "validation": [
+        "KCNQ1"
+      ],
+      "calibration": [
+        "SPOP"
+      ],
+      "train": [
+        "ADSL",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 1,
+      "held_out_group": "AIRE"
+    },
+    {
+      "test": [
+        "ASPA"
+      ],
+      "validation": [
+        "HMGCR"
+      ],
+      "calibration": [
+        "KCNQ1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 2,
+      "held_out_group": "ASPA"
+    },
+    {
+      "test": [
+        "BRCA1"
+      ],
+      "validation": [
+        "TPK1"
+      ],
+      "calibration": [
+        "ASPA"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 3,
+      "held_out_group": "BRCA1"
+    },
+    {
+      "test": [
+        "BRCA2"
+      ],
+      "validation": [
+        "KCNQ1"
+      ],
+      "calibration": [
+        "MAPK1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 4,
+      "held_out_group": "BRCA2"
+    },
+    {
+      "test": [
+        "CBS"
+      ],
+      "validation": [
+        "DLG4"
+      ],
+      "calibration": [
+        "GDI1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CRX",
+        "FKRP",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 5,
+      "held_out_group": "CBS"
+    },
+    {
+      "test": [
+        "CRX"
+      ],
+      "validation": [
+        "DLG4"
+      ],
+      "calibration": [
+        "HRAS"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 6,
+      "held_out_group": "CRX"
+    },
+    {
+      "test": [
+        "DLG4"
+      ],
+      "validation": [
+        "FKRP"
+      ],
+      "calibration": [
+        "HRAS"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "GDI1",
+        "HMGCR",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 7,
+      "held_out_group": "DLG4"
+    },
+    {
+      "test": [
+        "FKRP"
+      ],
+      "validation": [
+        "MTHFR"
+      ],
+      "calibration": [
+        "GDI1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 8,
+      "held_out_group": "FKRP"
+    },
+    {
+      "test": [
+        "GDI1"
+      ],
+      "validation": [
+        "MTHFR"
+      ],
+      "calibration": [
+        "SHOC2"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 9,
+      "held_out_group": "GDI1"
+    },
+    {
+      "test": [
+        "HMGCR"
+      ],
+      "validation": [
+        "LARGE1"
+      ],
+      "calibration": [
+        "GDI1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 10,
+      "held_out_group": "HMGCR"
+    },
+    {
+      "test": [
+        "HRAS"
+      ],
+      "validation": [
+        "BRCA1"
+      ],
+      "calibration": [
+        "LARGE1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 11,
+      "held_out_group": "HRAS"
+    },
+    {
+      "test": [
+        "JAG1"
+      ],
+      "validation": [
+        "HMGCR"
+      ],
+      "calibration": [
+        "FKRP"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "GDI1",
+        "HRAS",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 12,
+      "held_out_group": "JAG1"
+    },
+    {
+      "test": [
+        "KCNE1"
+      ],
+      "validation": [
+        "HRAS"
+      ],
+      "calibration": [
+        "PTEN"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "JAG1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 13,
+      "held_out_group": "KCNE1"
+    },
+    {
+      "test": [
+        "KCNQ1"
+      ],
+      "validation": [
+        "HMGCR"
+      ],
+      "calibration": [
+        "OTC"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 14,
+      "held_out_group": "KCNQ1"
+    },
+    {
+      "test": [
+        "KCNQ2"
+      ],
+      "validation": [
+        "HMGCR"
+      ],
+      "calibration": [
+        "LARGE1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KRAS",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 15,
+      "held_out_group": "KCNQ2"
+    },
+    {
+      "test": [
+        "KRAS"
+      ],
+      "validation": [
+        "TPK1"
+      ],
+      "calibration": [
+        "PSAT1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 16,
+      "held_out_group": "KRAS"
+    },
+    {
+      "test": [
+        "LARGE1"
+      ],
+      "validation": [
+        "ADSL"
+      ],
+      "calibration": [
+        "PSAT1"
+      ],
+      "train": [
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 17,
+      "held_out_group": "LARGE1"
+    },
+    {
+      "test": [
+        "MAPK1"
+      ],
+      "validation": [
+        "HMGCR"
+      ],
+      "calibration": [
+        "BRCA1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 18,
+      "held_out_group": "MAPK1"
+    },
+    {
+      "test": [
+        "MTHFR"
+      ],
+      "validation": [
+        "PTEN"
+      ],
+      "calibration": [
+        "TPK1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 19,
+      "held_out_group": "MTHFR"
+    },
+    {
+      "test": [
+        "OTC"
+      ],
+      "validation": [
+        "PALB2"
+      ],
+      "calibration": [
+        "LARGE1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "MAPK1",
+        "MTHFR",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 20,
+      "held_out_group": "OTC"
+    },
+    {
+      "test": [
+        "PALB2"
+      ],
+      "validation": [
+        "HMGCR"
+      ],
+      "calibration": [
+        "JAG1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HRAS",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 21,
+      "held_out_group": "PALB2"
+    },
+    {
+      "test": [
+        "PAX6"
+      ],
+      "validation": [
+        "CRX"
+      ],
+      "calibration": [
+        "BRCA2"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "CBS",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 22,
+      "held_out_group": "PAX6"
+    },
+    {
+      "test": [
+        "PSAT1"
+      ],
+      "validation": [
+        "DLG4"
+      ],
+      "calibration": [
+        "HRAS"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 23,
+      "held_out_group": "PSAT1"
+    },
+    {
+      "test": [
+        "PTEN"
+      ],
+      "validation": [
+        "FKRP"
+      ],
+      "calibration": [
+        "TSC2"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "UBR5"
+      ],
+      "fold": 24,
+      "held_out_group": "PTEN"
+    },
+    {
+      "test": [
+        "SHOC2"
+      ],
+      "validation": [
+        "KCNE1"
+      ],
+      "calibration": [
+        "CBS"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 25,
+      "held_out_group": "SHOC2"
+    },
+    {
+      "test": [
+        "SPOP"
+      ],
+      "validation": [
+        "TSC2"
+      ],
+      "calibration": [
+        "TPK1"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SUMO1",
+        "UBR5"
+      ],
+      "fold": 26,
+      "held_out_group": "SPOP"
+    },
+    {
+      "test": [
+        "SUMO1"
+      ],
+      "validation": [
+        "JAG1"
+      ],
+      "calibration": [
+        "BRCA2"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "TPK1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 27,
+      "held_out_group": "SUMO1"
+    },
+    {
+      "test": [
+        "TPK1"
+      ],
+      "validation": [
+        "CRX"
+      ],
+      "calibration": [
+        "ASPA"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TSC2",
+        "UBR5"
+      ],
+      "fold": 28,
+      "held_out_group": "TPK1"
+    },
+    {
+      "test": [
+        "TSC2"
+      ],
+      "validation": [
+        "JAG1"
+      ],
+      "calibration": [
+        "KRAS"
+      ],
+      "train": [
+        "ADSL",
+        "AIRE",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "KCNE1",
+        "KCNQ1",
+        "KCNQ2",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "UBR5"
+      ],
+      "fold": 29,
+      "held_out_group": "TSC2"
+    },
+    {
+      "test": [
+        "UBR5"
+      ],
+      "validation": [
+        "KCNQ1"
+      ],
+      "calibration": [
+        "AIRE"
+      ],
+      "train": [
+        "ADSL",
+        "ASPA",
+        "BRCA1",
+        "BRCA2",
+        "CBS",
+        "CRX",
+        "DLG4",
+        "FKRP",
+        "GDI1",
+        "HMGCR",
+        "HRAS",
+        "JAG1",
+        "KCNE1",
+        "KCNQ2",
+        "KRAS",
+        "LARGE1",
+        "MAPK1",
+        "MTHFR",
+        "OTC",
+        "PALB2",
+        "PAX6",
+        "PSAT1",
+        "PTEN",
+        "SHOC2",
+        "SPOP",
+        "SUMO1",
+        "TPK1",
+        "TSC2"
+      ],
+      "fold": 30,
+      "held_out_group": "UBR5"
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="1300" viewBox="0 0 1140 1300" id="flow" role="group" aria-label="MIPO forward pass in eight stages: inputs; prepare (residue context, mutation impulse, residue graph); spread over the graph for three rounds; four summary views; weighted mix; 8-number bottleneck; readout with weights generated from the assay description; outputs per variant, per residue and for checking.">
+<style><![CDATA[
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+svg { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+/* SVG styling from the page stylesheet */
+.box { fill: #ffffff; stroke-width: 1.75; }
+.core { fill: #f5f7fa; stroke: #1b2430; stroke-width: 1.25; }
+.chipbox { fill: #ffffff; stroke: #b3bcc7; stroke-width: 1; }
+.ln { fill: none; stroke-width: 1.7; }
+.dash { stroke-dasharray: 4 4; }
+.sep { stroke: #dde2e8; stroke-width: 1; }
+.k-ink { stroke: #1b2430; } .k-seq { stroke: #2a78d6; } .k-mut { stroke: #4a3aa7; }
+.k-str { stroke: #008300; } .k-llr { stroke: #e87ba4; } .k-assay { stroke: #eda100; }
+.f-ink { fill: #1b2430; } .f-seq { fill: #2a78d6; } .f-mut { fill: #4a3aa7; }
+.f-str { fill: #008300; } .f-llr { fill: #e87ba4; } .f-assay { fill: #eda100; }
+.f-rest { fill: #8b95a1; } .f-unused { fill: #e6e9ed; } .f-bg { fill: #ffffff; }
+.pick { cursor: pointer; }
+.pick .hitbox { fill: #1b2430; fill-opacity: 0; stroke: none; transition: fill-opacity .12s; }
+.pick:hover .hitbox { fill-opacity: .05; }
+.pick:focus { outline: none; }
+.pick:focus-visible .hitbox, .pick.on .hitbox { fill-opacity: .06; stroke: #1b2430; stroke-width: 2.5; stroke-dasharray: 6 4; }
+.t-title { font: 600 14px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-line { font: 400 12px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #5b6472; }
+.t-ink { font: 400 12px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-small { font: 400 11px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #5b6472; }
+.t-chip { font: 500 11px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-code { font: 400 11px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #1b2430; }
+.t-eye { font: 600 10px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .08em; fill: #5b6472; }
+.t-arrow { font: 500 11px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #5b6472; }
+.t-num { font: 600 24px 'IBM Plex Sans Condensed', 'Arial Narrow', 'Helvetica Neue', sans-serif; fill: #1b2430; }
+.t-stage { font: 600 14px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-bead { font: 500 10px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #1b2430; }
+.t-axis { font: 400 11px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #5b6472; }
+.chainline { fill: none; stroke: #b3bcc7; stroke-width: 4; stroke-linecap: round; }
+.bead { fill: #ffffff; stroke: #b3bcc7; stroke-width: 1.5; }
+.bead-mut { fill: #4a3aa7; stroke: #4a3aa7; stroke-width: 1.5; }
+.bead-seq { fill: #ffffff; stroke: #2a78d6; stroke-width: 2.5; }
+.bead-str { fill: #ffffff; stroke: #008300; stroke-width: 2.5; }
+.grid { stroke: #dde2e8; stroke-width: 1; }
+.meas { fill: #ffffff; stroke: #1b2430; stroke-width: 2; }
+.pred { fill: #1b2430; }
+.conn { stroke: #b3bcc7; stroke-width: 2; }
+.hit { fill: #ffffff; fill-opacity: 0; }
+
+]]></style>
+<rect width="1140" height="1300" fill="#ffffff"/>
+          <defs>
+            <marker id="m-ink" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker>
+            <marker id="m-seq" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-seq"/></marker>
+            <marker id="m-mut" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-mut"/></marker>
+            <marker id="m-str" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-str"/></marker>
+            <marker id="m-llr" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-llr"/></marker>
+            <marker id="m-assay" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-assay"/></marker>
+          </defs>
+
+          <!-- Stage gutter -->
+          <line class="sep" x1="20" y1="156" x2="1120" y2="156"/>
+          <line class="sep" x1="20" y1="300" x2="1120" y2="300"/>
+          <line class="sep" x1="20" y1="510" x2="1120" y2="510"/>
+          <line class="sep" x1="20" y1="690" x2="1120" y2="690"/>
+          <line class="sep" x1="20" y1="830" x2="1120" y2="830"/>
+          <line class="sep" x1="20" y1="950" x2="1120" y2="950"/>
+          <line class="sep" x1="20" y1="1070" x2="1120" y2="1070"/>
+          <text class="t-num" x="20" y="52">1</text><text class="t-stage" x="44" y="50">Inputs</text>
+          <text class="t-small" x="20" y="72">what MIPO is given</text><text class="t-small" x="20" y="87">(two more join later)</text>
+          <text class="t-num" x="20" y="192">2</text><text class="t-stage" x="44" y="190">Prepare</text>
+          <text class="t-small" x="20" y="212">turn each input</text><text class="t-small" x="20" y="227">into numbers</text>
+          <text class="t-num" x="20" y="336">3</text><text class="t-stage" x="44" y="334">Spread</text>
+          <text class="t-small" x="20" y="356">3 rounds over the</text><text class="t-small" x="20" y="371">residue graph</text>
+          <text class="t-num" x="20" y="546">4</text><text class="t-stage" x="44" y="544">Summarise</text>
+          <text class="t-small" x="20" y="566">four views of</text><text class="t-small" x="20" y="581">the mutation</text>
+          <text class="t-num" x="20" y="726">5</text><text class="t-stage" x="44" y="724">Mix</text>
+          <text class="t-small" x="20" y="746">weigh the four views</text>
+          <text class="t-num" x="20" y="866">6</text><text class="t-stage" x="44" y="864">Squeeze</text>
+          <text class="t-small" x="20" y="886">keep 8 numbers</text>
+          <text class="t-num" x="20" y="986">7</text><text class="t-stage" x="44" y="984">Read out</text>
+          <text class="t-small" x="20" y="1006">score for this assay</text>
+          <text class="t-num" x="20" y="1106">8</text><text class="t-stage" x="44" y="1104">Outputs</text>
+          <text class="t-small" x="20" y="1126">what you get back</text>
+
+          <!-- Stage 1: inputs -->
+          <rect class="box k-seq" x="170" y="32" width="230" height="108" rx="8"/>
+          <rect class="f-seq" x="184" y="45" width="8" height="8"/><text class="t-eye" x="198" y="53">INPUT</text>
+          <text class="t-title" x="184" y="74">Protein sequence</text>
+          <text class="t-line" x="184" y="94">PTEN, 403 residues</text>
+          <text class="t-line" x="184" y="111">ESM-2 650M reads it once</text>
+          <text class="t-line" x="184" y="128">(frozen, saved to disk)</text>
+
+          <rect class="box k-mut" x="540" y="32" width="280" height="108" rx="8"/>
+          <rect class="f-mut" x="554" y="45" width="8" height="8"/><text class="t-eye" x="568" y="53">INPUT</text>
+          <text class="t-title" x="554" y="74">The mutation</text>
+          <text class="t-line" x="554" y="94">C124S at residue 124</text>
+          <text class="t-line" x="554" y="111">cysteine → serine</text>
+          <text class="t-line" x="554" y="128">(PTEN's catalytic cysteine)</text>
+
+          <rect class="box k-str" x="920" y="32" width="210" height="108" rx="8"/>
+          <rect class="f-str" x="934" y="45" width="8" height="8"/><text class="t-eye" x="948" y="53">INPUT</text>
+          <text class="t-title" x="934" y="74">3D structure</text>
+          <text class="t-line" x="934" y="94">PTEN: 1 structure</text>
+          <text class="t-line" x="934" y="111">(up to 4 allowed)</text>
+          <text class="t-line" x="934" y="128">+ confidence per residue</text>
+
+          <line class="ln k-seq" x1="285" y1="140" x2="285" y2="176" marker-end="url(#m-seq)"/>
+          <text class="t-arrow" x="293" y="162">1,280 numbers each</text>
+          <line class="ln k-mut" x1="680" y1="140" x2="680" y2="176" marker-end="url(#m-mut)"/>
+          <text class="t-arrow" x="688" y="162">what changed</text>
+          <line class="ln k-str" x1="1025" y1="140" x2="1025" y2="176" marker-end="url(#m-str)"/>
+          <text class="t-arrow" x="1033" y="162">coordinates</text>
+
+          <!-- Stage 2: prepare -->
+          <rect class="box k-seq" x="170" y="176" width="230" height="100" rx="8"/>
+          <text class="t-title" x="184" y="204">Residue context</text>
+          <text class="t-line" x="184" y="224">1,280 → 128 numbers</text>
+          <text class="t-line" x="184" y="241">for every residue</text>
+          <text class="t-line" x="184" y="258">(one learned layer)</text>
+
+          <rect class="box k-mut" x="540" y="176" width="280" height="100" rx="8"/>
+          <text class="t-title" x="554" y="204">Mutation impulse</text>
+          <text class="t-line" x="554" y="224">fingerprint + chemistry change</text>
+          <text class="t-line" x="554" y="241">strength set by site context</text>
+          <text class="t-line" x="554" y="258">starts on residue 124 only</text>
+
+          <rect class="box k-str" x="920" y="176" width="210" height="100" rx="8"/>
+          <text class="t-title" x="934" y="204">Residue graph</text>
+          <text class="t-line" x="934" y="224">keeps 256 of 403 residues</text>
+          <text class="t-line" x="934" y="241">16 links per residue</text>
+          <text class="t-line" x="934" y="258">5 numbers per link</text>
+
+          <line class="ln k-seq" x1="400" y1="210" x2="540" y2="210" marker-end="url(#m-seq)"/>
+          <text class="t-arrow" x="470" y="203" text-anchor="middle">site context</text>
+          <path class="ln k-seq" d="M330,276 V420 H540" marker-end="url(#m-seq)"/>
+          <text class="t-arrow" x="415" y="413" text-anchor="middle">guides messages</text>
+          <path class="ln k-mut" d="M540,262 H500 V413 A7,7 0 0 1 500,427 V540 H540" marker-end="url(#m-mut)"/>
+          <text class="t-arrow" x="492" y="462" text-anchor="end">mutation skips</text>
+          <text class="t-arrow" x="492" y="476" text-anchor="end">ahead to ④</text>
+          <line class="ln k-mut" x1="680" y1="276" x2="680" y2="324" marker-end="url(#m-mut)"/>
+          <text class="t-arrow" x="688" y="304">starting signal</text>
+          <path class="ln k-str" d="M920,245 H870 V404 H820" marker-end="url(#m-str)"/>
+          <text class="t-arrow" x="878" y="345">who talks</text>
+          <text class="t-arrow" x="878" y="359">to whom</text>
+          <line class="ln k-seq" x1="285" y1="276" x2="285" y2="530" marker-end="url(#m-seq)"/>
+          <text class="t-arrow" x="293" y="497">same features</text>
+
+          <!-- Stage 3: spread -->
+          <rect class="core" x="540" y="324" width="280" height="160" rx="8"/>
+          <text class="t-eye" x="554" y="342">3 ROUNDS</text>
+          <text class="t-title" x="554" y="361">Response field</text>
+          <rect class="chipbox" x="554" y="372" width="80" height="46" rx="5"/>
+          <text class="t-chip" x="594" y="391" text-anchor="middle">neighbour</text><text class="t-chip" x="594" y="406" text-anchor="middle">messages</text>
+          <rect class="chipbox" x="640" y="372" width="80" height="46" rx="5"/>
+          <text class="t-chip" x="680" y="391" text-anchor="middle">3D</text><text class="t-chip" x="680" y="406" text-anchor="middle">direction</text>
+          <rect class="chipbox" x="726" y="372" width="80" height="46" rx="5"/>
+          <text class="t-chip" x="766" y="391" text-anchor="middle">16 hubs</text><text class="t-chip" x="766" y="406" text-anchor="middle">(landmarks)</text>
+          <line class="ln k-ink" x1="594" y1="418" x2="594" y2="430" marker-end="url(#m-ink)"/>
+          <line class="ln k-ink" x1="680" y1="418" x2="680" y2="430" marker-end="url(#m-ink)"/>
+          <line class="ln k-ink" x1="766" y1="418" x2="766" y2="430" marker-end="url(#m-ink)"/>
+          <rect class="chipbox" x="554" y="430" width="252" height="24" rx="5"/>
+          <text class="t-chip" x="680" y="446" text-anchor="middle">update: old + step × change</text>
+          <text class="t-small" x="680" y="474" text-anchor="middle">×3 → 128 numbers per kept residue</text>
+
+          <line class="ln k-ink" x1="584" y1="484" x2="584" y2="530" marker-end="url(#m-ink)"/>
+          <text class="t-arrow" x="590" y="512">at 124</text>
+          <line class="ln k-ink" x1="648" y1="484" x2="648" y2="530" marker-end="url(#m-ink)"/>
+          <text class="t-arrow" x="654" y="512">average</text>
+
+          <!-- Stage 4: summarise -->
+          <rect class="box k-seq" x="170" y="530" width="230" height="100" rx="8"/>
+          <text class="t-title" x="184" y="558">Sequence summaries</text>
+          <text class="t-line" x="184" y="578">±25-residue window reader</text>
+          <text class="t-line" x="184" y="595">(2-layer transformer)</text>
+          <text class="t-line" x="184" y="612">+ whole-protein average</text>
+
+          <rect class="core" x="540" y="530" width="280" height="136" rx="8"/>
+          <text class="t-title" x="554" y="556">Four views</text>
+          <rect class="chipbox" x="554" y="568" width="60" height="62" rx="5"/>
+          <text class="t-title" x="584" y="587" text-anchor="middle">①</text><text class="t-chip" x="584" y="603" text-anchor="middle">site</text><text class="t-chip" x="584" y="618" text-anchor="middle">view</text>
+          <rect class="chipbox" x="618" y="568" width="60" height="62" rx="5"/>
+          <text class="t-title" x="648" y="587" text-anchor="middle">②</text><text class="t-chip" x="648" y="603" text-anchor="middle">field</text><text class="t-chip" x="648" y="618" text-anchor="middle">average</text>
+          <rect class="chipbox" x="682" y="568" width="60" height="62" rx="5"/>
+          <text class="t-title" x="712" y="587" text-anchor="middle">③</text><text class="t-chip" x="712" y="603" text-anchor="middle">protein</text><text class="t-chip" x="712" y="618" text-anchor="middle">average</text>
+          <rect class="chipbox" x="746" y="568" width="60" height="62" rx="5"/>
+          <text class="t-title" x="776" y="587" text-anchor="middle">④</text><text class="t-chip" x="776" y="603" text-anchor="middle">mutation</text><text class="t-chip" x="776" y="618" text-anchor="middle">+ LLR</text>
+          <text class="t-small" x="554" y="652">each view = 128 numbers</text>
+
+          <rect class="box k-llr" x="920" y="530" width="210" height="108" rx="8"/>
+          <rect class="f-llr" x="934" y="543" width="8" height="8"/><text class="t-eye" x="948" y="551">INPUT</text>
+          <text class="t-title" x="934" y="572">Zero-shot LLR</text>
+          <text class="t-line" x="934" y="592">hide residue 124, ask ESM-2:</text>
+          <text class="t-line" x="934" y="609">how likely is S vs C?</text>
+          <text class="t-line" x="934" y="626">(one number)</text>
+
+          <line class="ln k-seq" x1="400" y1="610" x2="540" y2="610" marker-end="url(#m-seq)"/>
+          <text class="t-arrow" x="470" y="627" text-anchor="middle">window → ①, avg → ③</text>
+          <line class="ln k-llr" x1="920" y1="585" x2="820" y2="585" marker-end="url(#m-llr)"/>
+          <text class="t-arrow" x="870" y="578" text-anchor="middle">LLR → ④</text>
+
+          <line class="ln k-ink" x1="680" y1="666" x2="680" y2="710" marker-end="url(#m-ink)"/>
+          <text class="t-arrow" x="688" y="692">4 × 128 numbers</text>
+
+          <!-- Stage 5: mix -->
+          <rect class="core" x="540" y="710" width="280" height="90" rx="8"/>
+          <text class="t-title" x="554" y="736">Weighted mix</text>
+          <text class="t-line" x="554" y="756">a small network weighs the 4 views</text>
+          <text class="t-line" x="554" y="773">(it also sees 3D confidence at 124)</text>
+          <text class="t-line" x="554" y="790">training: ①–③ dropped 10% of the time</text>
+
+          <rect class="box k-assay" x="920" y="710" width="210" height="108" rx="8"/>
+          <rect class="f-assay" x="934" y="723" width="8" height="8"/><text class="t-eye" x="948" y="731">INPUT</text>
+          <text class="t-title" x="934" y="752">Assay description</text>
+          <text class="t-line" x="934" y="772">task: activity</text>
+          <text class="t-line" x="934" y="789">host, selection, system,</text>
+          <text class="t-line" x="934" y="806">treatment, region</text>
+
+          <line class="ln k-ink" x1="680" y1="800" x2="680" y2="850" marker-end="url(#m-ink)"/>
+          <text class="t-arrow" x="688" y="830">128 numbers</text>
+          <line class="ln k-assay" x1="1025" y1="818" x2="1025" y2="850" marker-end="url(#m-assay)"/>
+          <text class="t-arrow" x="1033" y="840">40-number code</text>
+
+          <!-- Stage 6: squeeze -->
+          <rect class="core" x="540" y="850" width="280" height="80" rx="8"/>
+          <text class="t-title" x="554" y="876">Bottleneck</text>
+          <text class="t-line" x="554" y="896">squeezed to 8 numbers,</text>
+          <text class="t-line" x="554" y="913">each between −1 and 1</text>
+
+          <rect class="box k-assay" x="920" y="850" width="210" height="92" rx="8"/>
+          <text class="t-title" x="934" y="876">Hypernetwork</text>
+          <text class="t-line" x="934" y="896">code 40 → 64 → 18 numbers</text>
+          <text class="t-line" x="934" y="913">= the readout's weights</text>
+          <text class="t-line" x="934" y="930">general one if task unseen</text>
+
+          <line class="ln k-ink" x1="680" y1="930" x2="680" y2="970" marker-end="url(#m-ink)"/>
+          <text class="t-arrow" x="688" y="955">8 numbers</text>
+          <path class="ln k-assay" d="M1025,942 V1015 H820" marker-end="url(#m-assay)"/>
+          <text class="t-arrow" x="922" y="1008" text-anchor="middle">weights</text>
+
+          <!-- Stage 7: read out -->
+          <rect class="core" x="540" y="970" width="280" height="90" rx="8"/>
+          <text class="t-title" x="554" y="996">Readout</text>
+          <text class="t-line" x="554" y="1016">μ = weighted sum of the 8 numbers</text>
+          <text class="t-line" x="554" y="1033">σ = uncertainty (at least 0.05)</text>
+          <text class="t-line" x="554" y="1050">(both on the training scale)</text>
+
+          <line class="ln k-ink" x1="680" y1="1060" x2="680" y2="1090" marker-end="url(#m-ink)"/>
+
+          <!-- Stage 8: outputs -->
+          <rect class="box k-ink" x="170" y="1090" width="230" height="190" rx="8"/>
+          <text class="t-eye" x="184" y="1110">PER RESIDUE · OPTIONAL</text>
+          <text class="t-title" x="184" y="1131">Effect map</text>
+          <text class="t-line" x="184" y="1151">response field from stage 3:</text>
+          <text class="t-line" x="184" y="1168">128 numbers per kept residue</text>
+          <text class="t-line" x="184" y="1185">+ 3D direction vectors</text>
+          <text class="t-code" x="184" y="1215">mipo predict</text>
+          <text class="t-code" x="184" y="1231">  --export-fields</text>
+          <text class="t-code" x="184" y="1247">→ field_*.npz</text>
+
+          <rect class="box k-ink" x="540" y="1090" width="280" height="190" rx="8"/>
+          <text class="t-eye" x="554" y="1110">PER VARIANT</text>
+          <text class="t-title" x="554" y="1131">Prediction</text>
+          <text class="t-line" x="554" y="1151">score μ and uncertainty σ,</text>
+          <text class="t-line" x="554" y="1168">converted to the assay's own units</text>
+          <text class="t-line" x="554" y="1185">90% range: μ ± 1.645 σ</text>
+          <text class="t-line" x="554" y="1202">(calibrated range when possible)</text>
+          <text class="t-code" x="554" y="1231">test_predictions.csv</text>
+          <text class="t-code" x="554" y="1247">→ test_metrics.csv (Spearman)</text>
+          <text class="t-code" x="554" y="1263">→ test_summary.json</text>
+
+          <rect class="box k-ink" x="920" y="1090" width="210" height="190" rx="8"/>
+          <text class="t-eye" x="934" y="1110">FOR CHECKING · OPTIONAL</text>
+          <text class="t-title" x="934" y="1131">What it leaned on</text>
+          <text class="t-line" x="934" y="1151">the 4 view weights (stage 5)</text>
+          <text class="t-line" x="934" y="1168">the 8 numbers (stage 6)</text>
+          <text class="t-code" x="934" y="1231">same field_*.npz</text>
+        
+          <g class="pick" data-key="protein-sequence" role="button" tabindex="0" aria-label="Protein sequence: show explanation"><rect class="hitbox" x="170" y="32" width="230" height="108" rx="8"/></g>
+          <g class="pick" data-key="the-mutation" role="button" tabindex="0" aria-label="The mutation: show explanation"><rect class="hitbox" x="540" y="32" width="280" height="108" rx="8"/></g>
+          <g class="pick" data-key="3d-structure" role="button" tabindex="0" aria-label="3D structure: show explanation"><rect class="hitbox" x="920" y="32" width="210" height="108" rx="8"/></g>
+          <g class="pick" data-key="residue-context" role="button" tabindex="0" aria-label="Residue context: show explanation"><rect class="hitbox" x="170" y="176" width="230" height="100" rx="8"/></g>
+          <g class="pick" data-key="mutation-impulse" role="button" tabindex="0" aria-label="Mutation impulse: show explanation"><rect class="hitbox" x="540" y="176" width="280" height="100" rx="8"/></g>
+          <g class="pick" data-key="residue-graph" role="button" tabindex="0" aria-label="Residue graph: show explanation"><rect class="hitbox" x="920" y="176" width="210" height="100" rx="8"/></g>
+          <g class="pick" data-key="response-field" role="button" tabindex="0" aria-label="Response field: show explanation"><rect class="hitbox" x="540" y="324" width="280" height="160" rx="8"/></g>
+          <g class="pick" data-key="sequence-summaries" role="button" tabindex="0" aria-label="Sequence summaries: show explanation"><rect class="hitbox" x="170" y="530" width="230" height="100" rx="8"/></g>
+          <g class="pick" data-key="four-views" role="button" tabindex="0" aria-label="Four views: show explanation"><rect class="hitbox" x="540" y="530" width="280" height="136" rx="8"/></g>
+          <g class="pick" data-key="zero-shot-llr" role="button" tabindex="0" aria-label="Zero-shot LLR: show explanation"><rect class="hitbox" x="920" y="530" width="210" height="108" rx="8"/></g>
+          <g class="pick" data-key="weighted-mix" role="button" tabindex="0" aria-label="Weighted mix: show explanation"><rect class="hitbox" x="540" y="710" width="280" height="90" rx="8"/></g>
+          <g class="pick" data-key="assay-description" role="button" tabindex="0" aria-label="Assay description: show explanation"><rect class="hitbox" x="920" y="710" width="210" height="108" rx="8"/></g>
+          <g class="pick" data-key="bottleneck" role="button" tabindex="0" aria-label="Bottleneck: show explanation"><rect class="hitbox" x="540" y="850" width="280" height="80" rx="8"/></g>
+          <g class="pick" data-key="hypernetwork" role="button" tabindex="0" aria-label="Hypernetwork: show explanation"><rect class="hitbox" x="920" y="850" width="210" height="92" rx="8"/></g>
+          <g class="pick" data-key="readout" role="button" tabindex="0" aria-label="Readout: show explanation"><rect class="hitbox" x="540" y="970" width="280" height="90" rx="8"/></g>
+          <g class="pick" data-key="effect-map" role="button" tabindex="0" aria-label="Effect map: show explanation"><rect class="hitbox" x="170" y="1090" width="230" height="190" rx="8"/></g>
+          <g class="pick" data-key="prediction" role="button" tabindex="0" aria-label="Prediction: show explanation"><rect class="hitbox" x="540" y="1090" width="280" height="190" rx="8"/></g>
+          <g class="pick" data-key="what-it-leaned-on" role="button" tabindex="0" aria-label="What it leaned on: show explanation"><rect class="hitbox" x="920" y="1090" width="210" height="190" rx="8"/></g>
+        </svg>

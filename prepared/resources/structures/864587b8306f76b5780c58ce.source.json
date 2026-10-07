@@ -1,0 +1,8 @@
+{
+  "gene": "UBR5",
+  "source": "artifacts/resources/structures/1I2T.pdb",
+  "chain": null,
+  "confidence": "none",
+  "exact_subsequence_crop_allowed": true,
+  "conformers": 1
+}

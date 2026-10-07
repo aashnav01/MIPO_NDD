@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mipo-ndd"
+version = "0.1.0"
+description = "Mutation perturbation fields for gene-held-out heterogeneous DMS learning"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3", "pandas>=2.0,<3", "pyarrow>=15,<30", "scipy>=1.10,<2", "torch>=2.4,<3", "requests>=2.31,<3", "biopython>=1.83,<2", "transformers>=4.44,<5", "safetensors>=0.4,<1", "tqdm>=4.66,<5"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<9", "nbformat>=5,<6"]
+
+[project.scripts]
+mipo = "mipo.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["mipo*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

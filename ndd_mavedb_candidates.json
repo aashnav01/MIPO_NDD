@@ -1,0 +1,883 @@
+{
+ "ADSL": [
+  [
+   "urn:mavedb:00001257-0-1",
+   "ADSL Estimated Enzyme Activities",
+   8901
+  ],
+  [
+   "urn:mavedb:00001257-a-2",
+   "ADSL High Expression (Dox-, Control)",
+   9422
+  ],
+  [
+   "urn:mavedb:00001257-a-1",
+   "ADSL High Expression (Dox+)",
+   9422
+  ],
+  [
+   "urn:mavedb:00001257-a-3",
+   "ADSL Low Expression (Dox+)",
+   9022
+  ],
+  [
+   "urn:mavedb:00001257-a-4",
+   "ADSL Low Expression (Dox-, Control)",
+   9022
+  ]
+ ],
+ "AMFR": [
+  [
+   "urn:mavedb:00000312-0-1",
+   "AMFR combined scores",
+   3088
+  ],
+  [
+   "urn:mavedb:00000403-0-1",
+   "AMFR combined scores",
+   4568
+  ],
+  [
+   "urn:mavedb:00000312-a-2",
+   "AMFR chymotrypsin digestion",
+   3088
+  ],
+  [
+   "urn:mavedb:00000312-a-1",
+   "AMFR trypsin digestion",
+   3088
+  ],
+  [
+   "urn:mavedb:00000403-a-2",
+   "AMFR chymotrypsin digestion",
+   4568
+  ],
+  [
+   "urn:mavedb:00000403-a-1",
+   "AMFR trypsin digestion",
+   4568
+  ]
+ ],
+ "ASPA": [
+  [
+   "urn:mavedb:00000657-a-1",
+   "Aspartoacylase (ASPA) cellular abundance",
+   6152
+  ],
+  [
+   "urn:mavedb:00000657-b-1",
+   "Aspartoacylase (ASPA) cellular toxicity",
+   6156
+  ]
+ ],
+ "BRAF": [
+  [
+   "urn:mavedb:00000091-a-1",
+   "BRAF resistance to vemurafenib",
+   73
+  ],
+  [
+   "urn:mavedb:00001237-a-2",
+   "VarChAMP_Imaging_Morphological_Change_May_2025",
+   430
+  ],
+  [
+   "urn:mavedb:00001237-a-1",
+   "VarChAMP_Imaging_Localization_May_2025",
+   430
+  ]
+ ],
+ "CBS": [
+  [
+   "urn:mavedb:00000005-a-4",
+   "CBS low-B6 imputed and refined",
+   11550
+  ],
+  [
+   "urn:mavedb:00000005-a-5",
+   "CBS low-B6",
+   11478
+  ],
+  [
+   "urn:mavedb:00000005-a-6",
+   "CBS high-B6",
+   10802
+  ],
+  [
+   "urn:mavedb:00000005-a-3",
+   "CBS high-B6 imputed and refined",
+   11550
+  ]
+ ],
+ "DDX3X": [
+  [
+   "urn:mavedb:00000658-0-1",
+   "DDX3X SGE scores for clinical use",
+   9079
+  ]
+ ],
+ "FKRP": [
+  [
+   "urn:mavedb:00001197-a-5",
+   "FKRP variants effects on alpha-DG glycosylation",
+   4455
+  ]
+ ],
+ "GDI1": [
+  [
+   "urn:mavedb:00000066-a-1",
+   "GDI1  variant effect map score set",
+   5008
+  ]
+ ],
+ "HUWE1": [
+  [
+   "urn:mavedb:00000234-0-1",
+   "HUWE1 combined scores",
+   1474
+  ],
+  [
+   "urn:mavedb:00000234-a-1",
+   "HUWE1 trypsin digestion",
+   1474
+  ],
+  [
+   "urn:mavedb:00000234-a-2",
+   "HUWE1 chymotrypsin digestion",
+   1474
+  ]
+ ],
+ "ITCH": [
+  [
+   "urn:mavedb:00000386-0-1",
+   "ITCH combined scores",
+   1765
+  ],
+  [
+   "urn:mavedb:00000386-a-1",
+   "ITCH trypsin digestion",
+   1765
+  ],
+  [
+   "urn:mavedb:00000386-a-2",
+   "ITCH chymotrypsin digestion",
+   1765
+  ]
+ ],
+ "KCNQ2": [
+  [
+   "urn:mavedb:00000664-a-1",
+   "1. Current densities at +40 mV of 301 missense variants expressed in CHO cells alone",
+   301
+  ],
+  [
+   "urn:mavedb:00000664-a-6",
+   "6. Current densities at -40 mV of 301 missense variants co-expressed with wild-type KCNQ2 in CHO cells",
+   301
+  ],
+  [
+   "urn:mavedb:00000664-a-3",
+   "3. Current densities at -40 mV of 301 missense variants expressed in CHO cells alone",
+   301
+  ],
+  [
+   "urn:mavedb:00000664-a-13",
+   "13. Current densities at +40 mV of 57 variants used as benign controls in OddsPath expressed in CHO cells alone",
+   57
+  ],
+  [
+   "urn:mavedb:00000664-a-2",
+   "2. V1/2 of 118 missense variants expressed in CHO cells alone",
+   118
+  ],
+  [
+   "urn:mavedb:00000664-a-10",
+   "10. Current densities at +40 mV of 30 non-missense variants co-expressed with wild-type KCNQ2 in CHO cells",
+   30
+  ],
+  [
+   "urn:mavedb:00000664-a-18",
+   "18. Current densities at -40 mV of 57 variants used as benign controls in OddsPath co-expressed with wild-type KCNQ2 in CHO cells",
+   57
+  ],
+  [
+   "urn:mavedb:00000664-a-14",
+   "14. V1/2 of 57 variants used as benign controls in OddsPath expressed in CHO cells alone",
+   57
+  ],
+  [
+   "urn:mavedb:00000664-a-15",
+   "15. Current densities at -40 mV of 57 variants used as benign controls in OddsPath expressed in CHO cells alone",
+   57
+  ],
+  [
+   "urn:mavedb:00000664-a-16",
+   "16. Current densities at +40 mV of 57 variants used as benign controls in OddsPath co-expressed with wild-type KCNQ2 in CHO cells",
+   57
+  ],
+  [
+   "urn:mavedb:00000664-a-17",
+   "17. V1/2 of 57 variants used as benign controls in OddsPath co-expressed with wild-type KCNQ2 in CHO cells",
+   57
+  ],
+  [
+   "urn:mavedb:00000664-a-8",
+   "8. V1/2 of 2 KCNQ2 non-missense variants expressed in CHO cells alone",
+   2
+  ],
+  [
+   "urn:mavedb:00000664-a-11",
+   "11. V1/2 of 26 non-missense variants co-expressed with wild-type KCNQ2 in CHO cells (the other 4 non-missense variants generated too small currents to calculate V1/2)",
+   26
+  ],
+  [
+   "urn:mavedb:00000664-a-4",
+   "4. Current densities at +40 mV of 301 missense variants co-expressed with wild-type KCNQ2 in CHO cells",
+   301
+  ],
+  [
+   "urn:mavedb:00000664-a-5",
+   "5. V1/2 of 245 missense variants co-expressed with wild-type KCNQ2 in CHO cells",
+   245
+  ],
+  [
+   "urn:mavedb:00000664-a-7",
+   "7. Current densities at +40 mV of 30 non-missense variants expressed in CHO cells alone",
+   30
+  ],
+  [
+   "urn:mavedb:00000664-a-9",
+   "9. Current densities at -40 mV of 30 non-missense variants expressed in CHO cells alone",
+   30
+  ],
+  [
+   "urn:mavedb:00000664-a-12",
+   "12. Current densities at -40 mV of 30 non-missense variants co-expressed with wild-type KCNQ2 in CHO cells",
+   30
+  ]
+ ],
+ "KRAS": [
+  [
+   "urn:mavedb:00000115-a-27",
+   "abundance fitness from abundancePCA of KRAS block2",
+   8912
+  ],
+  [
+   "urn:mavedb:00000115-a-21",
+   "binding fitness from KRAS-RALGDSRDB bindingPCA of KRAS block1",
+   13676
+  ],
+  [
+   "urn:mavedb:00000115-a-22",
+   "binding fitness from KRAS-RAF1RDB bindingPCA of KRAS block1",
+   14044
+  ],
+  [
+   "urn:mavedb:00000115-a-24",
+   "binding fitness from KRAS-RAF1RDB bindingPCA of KRAS block3",
+   5163
+  ],
+  [
+   "urn:mavedb:00000115-a-3",
+   "binding free energy changes of KRAS-SOS1 interaction",
+   3553
+  ],
+  [
+   "urn:mavedb:00000115-a-6",
+   "binding free energy changes of KRAS-RAF1RBD interaction",
+   3553
+  ],
+  [
+   "urn:mavedb:00000115-a-7",
+   "folding free energy changes of KRAS in abundancePCA",
+   3553
+  ],
+  [
+   "urn:mavedb:00000115-a-12",
+   "binding fitness from KRAS-DARPin K27 bindingPCA of KRAS block1",
+   14859
+  ],
+  [
+   "urn:mavedb:00000115-a-5",
+   "binding free energy changes of KRAS-RALGDSRBD interaction",
+   3553
+  ],
+  [
+   "urn:mavedb:00000115-a-10",
+   "binding fitness from KRAS-DARPin K27 bindingPCA of KRAS block3",
+   4515
+  ],
+  [
+   "urn:mavedb:00000115-a-11",
+   "binding fitness from KRAS-DARPin K27 bindingPCA of KRAS block2",
+   8666
+  ],
+  [
+   "urn:mavedb:00000115-a-26",
+   "binding fitness from KRAS-DARPin K55 bindingPCA of KRAS block1",
+   12607
+  ],
+  [
+   "urn:mavedb:00000115-a-2",
+   "binding free energy changes of KRAS-DARPin K27 interaction",
+   3553
+  ],
+  [
+   "urn:mavedb:00000115-a-14",
+   "binding fitness from KRAS-SOS1 bindingPCA of KRAS block2",
+   5949
+  ],
+  [
+   "urn:mavedb:00000115-a-4",
+   "binding free energy changes of KRAS-PIK3CGRBD interaction",
+   3553
+  ],
+  [
+   "urn:mavedb:00000115-a-8",
+   "binding fitness from KRAS-DARPin K55 bindingPCA of KRAS block3",
+   4970
+  ],
+  [
+   "urn:mavedb:00000115-a-1",
+   "binding free energy changes of KRAS-DARPin K55 interaction",
+   3553
+  ],
+  [
+   "urn:mavedb:00000115-a-9",
+   "binding fitness from KRAS-DARPin K55 bindingPCA of KRAS block2",
+   8657
+  ],
+  [
+   "urn:mavedb:00000115-a-13",
+   "binding fitness from KRAS-SOS1 bindingPCA of KRAS block3",
+   3361
+  ],
+  [
+   "urn:mavedb:00000115-a-15",
+   "binding fitness from KRAS-SOS1 bindingPCA of KRAS block1",
+   12637
+  ],
+  [
+   "urn:mavedb:00000115-a-16",
+   "binding fitness from KRAS-PIK3CGRDB bindingPCA of KRAS block3",
+   3833
+  ],
+  [
+   "urn:mavedb:00000115-a-17",
+   "binding fitness from KRAS-PIK3CGRDB bindingPCA of KRAS block2",
+   6893
+  ],
+  [
+   "urn:mavedb:00000115-a-23",
+   "abundance fitness from abundancePCA of KRAS block1",
+   13845
+  ],
+  [
+   "urn:mavedb:00000115-a-18",
+   "binding fitness from KRAS-PIK3CGRDB bindingPCA of KRAS block1",
+   11096
+  ],
+  [
+   "urn:mavedb:00000115-a-19",
+   "binding fitness from KRAS-RALGDSRDB bindingPCA of KRAS block3",
+   3351
+  ],
+  [
+   "urn:mavedb:00000115-a-28",
+   "abundance fitness from abundancePCA of KRAS block3",
+   4695
+  ],
+  [
+   "urn:mavedb:00000115-a-25",
+   "binding fitness from KRAS-RAF1RDB bindingPCA of KRAS block2",
+   7459
+  ],
+  [
+   "urn:mavedb:00000115-a-20",
+   "binding fitness from KRAS-RALGDSRDB bindingPCA of KRAS block2",
+   5606
+  ],
+  [
+   "urn:mavedb:00001237-a-1",
+   "VarChAMP_Imaging_Localization_May_2025",
+   430
+  ],
+  [
+   "urn:mavedb:00001237-a-2",
+   "VarChAMP_Imaging_Morphological_Change_May_2025",
+   430
+  ]
+ ],
+ "LARGE1": [
+  [
+   "urn:mavedb:00001254-a-1",
+   "LARGE1 variants effects on alpha-DG glycosylation",
+   6804
+  ]
+ ],
+ "MAPK1": [
+  [
+   "urn:mavedb:00000103-b-1",
+   "MAPK1 DOX",
+   6810
+  ],
+  [
+   "urn:mavedb:00000103-a-1",
+   "MAP1K ETP",
+   6810
+  ],
+  [
+   "urn:mavedb:00000103-c-1",
+   "MAPK1 SCH772984",
+   6810
+  ],
+  [
+   "urn:mavedb:00000103-d-1",
+   "MAPK1 VRT-11E",
+   6810
+  ]
+ ],
+ "MTHFR": [
+  [
+   "urn:mavedb:00000049-a-3",
+   "MTHFR at 100ug/ml folate in A222V background",
+   13690
+  ],
+  [
+   "urn:mavedb:00000049-a-2",
+   "MTHFR at 25ug/ml folate in A222V background",
+   13690
+  ],
+  [
+   "urn:mavedb:00000049-a-6",
+   "MTHFR at 25ug/ml folate in WT background",
+   13704
+  ],
+  [
+   "urn:mavedb:00000049-a-4",
+   "MTHFR at 12ug/ml folate in WT background",
+   13704
+  ],
+  [
+   "urn:mavedb:00000049-a-5",
+   "MTHFR at 12ug/ml folate in A222V background",
+   13690
+  ],
+  [
+   "urn:mavedb:00000049-a-8",
+   "MTHFR at 200ug/ml folate in A222V background",
+   12141
+  ],
+  [
+   "urn:mavedb:00000049-a-7",
+   "MTHFR at 200ug/ml folate in WT background",
+   12538
+  ],
+  [
+   "urn:mavedb:00000049-a-1",
+   "MTHFR at 100ug/ml folate in WT background",
+   13704
+  ]
+ ],
+ "NEDD4L": [
+  [
+   "urn:mavedb:00000215-0-1",
+   "Nedd4l combined scores",
+   884
+  ],
+  [
+   "urn:mavedb:00000215-a-1",
+   "Nedd4l trypsin digestion",
+   884
+  ],
+  [
+   "urn:mavedb:00000215-a-2",
+   "Nedd4l chymotrypsin digestion",
+   884
+  ]
+ ],
+ "NPHP1": [
+  [
+   "urn:mavedb:00000186-0-1",
+   "NPHP1 combined scores",
+   1660
+  ],
+  [
+   "urn:mavedb:00000186-a-2",
+   "NPHP1 chymotrypsin digestion",
+   1660
+  ],
+  [
+   "urn:mavedb:00000186-a-1",
+   "NPHP1 trypsin digestion",
+   1660
+  ]
+ ],
+ "OTC": [
+  [
+   "urn:mavedb:00000112-a-1",
+   "SNV-accessible missense variant scores for OTC",
+   1570
+  ]
+ ],
+ "PAX6": [
+  [
+   "urn:mavedb:00000665-a-1",
+   "pax6_le9_geneticin",
+   7764
+  ],
+  [
+   "urn:mavedb:00000665-b-1",
+   "pax6_blx_geneticin",
+   7391
+  ],
+  [
+   "urn:mavedb:00000665-c-1",
+   "pax6_le9_no_geneticin",
+   7819
+  ],
+  [
+   "urn:mavedb:00000665-d-1",
+   "pax6_blx_no_geneticin",
+   7370
+  ]
+ ],
+ "PSAT1": [
+  [
+   "urn:mavedb:00000107-b-1",
+   "A SNV-accessible mutational scan of human PSAT1 using functional complementation in yeast.",
+   1914
+  ],
+  [
+   "urn:mavedb:00000107-a-1",
+   "PSAT1 200 Solid Growth Assay",
+   200
+  ]
+ ],
+ "PTEN": [
+  [
+   "urn:mavedb:00000102-0-1",
+   "PTEN VAMP-seq Combined",
+   5477
+  ],
+  [
+   "urn:mavedb:00000054-a-1",
+   "PTEN lipid phosphatase scores",
+   8681
+  ],
+  [
+   "urn:mavedb:00000013-a-1",
+   "PTEN VAMP-seq",
+   4409
+  ],
+  [
+   "urn:mavedb:00000101-a-1",
+   "PTEN VAMP-seq Fill-in",
+   4514
+  ],
+  [
+   "urn:mavedb:00001244-b-1",
+   "PTEN VIS-seq in hiPSCs",
+   1228
+  ],
+  [
+   "urn:mavedb:00001244-a-1",
+   "PTEN Variant Imaging in Neurons",
+   1228
+  ]
+ ],
+ "RAF1": [
+  [
+   "urn:mavedb:00001237-a-1",
+   "VarChAMP_Imaging_Localization_May_2025",
+   430
+  ],
+  [
+   "urn:mavedb:00001237-a-2",
+   "VarChAMP_Imaging_Morphological_Change_May_2025",
+   430
+  ]
+ ],
+ "SHOC2": [
+  [
+   "urn:mavedb:00001237-a-1",
+   "VarChAMP_Imaging_Localization_May_2025",
+   430
+  ],
+  [
+   "urn:mavedb:00001237-a-2",
+   "VarChAMP_Imaging_Morphological_Change_May_2025",
+   430
+  ]
+ ],
+ "SPOP": [
+  [
+   "urn:mavedb:00001258-a-1",
+   "Selection of loss-of-function SPOP via yeast survival assay",
+   7441
+  ]
+ ],
+ "SPTAN1": [
+  [
+   "urn:mavedb:00000232-0-1",
+   "SPTAN1 combined scores",
+   2287
+  ],
+  [
+   "urn:mavedb:00000195-0-1",
+   "SPTAN1 combined scores",
+   4103
+  ],
+  [
+   "urn:mavedb:00000125-0-1",
+   "SPTAN1 combined scores",
+   1236
+  ],
+  [
+   "urn:mavedb:00000148-0-1",
+   "SPTAN1 combined scores",
+   1595
+  ],
+  [
+   "urn:mavedb:00000413-0-1",
+   "SPTAN1 combined scores",
+   1319
+  ],
+  [
+   "urn:mavedb:00000412-0-1",
+   "SPTAN1 combined scores",
+   1597
+  ],
+  [
+   "urn:mavedb:00000396-0-1",
+   "SPTAN1 combined scores",
+   1230
+  ],
+  [
+   "urn:mavedb:00000180-0-1",
+   "SPTAN1 combined scores",
+   1620
+  ],
+  [
+   "urn:mavedb:00000375-0-1",
+   "SPTAN1 combined scores",
+   2961
+  ],
+  [
+   "urn:mavedb:00000182-0-1",
+   "SPTAN1 combined scores",
+   1594
+  ],
+  [
+   "urn:mavedb:00000302-0-1",
+   "SPTAN1 combined scores",
+   1662
+  ],
+  [
+   "urn:mavedb:00000284-0-1",
+   "SPTAN1 combined scores",
+   2281
+  ],
+  [
+   "urn:mavedb:00000194-0-1",
+   "SPTAN1 combined scores",
+   1663
+  ],
+  [
+   "urn:mavedb:00000273-0-1",
+   "SPTAN1 combined scores",
+   1426
+  ],
+  [
+   "urn:mavedb:00000273-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   1426
+  ],
+  [
+   "urn:mavedb:00000195-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   4103
+  ],
+  [
+   "urn:mavedb:00000284-a-1",
+   "SPTAN1 trypsin digestion",
+   2281
+  ],
+  [
+   "urn:mavedb:00000284-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   2281
+  ],
+  [
+   "urn:mavedb:00000194-a-1",
+   "SPTAN1 trypsin digestion",
+   1663
+  ],
+  [
+   "urn:mavedb:00000302-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   1662
+  ],
+  [
+   "urn:mavedb:00000302-a-1",
+   "SPTAN1 trypsin digestion",
+   1662
+  ],
+  [
+   "urn:mavedb:00000194-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   1663
+  ],
+  [
+   "urn:mavedb:00000375-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   2961
+  ],
+  [
+   "urn:mavedb:00000375-a-1",
+   "SPTAN1 trypsin digestion",
+   2961
+  ],
+  [
+   "urn:mavedb:00000182-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   1594
+  ],
+  [
+   "urn:mavedb:00000182-a-1",
+   "SPTAN1 trypsin digestion",
+   1594
+  ],
+  [
+   "urn:mavedb:00000180-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   1620
+  ],
+  [
+   "urn:mavedb:00000180-a-1",
+   "SPTAN1 trypsin digestion",
+   1620
+  ],
+  [
+   "urn:mavedb:00000396-a-1",
+   "SPTAN1 trypsin digestion",
+   1230
+  ],
+  [
+   "urn:mavedb:00000396-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   1230
+  ],
+  [
+   "urn:mavedb:00000412-a-1",
+   "SPTAN1 trypsin digestion",
+   1597
+  ],
+  [
+   "urn:mavedb:00000412-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   1597
+  ],
+  [
+   "urn:mavedb:00000232-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   2287
+  ],
+  [
+   "urn:mavedb:00000232-a-1",
+   "SPTAN1 trypsin digestion",
+   2287
+  ],
+  [
+   "urn:mavedb:00000195-a-1",
+   "SPTAN1 trypsin digestion",
+   4103
+  ],
+  [
+   "urn:mavedb:00000273-a-1",
+   "SPTAN1 trypsin digestion",
+   1426
+  ],
+  [
+   "urn:mavedb:00000413-a-1",
+   "SPTAN1 trypsin digestion",
+   1319
+  ],
+  [
+   "urn:mavedb:00000413-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   1319
+  ],
+  [
+   "urn:mavedb:00000125-a-1",
+   "SPTAN1 trypsin digestion",
+   1236
+  ],
+  [
+   "urn:mavedb:00000148-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   1595
+  ],
+  [
+   "urn:mavedb:00000148-a-1",
+   "SPTAN1 trypsin digestion",
+   1595
+  ],
+  [
+   "urn:mavedb:00000125-a-2",
+   "SPTAN1 chymotrypsin digestion",
+   1236
+  ]
+ ],
+ "TSC2": [
+  [
+   "urn:mavedb:00001201-a-1",
+   "TSC2 functional assay using prime editing in HAP1s",
+   208
+  ],
+  [
+   "urn:mavedb:00001267-0-3",
+   "TSC2 Updated Combined Scores",
+   9496
+  ],
+  [
+   "urn:mavedb:00001267-0-1",
+   "TSC2 Combined Scores",
+   9253
+  ]
+ ],
+ "UBR5": [
+  [
+   "urn:mavedb:00000152-0-1",
+   "UBR5 combined scores",
+   1628
+  ],
+  [
+   "urn:mavedb:00000152-a-2",
+   "UBR5 chymotrypsin digestion",
+   1628
+  ],
+  [
+   "urn:mavedb:00000152-a-1",
+   "UBR5 trypsin digestion",
+   1628
+  ]
+ ],
+ "UBTF": [
+  [
+   "urn:mavedb:00000629-0-1",
+   "UBTF combined scores",
+   1082
+  ],
+  [
+   "urn:mavedb:00000629-a-2",
+   "UBTF chymotrypsin digestion",
+   1082
+  ],
+  [
+   "urn:mavedb:00000629-a-1",
+   "UBTF trypsin digestion",
+   1082
+  ]
+ ]
+}

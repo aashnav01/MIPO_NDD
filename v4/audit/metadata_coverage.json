@@ -1,0 +1,74 @@
+{
+  "assays": 625,
+  "metadata_sha256": "615352bd52d644602932609e4aeb436bf0705709e71c5483f3a5920aca082b6c",
+  "baseline_sha256": "bb98120b8b25e78d8b83f5f94515668d7c23f5cb3f9233e3e9f3566793784095",
+  "unknown_by_field_before": {
+    "host": 111,
+    "selection": 26,
+    "system": 84,
+    "treatment": 120,
+    "region": 25
+  },
+  "unknown_by_field_after": {
+    "host": 16,
+    "selection": 13,
+    "system": 13,
+    "treatment": 27,
+    "region": 13
+  },
+  "changed_cells": {
+    "host": 95,
+    "selection": 104,
+    "system": 83,
+    "treatment": 93,
+    "region": 111
+  },
+  "field_status_counts": {
+    "host": {
+      "verified_shared_protocol": 531,
+      "verified_assay_specific": 74,
+      "original_provenance_missing": 16,
+      "condition_mapping_unresolved": 2,
+      "source_table_derived": 2
+    },
+    "selection": {
+      "verified_shared_protocol": 531,
+      "verified_assay_specific": 74,
+      "original_provenance_missing": 13,
+      "source_table_derived": 5,
+      "condition_mapping_unresolved": 2
+    },
+    "system": {
+      "verified_shared_protocol": 531,
+      "verified_assay_specific": 77,
+      "original_provenance_missing": 13,
+      "condition_mapping_unresolved": 2,
+      "source_table_derived": 2
+    },
+    "treatment": {
+      "verified_shared_protocol": 529,
+      "verified_assay_specific": 36,
+      "not_applicable": 31,
+      "original_provenance_missing": 19,
+      "not_reported_in_reviewed_sources": 8,
+      "condition_mapping_unresolved": 2
+    },
+    "region": {
+      "verified_shared_protocol": 531,
+      "verified_assay_specific": 76,
+      "original_provenance_missing": 13,
+      "condition_mapping_unresolved": 3,
+      "source_table_derived": 2
+    }
+  },
+  "changed_field_rows": 2488,
+  "unresolved_field_rows": 82,
+  "assays_with_overrides": 613,
+  "issues_reported": 21,
+  "source_groups": {
+    "MaveDB_Domainome1": 501,
+    "ProteinGym_v1.3": 99,
+    "original_v3": 25
+  },
+  "review_date": "2026-09-20"
+}

@@ -1,0 +1,17 @@
+gene,is_direct_ndd,rows,tasks,n_tasks,assays
+CYP2C9,0,12512,abundance|binding,2,2
+DLG4,1,6408,fitness|stability,2,4
+GCK,0,16966,abundance|fitness,2,2
+GRB2,0,2087,fitness|stability,2,2
+HLA-A,0,6688,abundance|binding,2,2
+KCNE1,0,4654,abundance|activity,2,2
+KCNJ2,0,13880,abundance|activity,2,2
+KRAS,1,6150,abundance|binding,2,2
+PTEN,1,12343,abundance|activity,2,2
+RAF1,1,1547,fitness|stability,2,2
+SLC22A1,0,19897,abundance|activity,2,2
+SRC,0,11338,activity|fitness|stability,3,4
+TARDBP,0,2479,fitness|stability,2,2
+UBE4B,0,3223,activity|stability,2,3
+VKORC1,0,3392,abundance|activity,2,2
+YAP1,1,3013,binding|stability,2,4

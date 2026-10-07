@@ -1,0 +1,88 @@
+{
+  "descriptive": {
+    "contact10": {
+      "pooled_z_spearman": 0.29999401279024557,
+      "macro_within_protein": 0.23047006029392916,
+      "proteins": 47
+    },
+    "contact8": {
+      "pooled_z_spearman": 0.2619864990623157,
+      "macro_within_protein": 0.18681335408172986,
+      "proteins": 47
+    },
+    "contact12": {
+      "pooled_z_spearman": 0.2894337639444386,
+      "macro_within_protein": 0.2271752792873276,
+      "proteins": 47
+    },
+    "after_substitution_adjustment": {
+      "pooled_z_spearman": 0.18490113325644472,
+      "macro_within_protein": 0.16466517697816455
+    }
+  },
+  "transfer": {
+    "ridge: substitution only": {
+      "all": 0.3261837408186341,
+      "without_1STN": 0.3081174968217266,
+      "groups": 67,
+      "ci95": [
+        0.26547516346099975,
+        0.36818267865595516
+      ]
+    },
+    "ridge: substitution + contact": {
+      "all": 0.3864539521035405,
+      "without_1STN": 0.3501593628445873,
+      "groups": 67,
+      "ci95": [
+        0.2793516465501702,
+        0.4375259976715753
+      ]
+    },
+    "hgb: substitution only": {
+      "all": 0.33647269802139407,
+      "without_1STN": 0.3220969553514112,
+      "groups": 67,
+      "ci95": [
+        0.260736043696839,
+        0.3670138930636008
+      ]
+    },
+    "hgb: substitution + contact": {
+      "all": 0.3612889684599322,
+      "without_1STN": 0.322687114684815,
+      "groups": 67,
+      "ci95": [
+        0.27374690498036475,
+        0.4190214247322425
+      ]
+    },
+    "contact only (no fit)": {
+      "all": 0.3128641114085154,
+      "without_1STN": 0.2779312470251347,
+      "groups": 67,
+      "ci95": [
+        0.17699733822101382,
+        0.37415497650467405
+      ]
+    }
+  },
+  "effects": {
+    "contact beyond substitution identity [ridge]": {
+      "mean": 0.053354393990628045,
+      "ci95": [
+        -0.01661857950184428,
+        0.08986341944888687
+      ],
+      "share_positive": 0.96
+    },
+    "contact beyond substitution identity [hgb]": {
+      "mean": 0.02234447727437692,
+      "ci95": [
+        -0.035804202931958753,
+        0.0722650778943469
+      ],
+      "share_positive": 0.76
+    }
+  }
+}

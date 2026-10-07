@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="440" viewBox="0 0 1100 440" role="img" aria-label="Bar of PTEN's 403 residues showing the 256 kept: 51 around residue 124, 19 close to it in 3D, 186 evenly spaced; residues 363 to 403 are not used. Below, residue 124's 16 links: itself, 12 neighbours along the chain from 118 to 130, and three residues close in 3D: F37, L70 and C71.">
+<style><![CDATA[
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+svg { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+/* SVG styling from the page stylesheet */
+.box { fill: #ffffff; stroke-width: 1.75; }
+.core { fill: #f5f7fa; stroke: #1b2430; stroke-width: 1.25; }
+.chipbox { fill: #ffffff; stroke: #b3bcc7; stroke-width: 1; }
+.ln { fill: none; stroke-width: 1.7; }
+.dash { stroke-dasharray: 4 4; }
+.sep { stroke: #dde2e8; stroke-width: 1; }
+.k-ink { stroke: #1b2430; } .k-seq { stroke: #2a78d6; } .k-mut { stroke: #4a3aa7; }
+.k-str { stroke: #008300; } .k-llr { stroke: #e87ba4; } .k-assay { stroke: #eda100; }
+.f-ink { fill: #1b2430; } .f-seq { fill: #2a78d6; } .f-mut { fill: #4a3aa7; }
+.f-str { fill: #008300; } .f-llr { fill: #e87ba4; } .f-assay { fill: #eda100; }
+.f-rest { fill: #8b95a1; } .f-unused { fill: #e6e9ed; } .f-bg { fill: #ffffff; }
+.pick { cursor: pointer; }
+.pick .hitbox { fill: #1b2430; fill-opacity: 0; stroke: none; transition: fill-opacity .12s; }
+.pick:hover .hitbox { fill-opacity: .05; }
+.pick:focus { outline: none; }
+.pick:focus-visible .hitbox, .pick.on .hitbox { fill-opacity: .06; stroke: #1b2430; stroke-width: 2.5; stroke-dasharray: 6 4; }
+.t-title { font: 600 14px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-line { font: 400 12px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #5b6472; }
+.t-ink { font: 400 12px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-small { font: 400 11px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #5b6472; }
+.t-chip { font: 500 11px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-code { font: 400 11px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #1b2430; }
+.t-eye { font: 600 10px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .08em; fill: #5b6472; }
+.t-arrow { font: 500 11px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #5b6472; }
+.t-num { font: 600 24px 'IBM Plex Sans Condensed', 'Arial Narrow', 'Helvetica Neue', sans-serif; fill: #1b2430; }
+.t-stage { font: 600 14px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-bead { font: 500 10px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #1b2430; }
+.t-axis { font: 400 11px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #5b6472; }
+.chainline { fill: none; stroke: #b3bcc7; stroke-width: 4; stroke-linecap: round; }
+.bead { fill: #ffffff; stroke: #b3bcc7; stroke-width: 1.5; }
+.bead-mut { fill: #4a3aa7; stroke: #4a3aa7; stroke-width: 1.5; }
+.bead-seq { fill: #ffffff; stroke: #2a78d6; stroke-width: 2.5; }
+.bead-str { fill: #ffffff; stroke: #008300; stroke-width: 2.5; }
+.grid { stroke: #dde2e8; stroke-width: 1; }
+.meas { fill: #ffffff; stroke: #1b2430; stroke-width: 2; }
+.pred { fill: #1b2430; }
+.conn { stroke: #b3bcc7; stroke-width: 2; }
+.hit { fill: #ffffff; fill-opacity: 0; }
+
+]]></style>
+<rect width="1100" height="440" fill="#ffffff"/>
+          <text class="t-title" x="20" y="28">Which residues are kept (PTEN, 403 residues)</text>
+          <rect class="f-rest" x="60.00" y="70" width="1.98" height="36"><title>residue 1: evenly spaced</title></rect>
+          <rect class="f-rest" x="62.43" y="70" width="1.98" height="36"><title>residue 2: evenly spaced</title></rect>
+          <rect class="f-unused" x="64.86" y="70" width="1.98" height="36"><title>residue 3: not used</title></rect>
+          <rect class="f-rest" x="67.30" y="70" width="1.98" height="36"><title>residue 4: evenly spaced</title></rect>
+          <rect class="f-rest" x="69.73" y="70" width="1.98" height="36"><title>residue 5: evenly spaced</title></rect>
+          <rect class="f-unused" x="72.16" y="70" width="1.98" height="36"><title>residue 6: not used</title></rect>
+          <rect class="f-rest" x="74.59" y="70" width="1.98" height="36"><title>residue 7: evenly spaced</title></rect>
+          <rect class="f-rest" x="77.02" y="70" width="1.98" height="36"><title>residue 8: evenly spaced</title></rect>
+          <rect class="f-unused" x="79.45" y="70" width="1.98" height="36"><title>residue 9: not used</title></rect>
+          <rect class="f-rest" x="81.89" y="70" width="1.98" height="36"><title>residue 10: evenly spaced</title></rect>
+          <rect class="f-unused" x="84.32" y="70" width="1.98" height="36"><title>residue 11: not used</title></rect>
+          <rect class="f-rest" x="86.75" y="70" width="1.98" height="36"><title>residue 12: evenly spaced</title></rect>
+          <rect class="f-rest" x="89.18" y="70" width="1.98" height="36"><title>residue 13: evenly spaced</title></rect>
+          <rect class="f-unused" x="91.61" y="70" width="1.98" height="36"><title>residue 14: not used</title></rect>
+          <rect class="f-rest" x="94.04" y="70" width="1.98" height="36"><title>residue 15: evenly spaced</title></rect>
+          <rect class="f-rest" x="96.48" y="70" width="1.98" height="36"><title>residue 16: evenly spaced</title></rect>
+          <rect class="f-unused" x="98.91" y="70" width="1.98" height="36"><title>residue 17: not used</title></rect>
+          <rect class="f-rest" x="101.34" y="70" width="1.98" height="36"><title>residue 18: evenly spaced</title></rect>
+          <rect class="f-rest" x="103.77" y="70" width="1.98" height="36"><title>residue 19: evenly spaced</title></rect>
+          <rect class="f-unused" x="106.20" y="70" width="1.98" height="36"><title>residue 20: not used</title></rect>
+          <rect class="f-rest" x="108.64" y="70" width="1.98" height="36"><title>residue 21: evenly spaced</title></rect>
+          <rect class="f-unused" x="111.07" y="70" width="1.98" height="36"><title>residue 22: not used</title></rect>
+          <rect class="f-rest" x="113.50" y="70" width="1.98" height="36"><title>residue 23: evenly spaced</title></rect>
+          <rect class="f-rest" x="115.93" y="70" width="1.98" height="36"><title>residue 24: evenly spaced</title></rect>
+          <rect class="f-unused" x="118.36" y="70" width="1.98" height="36"><title>residue 25: not used</title></rect>
+          <rect class="f-rest" x="120.79" y="70" width="1.98" height="36"><title>residue 26: evenly spaced</title></rect>
+          <rect class="f-rest" x="123.23" y="70" width="1.98" height="36"><title>residue 27: evenly spaced</title></rect>
+          <rect class="f-unused" x="125.66" y="70" width="1.98" height="36"><title>residue 28: not used</title></rect>
+          <rect class="f-rest" x="128.09" y="70" width="1.98" height="36"><title>residue 29: evenly spaced</title></rect>
+          <rect class="f-rest" x="130.52" y="70" width="1.98" height="36"><title>residue 30: evenly spaced</title></rect>
+          <rect class="f-unused" x="132.95" y="70" width="1.98" height="36"><title>residue 31: not used</title></rect>
+          <rect class="f-rest" x="135.38" y="70" width="1.98" height="36"><title>residue 32: evenly spaced</title></rect>
+          <rect class="f-unused" x="137.82" y="70" width="1.98" height="36"><title>residue 33: not used</title></rect>
+          <rect class="f-str" x="140.25" y="70" width="1.98" height="36"><title>residue 34: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="142.68" y="70" width="1.98" height="36"><title>residue 35: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="145.11" y="70" width="1.98" height="36"><title>residue 36: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="147.54" y="70" width="1.98" height="36"><title>residue 37: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="149.98" y="70" width="1.98" height="36"><title>residue 38: close to 124 in 3D</title></rect>
+          <rect class="f-unused" x="152.41" y="70" width="1.98" height="36"><title>residue 39: not used</title></rect>
+          <rect class="f-rest" x="154.84" y="70" width="1.98" height="36"><title>residue 40: evenly spaced</title></rect>
+          <rect class="f-rest" x="157.27" y="70" width="1.98" height="36"><title>residue 41: evenly spaced</title></rect>
+          <rect class="f-unused" x="159.70" y="70" width="1.98" height="36"><title>residue 42: not used</title></rect>
+          <rect class="f-rest" x="162.13" y="70" width="1.98" height="36"><title>residue 43: evenly spaced</title></rect>
+          <rect class="f-unused" x="164.57" y="70" width="1.98" height="36"><title>residue 44: not used</title></rect>
+          <rect class="f-rest" x="167.00" y="70" width="1.98" height="36"><title>residue 45: evenly spaced</title></rect>
+          <rect class="f-rest" x="169.43" y="70" width="1.98" height="36"><title>residue 46: evenly spaced</title></rect>
+          <rect class="f-unused" x="171.86" y="70" width="1.98" height="36"><title>residue 47: not used</title></rect>
+          <rect class="f-rest" x="174.29" y="70" width="1.98" height="36"><title>residue 48: evenly spaced</title></rect>
+          <rect class="f-rest" x="176.72" y="70" width="1.98" height="36"><title>residue 49: evenly spaced</title></rect>
+          <rect class="f-unused" x="179.16" y="70" width="1.98" height="36"><title>residue 50: not used</title></rect>
+          <rect class="f-rest" x="181.59" y="70" width="1.98" height="36"><title>residue 51: evenly spaced</title></rect>
+          <rect class="f-unused" x="184.02" y="70" width="1.98" height="36"><title>residue 52: not used</title></rect>
+          <rect class="f-rest" x="186.45" y="70" width="1.98" height="36"><title>residue 53: evenly spaced</title></rect>
+          <rect class="f-rest" x="188.88" y="70" width="1.98" height="36"><title>residue 54: evenly spaced</title></rect>
+          <rect class="f-unused" x="191.32" y="70" width="1.98" height="36"><title>residue 55: not used</title></rect>
+          <rect class="f-rest" x="193.75" y="70" width="1.98" height="36"><title>residue 56: evenly spaced</title></rect>
+          <rect class="f-rest" x="196.18" y="70" width="1.98" height="36"><title>residue 57: evenly spaced</title></rect>
+          <rect class="f-unused" x="198.61" y="70" width="1.98" height="36"><title>residue 58: not used</title></rect>
+          <rect class="f-rest" x="201.04" y="70" width="1.98" height="36"><title>residue 59: evenly spaced</title></rect>
+          <rect class="f-rest" x="203.47" y="70" width="1.98" height="36"><title>residue 60: evenly spaced</title></rect>
+          <rect class="f-unused" x="205.91" y="70" width="1.98" height="36"><title>residue 61: not used</title></rect>
+          <rect class="f-rest" x="208.34" y="70" width="1.98" height="36"><title>residue 62: evenly spaced</title></rect>
+          <rect class="f-unused" x="210.77" y="70" width="1.98" height="36"><title>residue 63: not used</title></rect>
+          <rect class="f-rest" x="213.20" y="70" width="1.98" height="36"><title>residue 64: evenly spaced</title></rect>
+          <rect class="f-rest" x="215.63" y="70" width="1.98" height="36"><title>residue 65: evenly spaced</title></rect>
+          <rect class="f-unused" x="218.06" y="70" width="1.98" height="36"><title>residue 66: not used</title></rect>
+          <rect class="f-rest" x="220.50" y="70" width="1.98" height="36"><title>residue 67: evenly spaced</title></rect>
+          <rect class="f-str" x="222.93" y="70" width="1.98" height="36"><title>residue 68: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="225.36" y="70" width="1.98" height="36"><title>residue 69: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="227.79" y="70" width="1.98" height="36"><title>residue 70: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="230.22" y="70" width="1.98" height="36"><title>residue 71: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="232.66" y="70" width="1.98" height="36"><title>residue 72: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="235.09" y="70" width="1.98" height="36"><title>residue 73: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="237.52" y="70" width="1.98" height="36"><title>residue 74: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="239.95" y="70" width="1.98" height="36"><title>residue 75: close to 124 in 3D</title></rect>
+          <rect class="f-rest" x="242.38" y="70" width="1.98" height="36"><title>residue 76: evenly spaced</title></rect>
+          <rect class="f-unused" x="244.81" y="70" width="1.98" height="36"><title>residue 77: not used</title></rect>
+          <rect class="f-rest" x="247.25" y="70" width="1.98" height="36"><title>residue 78: evenly spaced</title></rect>
+          <rect class="f-rest" x="249.68" y="70" width="1.98" height="36"><title>residue 79: evenly spaced</title></rect>
+          <rect class="f-unused" x="252.11" y="70" width="1.98" height="36"><title>residue 80: not used</title></rect>
+          <rect class="f-rest" x="254.54" y="70" width="1.98" height="36"><title>residue 81: evenly spaced</title></rect>
+          <rect class="f-rest" x="256.97" y="70" width="1.98" height="36"><title>residue 82: evenly spaced</title></rect>
+          <rect class="f-unused" x="259.40" y="70" width="1.98" height="36"><title>residue 83: not used</title></rect>
+          <rect class="f-rest" x="261.84" y="70" width="1.98" height="36"><title>residue 84: evenly spaced</title></rect>
+          <rect class="f-unused" x="264.27" y="70" width="1.98" height="36"><title>residue 85: not used</title></rect>
+          <rect class="f-rest" x="266.70" y="70" width="1.98" height="36"><title>residue 86: evenly spaced</title></rect>
+          <rect class="f-rest" x="269.13" y="70" width="1.98" height="36"><title>residue 87: evenly spaced</title></rect>
+          <rect class="f-str" x="271.56" y="70" width="1.98" height="36"><title>residue 88: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="274.00" y="70" width="1.98" height="36"><title>residue 89: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="276.43" y="70" width="1.98" height="36"><title>residue 90: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="278.86" y="70" width="1.98" height="36"><title>residue 91: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="281.29" y="70" width="1.98" height="36"><title>residue 92: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="283.72" y="70" width="1.98" height="36"><title>residue 93: close to 124 in 3D</title></rect>
+          <rect class="f-rest" x="286.15" y="70" width="1.98" height="36"><title>residue 94: evenly spaced</title></rect>
+          <rect class="f-rest" x="288.59" y="70" width="1.98" height="36"><title>residue 95: evenly spaced</title></rect>
+          <rect class="f-unused" x="291.02" y="70" width="1.98" height="36"><title>residue 96: not used</title></rect>
+          <rect class="f-rest" x="293.45" y="70" width="1.98" height="36"><title>residue 97: evenly spaced</title></rect>
+          <rect class="f-rest" x="295.88" y="70" width="1.98" height="36"><title>residue 98: evenly spaced</title></rect>
+          <rect class="f-seq" x="298.31" y="70" width="1.98" height="36"><title>residue 99: around the mutation</title></rect>
+          <rect class="f-seq" x="300.74" y="70" width="1.98" height="36"><title>residue 100: around the mutation</title></rect>
+          <rect class="f-seq" x="303.18" y="70" width="1.98" height="36"><title>residue 101: around the mutation</title></rect>
+          <rect class="f-seq" x="305.61" y="70" width="1.98" height="36"><title>residue 102: around the mutation</title></rect>
+          <rect class="f-seq" x="308.04" y="70" width="1.98" height="36"><title>residue 103: around the mutation</title></rect>
+          <rect class="f-seq" x="310.47" y="70" width="1.98" height="36"><title>residue 104: around the mutation</title></rect>
+          <rect class="f-seq" x="312.90" y="70" width="1.98" height="36"><title>residue 105: around the mutation</title></rect>
+          <rect class="f-seq" x="315.33" y="70" width="1.98" height="36"><title>residue 106: around the mutation</title></rect>
+          <rect class="f-seq" x="317.77" y="70" width="1.98" height="36"><title>residue 107: around the mutation</title></rect>
+          <rect class="f-seq" x="320.20" y="70" width="1.98" height="36"><title>residue 108: around the mutation</title></rect>
+          <rect class="f-seq" x="322.63" y="70" width="1.98" height="36"><title>residue 109: around the mutation</title></rect>
+          <rect class="f-seq" x="325.06" y="70" width="1.98" height="36"><title>residue 110: around the mutation</title></rect>
+          <rect class="f-seq" x="327.49" y="70" width="1.98" height="36"><title>residue 111: around the mutation</title></rect>
+          <rect class="f-seq" x="329.93" y="70" width="1.98" height="36"><title>residue 112: around the mutation</title></rect>
+          <rect class="f-seq" x="332.36" y="70" width="1.98" height="36"><title>residue 113: around the mutation</title></rect>
+          <rect class="f-seq" x="334.79" y="70" width="1.98" height="36"><title>residue 114: around the mutation</title></rect>
+          <rect class="f-seq" x="337.22" y="70" width="1.98" height="36"><title>residue 115: around the mutation</title></rect>
+          <rect class="f-seq" x="339.65" y="70" width="1.98" height="36"><title>residue 116: around the mutation</title></rect>
+          <rect class="f-seq" x="342.08" y="70" width="1.98" height="36"><title>residue 117: around the mutation</title></rect>
+          <rect class="f-seq" x="344.52" y="70" width="1.98" height="36"><title>residue 118: around the mutation</title></rect>
+          <rect class="f-seq" x="346.95" y="70" width="1.98" height="36"><title>residue 119: around the mutation</title></rect>
+          <rect class="f-seq" x="349.38" y="70" width="1.98" height="36"><title>residue 120: around the mutation</title></rect>
+          <rect class="f-seq" x="351.81" y="70" width="1.98" height="36"><title>residue 121: around the mutation</title></rect>
+          <rect class="f-seq" x="354.24" y="70" width="1.98" height="36"><title>residue 122: around the mutation</title></rect>
+          <rect class="f-seq" x="356.67" y="70" width="1.98" height="36"><title>residue 123: around the mutation</title></rect>
+          <rect class="f-seq" x="359.11" y="70" width="1.98" height="36"><title>residue 124: around the mutation</title></rect>
+          <rect class="f-seq" x="361.54" y="70" width="1.98" height="36"><title>residue 125: around the mutation</title></rect>
+          <rect class="f-seq" x="363.97" y="70" width="1.98" height="36"><title>residue 126: around the mutation</title></rect>
+          <rect class="f-seq" x="366.40" y="70" width="1.98" height="36"><title>residue 127: around the mutation</title></rect>
+          <rect class="f-seq" x="368.83" y="70" width="1.98" height="36"><title>residue 128: around the mutation</title></rect>
+          <rect class="f-seq" x="371.27" y="70" width="1.98" height="36"><title>residue 129: around the mutation</title></rect>
+          <rect class="f-seq" x="373.70" y="70" width="1.98" height="36"><title>residue 130: around the mutation</title></rect>
+          <rect class="f-seq" x="376.13" y="70" width="1.98" height="36"><title>residue 131: around the mutation</title></rect>
+          <rect class="f-seq" x="378.56" y="70" width="1.98" height="36"><title>residue 132: around the mutation</title></rect>
+          <rect class="f-seq" x="380.99" y="70" width="1.98" height="36"><title>residue 133: around the mutation</title></rect>
+          <rect class="f-seq" x="383.42" y="70" width="1.98" height="36"><title>residue 134: around the mutation</title></rect>
+          <rect class="f-seq" x="385.86" y="70" width="1.98" height="36"><title>residue 135: around the mutation</title></rect>
+          <rect class="f-seq" x="388.29" y="70" width="1.98" height="36"><title>residue 136: around the mutation</title></rect>
+          <rect class="f-seq" x="390.72" y="70" width="1.98" height="36"><title>residue 137: around the mutation</title></rect>
+          <rect class="f-seq" x="393.15" y="70" width="1.98" height="36"><title>residue 138: around the mutation</title></rect>
+          <rect class="f-seq" x="395.58" y="70" width="1.98" height="36"><title>residue 139: around the mutation</title></rect>
+          <rect class="f-seq" x="398.01" y="70" width="1.98" height="36"><title>residue 140: around the mutation</title></rect>
+          <rect class="f-seq" x="400.45" y="70" width="1.98" height="36"><title>residue 141: around the mutation</title></rect>
+          <rect class="f-seq" x="402.88" y="70" width="1.98" height="36"><title>residue 142: around the mutation</title></rect>
+          <rect class="f-seq" x="405.31" y="70" width="1.98" height="36"><title>residue 143: around the mutation</title></rect>
+          <rect class="f-seq" x="407.74" y="70" width="1.98" height="36"><title>residue 144: around the mutation</title></rect>
+          <rect class="f-seq" x="410.17" y="70" width="1.98" height="36"><title>residue 145: around the mutation</title></rect>
+          <rect class="f-seq" x="412.61" y="70" width="1.98" height="36"><title>residue 146: around the mutation</title></rect>
+          <rect class="f-seq" x="415.04" y="70" width="1.98" height="36"><title>residue 147: around the mutation</title></rect>
+          <rect class="f-seq" x="417.47" y="70" width="1.98" height="36"><title>residue 148: around the mutation</title></rect>
+          <rect class="f-seq" x="419.90" y="70" width="1.98" height="36"><title>residue 149: around the mutation</title></rect>
+          <rect class="f-rest" x="422.33" y="70" width="1.98" height="36"><title>residue 150: evenly spaced</title></rect>
+          <rect class="f-unused" x="424.76" y="70" width="1.98" height="36"><title>residue 151: not used</title></rect>
+          <rect class="f-rest" x="427.20" y="70" width="1.98" height="36"><title>residue 152: evenly spaced</title></rect>
+          <rect class="f-rest" x="429.63" y="70" width="1.98" height="36"><title>residue 153: evenly spaced</title></rect>
+          <rect class="f-unused" x="432.06" y="70" width="1.98" height="36"><title>residue 154: not used</title></rect>
+          <rect class="f-rest" x="434.49" y="70" width="1.98" height="36"><title>residue 155: evenly spaced</title></rect>
+          <rect class="f-unused" x="436.92" y="70" width="1.98" height="36"><title>residue 156: not used</title></rect>
+          <rect class="f-rest" x="439.35" y="70" width="1.98" height="36"><title>residue 157: evenly spaced</title></rect>
+          <rect class="f-rest" x="441.79" y="70" width="1.98" height="36"><title>residue 158: evenly spaced</title></rect>
+          <rect class="f-unused" x="444.22" y="70" width="1.98" height="36"><title>residue 159: not used</title></rect>
+          <rect class="f-rest" x="446.65" y="70" width="1.98" height="36"><title>residue 160: evenly spaced</title></rect>
+          <rect class="f-rest" x="449.08" y="70" width="1.98" height="36"><title>residue 161: evenly spaced</title></rect>
+          <rect class="f-unused" x="451.51" y="70" width="1.98" height="36"><title>residue 162: not used</title></rect>
+          <rect class="f-rest" x="453.95" y="70" width="1.98" height="36"><title>residue 163: evenly spaced</title></rect>
+          <rect class="f-rest" x="456.38" y="70" width="1.98" height="36"><title>residue 164: evenly spaced</title></rect>
+          <rect class="f-unused" x="458.81" y="70" width="1.98" height="36"><title>residue 165: not used</title></rect>
+          <rect class="f-rest" x="461.24" y="70" width="1.98" height="36"><title>residue 166: evenly spaced</title></rect>
+          <rect class="f-unused" x="463.67" y="70" width="1.98" height="36"><title>residue 167: not used</title></rect>
+          <rect class="f-rest" x="466.10" y="70" width="1.98" height="36"><title>residue 168: evenly spaced</title></rect>
+          <rect class="f-rest" x="468.54" y="70" width="1.98" height="36"><title>residue 169: evenly spaced</title></rect>
+          <rect class="f-unused" x="470.97" y="70" width="1.98" height="36"><title>residue 170: not used</title></rect>
+          <rect class="f-rest" x="473.40" y="70" width="1.98" height="36"><title>residue 171: evenly spaced</title></rect>
+          <rect class="f-rest" x="475.83" y="70" width="1.98" height="36"><title>residue 172: evenly spaced</title></rect>
+          <rect class="f-unused" x="478.26" y="70" width="1.98" height="36"><title>residue 173: not used</title></rect>
+          <rect class="f-rest" x="480.69" y="70" width="1.98" height="36"><title>residue 174: evenly spaced</title></rect>
+          <rect class="f-rest" x="483.13" y="70" width="1.98" height="36"><title>residue 175: evenly spaced</title></rect>
+          <rect class="f-unused" x="485.56" y="70" width="1.98" height="36"><title>residue 176: not used</title></rect>
+          <rect class="f-rest" x="487.99" y="70" width="1.98" height="36"><title>residue 177: evenly spaced</title></rect>
+          <rect class="f-unused" x="490.42" y="70" width="1.98" height="36"><title>residue 178: not used</title></rect>
+          <rect class="f-rest" x="492.85" y="70" width="1.98" height="36"><title>residue 179: evenly spaced</title></rect>
+          <rect class="f-rest" x="495.29" y="70" width="1.98" height="36"><title>residue 180: evenly spaced</title></rect>
+          <rect class="f-unused" x="497.72" y="70" width="1.98" height="36"><title>residue 181: not used</title></rect>
+          <rect class="f-rest" x="500.15" y="70" width="1.98" height="36"><title>residue 182: evenly spaced</title></rect>
+          <rect class="f-rest" x="502.58" y="70" width="1.98" height="36"><title>residue 183: evenly spaced</title></rect>
+          <rect class="f-unused" x="505.01" y="70" width="1.98" height="36"><title>residue 184: not used</title></rect>
+          <rect class="f-rest" x="507.44" y="70" width="1.98" height="36"><title>residue 185: evenly spaced</title></rect>
+          <rect class="f-unused" x="509.88" y="70" width="1.98" height="36"><title>residue 186: not used</title></rect>
+          <rect class="f-rest" x="512.31" y="70" width="1.98" height="36"><title>residue 187: evenly spaced</title></rect>
+          <rect class="f-rest" x="514.74" y="70" width="1.98" height="36"><title>residue 188: evenly spaced</title></rect>
+          <rect class="f-unused" x="517.17" y="70" width="1.98" height="36"><title>residue 189: not used</title></rect>
+          <rect class="f-rest" x="519.60" y="70" width="1.98" height="36"><title>residue 190: evenly spaced</title></rect>
+          <rect class="f-rest" x="522.03" y="70" width="1.98" height="36"><title>residue 191: evenly spaced</title></rect>
+          <rect class="f-unused" x="524.47" y="70" width="1.98" height="36"><title>residue 192: not used</title></rect>
+          <rect class="f-rest" x="526.90" y="70" width="1.98" height="36"><title>residue 193: evenly spaced</title></rect>
+          <rect class="f-rest" x="529.33" y="70" width="1.98" height="36"><title>residue 194: evenly spaced</title></rect>
+          <rect class="f-unused" x="531.76" y="70" width="1.98" height="36"><title>residue 195: not used</title></rect>
+          <rect class="f-rest" x="534.19" y="70" width="1.98" height="36"><title>residue 196: evenly spaced</title></rect>
+          <rect class="f-unused" x="536.63" y="70" width="1.98" height="36"><title>residue 197: not used</title></rect>
+          <rect class="f-rest" x="539.06" y="70" width="1.98" height="36"><title>residue 198: evenly spaced</title></rect>
+          <rect class="f-rest" x="541.49" y="70" width="1.98" height="36"><title>residue 199: evenly spaced</title></rect>
+          <rect class="f-unused" x="543.92" y="70" width="1.98" height="36"><title>residue 200: not used</title></rect>
+          <rect class="f-rest" x="546.35" y="70" width="1.98" height="36"><title>residue 201: evenly spaced</title></rect>
+          <rect class="f-rest" x="548.78" y="70" width="1.98" height="36"><title>residue 202: evenly spaced</title></rect>
+          <rect class="f-unused" x="551.22" y="70" width="1.98" height="36"><title>residue 203: not used</title></rect>
+          <rect class="f-rest" x="553.65" y="70" width="1.98" height="36"><title>residue 204: evenly spaced</title></rect>
+          <rect class="f-rest" x="556.08" y="70" width="1.98" height="36"><title>residue 205: evenly spaced</title></rect>
+          <rect class="f-unused" x="558.51" y="70" width="1.98" height="36"><title>residue 206: not used</title></rect>
+          <rect class="f-rest" x="560.94" y="70" width="1.98" height="36"><title>residue 207: evenly spaced</title></rect>
+          <rect class="f-unused" x="563.37" y="70" width="1.98" height="36"><title>residue 208: not used</title></rect>
+          <rect class="f-rest" x="565.81" y="70" width="1.98" height="36"><title>residue 209: evenly spaced</title></rect>
+          <rect class="f-rest" x="568.24" y="70" width="1.98" height="36"><title>residue 210: evenly spaced</title></rect>
+          <rect class="f-unused" x="570.67" y="70" width="1.98" height="36"><title>residue 211: not used</title></rect>
+          <rect class="f-rest" x="573.10" y="70" width="1.98" height="36"><title>residue 212: evenly spaced</title></rect>
+          <rect class="f-rest" x="575.53" y="70" width="1.98" height="36"><title>residue 213: evenly spaced</title></rect>
+          <rect class="f-unused" x="577.97" y="70" width="1.98" height="36"><title>residue 214: not used</title></rect>
+          <rect class="f-rest" x="580.40" y="70" width="1.98" height="36"><title>residue 215: evenly spaced</title></rect>
+          <rect class="f-rest" x="582.83" y="70" width="1.98" height="36"><title>residue 216: evenly spaced</title></rect>
+          <rect class="f-unused" x="585.26" y="70" width="1.98" height="36"><title>residue 217: not used</title></rect>
+          <rect class="f-rest" x="587.69" y="70" width="1.98" height="36"><title>residue 218: evenly spaced</title></rect>
+          <rect class="f-unused" x="590.12" y="70" width="1.98" height="36"><title>residue 219: not used</title></rect>
+          <rect class="f-rest" x="592.56" y="70" width="1.98" height="36"><title>residue 220: evenly spaced</title></rect>
+          <rect class="f-rest" x="594.99" y="70" width="1.98" height="36"><title>residue 221: evenly spaced</title></rect>
+          <rect class="f-unused" x="597.42" y="70" width="1.98" height="36"><title>residue 222: not used</title></rect>
+          <rect class="f-rest" x="599.85" y="70" width="1.98" height="36"><title>residue 223: evenly spaced</title></rect>
+          <rect class="f-rest" x="602.28" y="70" width="1.98" height="36"><title>residue 224: evenly spaced</title></rect>
+          <rect class="f-unused" x="604.71" y="70" width="1.98" height="36"><title>residue 225: not used</title></rect>
+          <rect class="f-rest" x="607.15" y="70" width="1.98" height="36"><title>residue 226: evenly spaced</title></rect>
+          <rect class="f-unused" x="609.58" y="70" width="1.98" height="36"><title>residue 227: not used</title></rect>
+          <rect class="f-rest" x="612.01" y="70" width="1.98" height="36"><title>residue 228: evenly spaced</title></rect>
+          <rect class="f-rest" x="614.44" y="70" width="1.98" height="36"><title>residue 229: evenly spaced</title></rect>
+          <rect class="f-unused" x="616.87" y="70" width="1.98" height="36"><title>residue 230: not used</title></rect>
+          <rect class="f-rest" x="619.31" y="70" width="1.98" height="36"><title>residue 231: evenly spaced</title></rect>
+          <rect class="f-rest" x="621.74" y="70" width="1.98" height="36"><title>residue 232: evenly spaced</title></rect>
+          <rect class="f-unused" x="624.17" y="70" width="1.98" height="36"><title>residue 233: not used</title></rect>
+          <rect class="f-rest" x="626.60" y="70" width="1.98" height="36"><title>residue 234: evenly spaced</title></rect>
+          <rect class="f-rest" x="629.03" y="70" width="1.98" height="36"><title>residue 235: evenly spaced</title></rect>
+          <rect class="f-unused" x="631.46" y="70" width="1.98" height="36"><title>residue 236: not used</title></rect>
+          <rect class="f-rest" x="633.90" y="70" width="1.98" height="36"><title>residue 237: evenly spaced</title></rect>
+          <rect class="f-unused" x="636.33" y="70" width="1.98" height="36"><title>residue 238: not used</title></rect>
+          <rect class="f-rest" x="638.76" y="70" width="1.98" height="36"><title>residue 239: evenly spaced</title></rect>
+          <rect class="f-rest" x="641.19" y="70" width="1.98" height="36"><title>residue 240: evenly spaced</title></rect>
+          <rect class="f-unused" x="643.62" y="70" width="1.98" height="36"><title>residue 241: not used</title></rect>
+          <rect class="f-rest" x="646.05" y="70" width="1.98" height="36"><title>residue 242: evenly spaced</title></rect>
+          <rect class="f-rest" x="648.49" y="70" width="1.98" height="36"><title>residue 243: evenly spaced</title></rect>
+          <rect class="f-unused" x="650.92" y="70" width="1.98" height="36"><title>residue 244: not used</title></rect>
+          <rect class="f-rest" x="653.35" y="70" width="1.98" height="36"><title>residue 245: evenly spaced</title></rect>
+          <rect class="f-rest" x="655.78" y="70" width="1.98" height="36"><title>residue 246: evenly spaced</title></rect>
+          <rect class="f-unused" x="658.21" y="70" width="1.98" height="36"><title>residue 247: not used</title></rect>
+          <rect class="f-rest" x="660.65" y="70" width="1.98" height="36"><title>residue 248: evenly spaced</title></rect>
+          <rect class="f-unused" x="663.08" y="70" width="1.98" height="36"><title>residue 249: not used</title></rect>
+          <rect class="f-rest" x="665.51" y="70" width="1.98" height="36"><title>residue 250: evenly spaced</title></rect>
+          <rect class="f-rest" x="667.94" y="70" width="1.98" height="36"><title>residue 251: evenly spaced</title></rect>
+          <rect class="f-unused" x="670.37" y="70" width="1.98" height="36"><title>residue 252: not used</title></rect>
+          <rect class="f-rest" x="672.80" y="70" width="1.98" height="36"><title>residue 253: evenly spaced</title></rect>
+          <rect class="f-rest" x="675.24" y="70" width="1.98" height="36"><title>residue 254: evenly spaced</title></rect>
+          <rect class="f-unused" x="677.67" y="70" width="1.98" height="36"><title>residue 255: not used</title></rect>
+          <rect class="f-rest" x="680.10" y="70" width="1.98" height="36"><title>residue 256: evenly spaced</title></rect>
+          <rect class="f-rest" x="682.53" y="70" width="1.98" height="36"><title>residue 257: evenly spaced</title></rect>
+          <rect class="f-unused" x="684.96" y="70" width="1.98" height="36"><title>residue 258: not used</title></rect>
+          <rect class="f-rest" x="687.39" y="70" width="1.98" height="36"><title>residue 259: evenly spaced</title></rect>
+          <rect class="f-unused" x="689.83" y="70" width="1.98" height="36"><title>residue 260: not used</title></rect>
+          <rect class="f-rest" x="692.26" y="70" width="1.98" height="36"><title>residue 261: evenly spaced</title></rect>
+          <rect class="f-rest" x="694.69" y="70" width="1.98" height="36"><title>residue 262: evenly spaced</title></rect>
+          <rect class="f-unused" x="697.12" y="70" width="1.98" height="36"><title>residue 263: not used</title></rect>
+          <rect class="f-rest" x="699.55" y="70" width="1.98" height="36"><title>residue 264: evenly spaced</title></rect>
+          <rect class="f-rest" x="701.99" y="70" width="1.98" height="36"><title>residue 265: evenly spaced</title></rect>
+          <rect class="f-unused" x="704.42" y="70" width="1.98" height="36"><title>residue 266: not used</title></rect>
+          <rect class="f-rest" x="706.85" y="70" width="1.98" height="36"><title>residue 267: evenly spaced</title></rect>
+          <rect class="f-unused" x="709.28" y="70" width="1.98" height="36"><title>residue 268: not used</title></rect>
+          <rect class="f-rest" x="711.71" y="70" width="1.98" height="36"><title>residue 269: evenly spaced</title></rect>
+          <rect class="f-rest" x="714.14" y="70" width="1.98" height="36"><title>residue 270: evenly spaced</title></rect>
+          <rect class="f-unused" x="716.58" y="70" width="1.98" height="36"><title>residue 271: not used</title></rect>
+          <rect class="f-rest" x="719.01" y="70" width="1.98" height="36"><title>residue 272: evenly spaced</title></rect>
+          <rect class="f-rest" x="721.44" y="70" width="1.98" height="36"><title>residue 273: evenly spaced</title></rect>
+          <rect class="f-unused" x="723.87" y="70" width="1.98" height="36"><title>residue 274: not used</title></rect>
+          <rect class="f-rest" x="726.30" y="70" width="1.98" height="36"><title>residue 275: evenly spaced</title></rect>
+          <rect class="f-rest" x="728.73" y="70" width="1.98" height="36"><title>residue 276: evenly spaced</title></rect>
+          <rect class="f-unused" x="731.17" y="70" width="1.98" height="36"><title>residue 277: not used</title></rect>
+          <rect class="f-rest" x="733.60" y="70" width="1.98" height="36"><title>residue 278: evenly spaced</title></rect>
+          <rect class="f-unused" x="736.03" y="70" width="1.98" height="36"><title>residue 279: not used</title></rect>
+          <rect class="f-rest" x="738.46" y="70" width="1.98" height="36"><title>residue 280: evenly spaced</title></rect>
+          <rect class="f-rest" x="740.89" y="70" width="1.98" height="36"><title>residue 281: evenly spaced</title></rect>
+          <rect class="f-unused" x="743.33" y="70" width="1.98" height="36"><title>residue 282: not used</title></rect>
+          <rect class="f-rest" x="745.76" y="70" width="1.98" height="36"><title>residue 283: evenly spaced</title></rect>
+          <rect class="f-rest" x="748.19" y="70" width="1.98" height="36"><title>residue 284: evenly spaced</title></rect>
+          <rect class="f-unused" x="750.62" y="70" width="1.98" height="36"><title>residue 285: not used</title></rect>
+          <rect class="f-rest" x="753.05" y="70" width="1.98" height="36"><title>residue 286: evenly spaced</title></rect>
+          <rect class="f-rest" x="755.48" y="70" width="1.98" height="36"><title>residue 287: evenly spaced</title></rect>
+          <rect class="f-unused" x="757.92" y="70" width="1.98" height="36"><title>residue 288: not used</title></rect>
+          <rect class="f-rest" x="760.35" y="70" width="1.98" height="36"><title>residue 289: evenly spaced</title></rect>
+          <rect class="f-unused" x="762.78" y="70" width="1.98" height="36"><title>residue 290: not used</title></rect>
+          <rect class="f-rest" x="765.21" y="70" width="1.98" height="36"><title>residue 291: evenly spaced</title></rect>
+          <rect class="f-rest" x="767.64" y="70" width="1.98" height="36"><title>residue 292: evenly spaced</title></rect>
+          <rect class="f-unused" x="770.07" y="70" width="1.98" height="36"><title>residue 293: not used</title></rect>
+          <rect class="f-rest" x="772.51" y="70" width="1.98" height="36"><title>residue 294: evenly spaced</title></rect>
+          <rect class="f-rest" x="774.94" y="70" width="1.98" height="36"><title>residue 295: evenly spaced</title></rect>
+          <rect class="f-unused" x="777.37" y="70" width="1.98" height="36"><title>residue 296: not used</title></rect>
+          <rect class="f-rest" x="779.80" y="70" width="1.98" height="36"><title>residue 297: evenly spaced</title></rect>
+          <rect class="f-rest" x="782.23" y="70" width="1.98" height="36"><title>residue 298: evenly spaced</title></rect>
+          <rect class="f-unused" x="784.67" y="70" width="1.98" height="36"><title>residue 299: not used</title></rect>
+          <rect class="f-rest" x="787.10" y="70" width="1.98" height="36"><title>residue 300: evenly spaced</title></rect>
+          <rect class="f-unused" x="789.53" y="70" width="1.98" height="36"><title>residue 301: not used</title></rect>
+          <rect class="f-rest" x="791.96" y="70" width="1.98" height="36"><title>residue 302: evenly spaced</title></rect>
+          <rect class="f-rest" x="794.39" y="70" width="1.98" height="36"><title>residue 303: evenly spaced</title></rect>
+          <rect class="f-unused" x="796.82" y="70" width="1.98" height="36"><title>residue 304: not used</title></rect>
+          <rect class="f-rest" x="799.26" y="70" width="1.98" height="36"><title>residue 305: evenly spaced</title></rect>
+          <rect class="f-rest" x="801.69" y="70" width="1.98" height="36"><title>residue 306: evenly spaced</title></rect>
+          <rect class="f-unused" x="804.12" y="70" width="1.98" height="36"><title>residue 307: not used</title></rect>
+          <rect class="f-rest" x="806.55" y="70" width="1.98" height="36"><title>residue 308: evenly spaced</title></rect>
+          <rect class="f-rest" x="808.98" y="70" width="1.98" height="36"><title>residue 309: evenly spaced</title></rect>
+          <rect class="f-unused" x="811.41" y="70" width="1.98" height="36"><title>residue 310: not used</title></rect>
+          <rect class="f-rest" x="813.85" y="70" width="1.98" height="36"><title>residue 311: evenly spaced</title></rect>
+          <rect class="f-unused" x="816.28" y="70" width="1.98" height="36"><title>residue 312: not used</title></rect>
+          <rect class="f-rest" x="818.71" y="70" width="1.98" height="36"><title>residue 313: evenly spaced</title></rect>
+          <rect class="f-rest" x="821.14" y="70" width="1.98" height="36"><title>residue 314: evenly spaced</title></rect>
+          <rect class="f-unused" x="823.57" y="70" width="1.98" height="36"><title>residue 315: not used</title></rect>
+          <rect class="f-rest" x="826.00" y="70" width="1.98" height="36"><title>residue 316: evenly spaced</title></rect>
+          <rect class="f-rest" x="828.44" y="70" width="1.98" height="36"><title>residue 317: evenly spaced</title></rect>
+          <rect class="f-unused" x="830.87" y="70" width="1.98" height="36"><title>residue 318: not used</title></rect>
+          <rect class="f-rest" x="833.30" y="70" width="1.98" height="36"><title>residue 319: evenly spaced</title></rect>
+          <rect class="f-unused" x="835.73" y="70" width="1.98" height="36"><title>residue 320: not used</title></rect>
+          <rect class="f-rest" x="838.16" y="70" width="1.98" height="36"><title>residue 321: evenly spaced</title></rect>
+          <rect class="f-rest" x="840.60" y="70" width="1.98" height="36"><title>residue 322: evenly spaced</title></rect>
+          <rect class="f-unused" x="843.03" y="70" width="1.98" height="36"><title>residue 323: not used</title></rect>
+          <rect class="f-rest" x="845.46" y="70" width="1.98" height="36"><title>residue 324: evenly spaced</title></rect>
+          <rect class="f-rest" x="847.89" y="70" width="1.98" height="36"><title>residue 325: evenly spaced</title></rect>
+          <rect class="f-unused" x="850.32" y="70" width="1.98" height="36"><title>residue 326: not used</title></rect>
+          <rect class="f-rest" x="852.75" y="70" width="1.98" height="36"><title>residue 327: evenly spaced</title></rect>
+          <rect class="f-rest" x="855.19" y="70" width="1.98" height="36"><title>residue 328: evenly spaced</title></rect>
+          <rect class="f-unused" x="857.62" y="70" width="1.98" height="36"><title>residue 329: not used</title></rect>
+          <rect class="f-rest" x="860.05" y="70" width="1.98" height="36"><title>residue 330: evenly spaced</title></rect>
+          <rect class="f-unused" x="862.48" y="70" width="1.98" height="36"><title>residue 331: not used</title></rect>
+          <rect class="f-rest" x="864.91" y="70" width="1.98" height="36"><title>residue 332: evenly spaced</title></rect>
+          <rect class="f-rest" x="867.34" y="70" width="1.98" height="36"><title>residue 333: evenly spaced</title></rect>
+          <rect class="f-unused" x="869.78" y="70" width="1.98" height="36"><title>residue 334: not used</title></rect>
+          <rect class="f-rest" x="872.21" y="70" width="1.98" height="36"><title>residue 335: evenly spaced</title></rect>
+          <rect class="f-rest" x="874.64" y="70" width="1.98" height="36"><title>residue 336: evenly spaced</title></rect>
+          <rect class="f-unused" x="877.07" y="70" width="1.98" height="36"><title>residue 337: not used</title></rect>
+          <rect class="f-rest" x="879.50" y="70" width="1.98" height="36"><title>residue 338: evenly spaced</title></rect>
+          <rect class="f-rest" x="881.94" y="70" width="1.98" height="36"><title>residue 339: evenly spaced</title></rect>
+          <rect class="f-unused" x="884.37" y="70" width="1.98" height="36"><title>residue 340: not used</title></rect>
+          <rect class="f-rest" x="886.80" y="70" width="1.98" height="36"><title>residue 341: evenly spaced</title></rect>
+          <rect class="f-unused" x="889.23" y="70" width="1.98" height="36"><title>residue 342: not used</title></rect>
+          <rect class="f-rest" x="891.66" y="70" width="1.98" height="36"><title>residue 343: evenly spaced</title></rect>
+          <rect class="f-rest" x="894.09" y="70" width="1.98" height="36"><title>residue 344: evenly spaced</title></rect>
+          <rect class="f-unused" x="896.53" y="70" width="1.98" height="36"><title>residue 345: not used</title></rect>
+          <rect class="f-rest" x="898.96" y="70" width="1.98" height="36"><title>residue 346: evenly spaced</title></rect>
+          <rect class="f-rest" x="901.39" y="70" width="1.98" height="36"><title>residue 347: evenly spaced</title></rect>
+          <rect class="f-unused" x="903.82" y="70" width="1.98" height="36"><title>residue 348: not used</title></rect>
+          <rect class="f-rest" x="906.25" y="70" width="1.98" height="36"><title>residue 349: evenly spaced</title></rect>
+          <rect class="f-rest" x="908.68" y="70" width="1.98" height="36"><title>residue 350: evenly spaced</title></rect>
+          <rect class="f-unused" x="911.12" y="70" width="1.98" height="36"><title>residue 351: not used</title></rect>
+          <rect class="f-rest" x="913.55" y="70" width="1.98" height="36"><title>residue 352: evenly spaced</title></rect>
+          <rect class="f-unused" x="915.98" y="70" width="1.98" height="36"><title>residue 353: not used</title></rect>
+          <rect class="f-rest" x="918.41" y="70" width="1.98" height="36"><title>residue 354: evenly spaced</title></rect>
+          <rect class="f-rest" x="920.84" y="70" width="1.98" height="36"><title>residue 355: evenly spaced</title></rect>
+          <rect class="f-unused" x="923.28" y="70" width="1.98" height="36"><title>residue 356: not used</title></rect>
+          <rect class="f-rest" x="925.71" y="70" width="1.98" height="36"><title>residue 357: evenly spaced</title></rect>
+          <rect class="f-rest" x="928.14" y="70" width="1.98" height="36"><title>residue 358: evenly spaced</title></rect>
+          <rect class="f-unused" x="930.57" y="70" width="1.98" height="36"><title>residue 359: not used</title></rect>
+          <rect class="f-rest" x="933.00" y="70" width="1.98" height="36"><title>residue 360: evenly spaced</title></rect>
+          <rect class="f-unused" x="935.43" y="70" width="1.98" height="36"><title>residue 361: not used</title></rect>
+          <rect class="f-rest" x="937.87" y="70" width="1.98" height="36"><title>residue 362: evenly spaced</title></rect>
+          <rect class="f-unused" x="940.30" y="70" width="1.98" height="36"><title>residue 363: not used</title></rect>
+          <rect class="f-unused" x="942.73" y="70" width="1.98" height="36"><title>residue 364: not used</title></rect>
+          <rect class="f-unused" x="945.16" y="70" width="1.98" height="36"><title>residue 365: not used</title></rect>
+          <rect class="f-unused" x="947.59" y="70" width="1.98" height="36"><title>residue 366: not used</title></rect>
+          <rect class="f-unused" x="950.02" y="70" width="1.98" height="36"><title>residue 367: not used</title></rect>
+          <rect class="f-unused" x="952.46" y="70" width="1.98" height="36"><title>residue 368: not used</title></rect>
+          <rect class="f-unused" x="954.89" y="70" width="1.98" height="36"><title>residue 369: not used</title></rect>
+          <rect class="f-unused" x="957.32" y="70" width="1.98" height="36"><title>residue 370: not used</title></rect>
+          <rect class="f-unused" x="959.75" y="70" width="1.98" height="36"><title>residue 371: not used</title></rect>
+          <rect class="f-unused" x="962.18" y="70" width="1.98" height="36"><title>residue 372: not used</title></rect>
+          <rect class="f-unused" x="964.62" y="70" width="1.98" height="36"><title>residue 373: not used</title></rect>
+          <rect class="f-unused" x="967.05" y="70" width="1.98" height="36"><title>residue 374: not used</title></rect>
+          <rect class="f-unused" x="969.48" y="70" width="1.98" height="36"><title>residue 375: not used</title></rect>
+          <rect class="f-unused" x="971.91" y="70" width="1.98" height="36"><title>residue 376: not used</title></rect>
+          <rect class="f-unused" x="974.34" y="70" width="1.98" height="36"><title>residue 377: not used</title></rect>
+          <rect class="f-unused" x="976.77" y="70" width="1.98" height="36"><title>residue 378: not used</title></rect>
+          <rect class="f-unused" x="979.21" y="70" width="1.98" height="36"><title>residue 379: not used</title></rect>
+          <rect class="f-unused" x="981.64" y="70" width="1.98" height="36"><title>residue 380: not used</title></rect>
+          <rect class="f-unused" x="984.07" y="70" width="1.98" height="36"><title>residue 381: not used</title></rect>
+          <rect class="f-unused" x="986.50" y="70" width="1.98" height="36"><title>residue 382: not used</title></rect>
+          <rect class="f-unused" x="988.93" y="70" width="1.98" height="36"><title>residue 383: not used</title></rect>
+          <rect class="f-unused" x="991.36" y="70" width="1.98" height="36"><title>residue 384: not used</title></rect>
+          <rect class="f-unused" x="993.80" y="70" width="1.98" height="36"><title>residue 385: not used</title></rect>
+          <rect class="f-unused" x="996.23" y="70" width="1.98" height="36"><title>residue 386: not used</title></rect>
+          <rect class="f-unused" x="998.66" y="70" width="1.98" height="36"><title>residue 387: not used</title></rect>
+          <rect class="f-unused" x="1001.09" y="70" width="1.98" height="36"><title>residue 388: not used</title></rect>
+          <rect class="f-unused" x="1003.52" y="70" width="1.98" height="36"><title>residue 389: not used</title></rect>
+          <rect class="f-unused" x="1005.96" y="70" width="1.98" height="36"><title>residue 390: not used</title></rect>
+          <rect class="f-unused" x="1008.39" y="70" width="1.98" height="36"><title>residue 391: not used</title></rect>
+          <rect class="f-unused" x="1010.82" y="70" width="1.98" height="36"><title>residue 392: not used</title></rect>
+          <rect class="f-unused" x="1013.25" y="70" width="1.98" height="36"><title>residue 393: not used</title></rect>
+          <rect class="f-unused" x="1015.68" y="70" width="1.98" height="36"><title>residue 394: not used</title></rect>
+          <rect class="f-unused" x="1018.11" y="70" width="1.98" height="36"><title>residue 395: not used</title></rect>
+          <rect class="f-unused" x="1020.55" y="70" width="1.98" height="36"><title>residue 396: not used</title></rect>
+          <rect class="f-unused" x="1022.98" y="70" width="1.98" height="36"><title>residue 397: not used</title></rect>
+          <rect class="f-unused" x="1025.41" y="70" width="1.98" height="36"><title>residue 398: not used</title></rect>
+          <rect class="f-unused" x="1027.84" y="70" width="1.98" height="36"><title>residue 399: not used</title></rect>
+          <rect class="f-unused" x="1030.27" y="70" width="1.98" height="36"><title>residue 400: not used</title></rect>
+          <rect class="f-unused" x="1032.70" y="70" width="1.98" height="36"><title>residue 401: not used</title></rect>
+          <rect class="f-unused" x="1035.14" y="70" width="1.98" height="36"><title>residue 402: not used</title></rect>
+          <rect class="f-unused" x="1037.57" y="70" width="1.98" height="36"><title>residue 403: not used</title></rect>
+          <polygon class="f-mut" points="354.32,56 366.32,56 360.32,66"/><text class="t-ink" x="360.32" y="50" text-anchor="middle">124 (C124S)</text>
+          <text class="t-small" x="1040" y="62" text-anchor="end">363–403 not used</text>
+          <line class="grid" x1="61.22" y1="108" x2="61.22" y2="114"/><text class="t-axis" x="61.22" y="128" text-anchor="middle">1</text><line class="grid" x1="301.96" y1="108" x2="301.96" y2="114"/><text class="t-axis" x="301.96" y="128" text-anchor="middle">100</text><line class="grid" x1="545.14" y1="108" x2="545.14" y2="114"/><text class="t-axis" x="545.14" y="128" text-anchor="middle">200</text><line class="grid" x1="788.31" y1="108" x2="788.31" y2="114"/><text class="t-axis" x="788.31" y="128" text-anchor="middle">300</text><line class="grid" x1="1038.78" y1="108" x2="1038.78" y2="114"/><text class="t-axis" x="1038.78" y="128" text-anchor="middle">403</text>
+          <rect class="f-seq" x="60" y="150" width="12" height="12" rx="2"/><text class="t-ink" x="80" y="160">51 around the mutation (99–149)</text><rect class="f-str" x="560" y="150" width="12" height="12" rx="2"/><text class="t-ink" x="580" y="160">19 close to 124 in 3D (34–38, 68–75, 88–93)</text><rect class="f-rest" x="60" y="176" width="12" height="12" rx="2"/><text class="t-ink" x="80" y="186">186 evenly spaced</text><rect class="f-unused" x="560" y="176" width="12" height="12" rx="2"/><text class="t-ink" x="580" y="186">147 not used (41 at the end, 363–403, and 106 gaps)</text>
+
+          <line class="sep" x1="20" y1="208" x2="1080" y2="208"/>
+          <text class="t-title" x="20" y="238">Residue 124's 16 links</text>
+          <path class="chainline" d="M200,350 H680"/>
+          <line class="ln k-str dash" x1="440" y1="350" x2="360" y2="280"/>
+          <line class="ln k-str dash" x1="440" y1="350" x2="440" y2="280"/>
+          <line class="ln k-str dash" x1="440" y1="350" x2="520" y2="280"/>
+          <text class="t-arrow" x="388" y="320" text-anchor="end">5.7 Å</text>
+          <text class="t-arrow" x="447" y="320">4.9 Å</text>
+          <text class="t-arrow" x="494" y="320">5.1 Å</text>
+          <circle class="bead-str" cx="360" cy="280" r="16"/><text class="t-bead" x="360" y="284" text-anchor="middle">F37</text>
+          <circle class="bead-str" cx="440" cy="280" r="16"/><text class="t-bead" x="440" y="284" text-anchor="middle">L70</text>
+          <circle class="bead-str" cx="520" cy="280" r="16"/><text class="t-bead" x="520" y="284" text-anchor="middle">C71</text>
+          <circle class="bead-seq" cx="200" cy="350" r="16"/><text class="t-bead" x="200" y="354" text-anchor="middle">118</text>
+          <circle class="bead-seq" cx="240" cy="350" r="16"/><text class="t-bead" x="240" y="354" text-anchor="middle">119</text>
+          <circle class="bead-seq" cx="280" cy="350" r="16"/><text class="t-bead" x="280" y="354" text-anchor="middle">120</text>
+          <circle class="bead-seq" cx="320" cy="350" r="16"/><text class="t-bead" x="320" y="354" text-anchor="middle">121</text>
+          <circle class="bead-seq" cx="360" cy="350" r="16"/><text class="t-bead" x="360" y="354" text-anchor="middle">122</text>
+          <circle class="bead-seq" cx="400" cy="350" r="16"/><text class="t-bead" x="400" y="354" text-anchor="middle">123</text>
+          <circle class="bead-mut" cx="440" cy="350" r="16"/><text class="t-bead" x="440" y="354" text-anchor="middle" style="fill:#ffffff">124</text>
+          <circle class="bead-seq" cx="480" cy="350" r="16"/><text class="t-bead" x="480" y="354" text-anchor="middle">125</text>
+          <circle class="bead-seq" cx="520" cy="350" r="16"/><text class="t-bead" x="520" y="354" text-anchor="middle">126</text>
+          <circle class="bead-seq" cx="560" cy="350" r="16"/><text class="t-bead" x="560" y="354" text-anchor="middle">127</text>
+          <circle class="bead-seq" cx="600" cy="350" r="16"/><text class="t-bead" x="600" y="354" text-anchor="middle">128</text>
+          <circle class="bead-seq" cx="640" cy="350" r="16"/><text class="t-bead" x="640" y="354" text-anchor="middle">129</text>
+          <circle class="bead-seq" cx="680" cy="350" r="16"/><text class="t-bead" x="680" y="354" text-anchor="middle">130</text>
+          <text class="t-ink" x="200" y="398">along the chain: 118–130 (12 links)</text>
+          <text class="t-ink" x="200" y="416">close in 3D, far along the chain: F37, L70, C71 (3 links) · plus 124 itself</text>
+
+          <rect class="box k-str" x="760" y="250" width="320" height="170" rx="8"/>
+          <text class="t-title" x="776" y="276">The 5 numbers on link 124 → L70</text>
+          <text class="t-line" x="776" y="300">distance</text><text class="t-code" x="1064" y="300" text-anchor="end">4.9 Å (÷16 = 0.31)</text>
+          <text class="t-line" x="776" y="322">spread across structures</text><text class="t-code" x="1064" y="322" text-anchor="end">0 (one structure)</text>
+          <text class="t-line" x="776" y="344">contact strength e^(−d/8)</text><text class="t-code" x="1064" y="344" text-anchor="end">0.54</text>
+          <text class="t-line" x="776" y="366">gap along the chain</text><text class="t-code" x="1064" y="366" text-anchor="end">54 → capped at 1</text>
+          <text class="t-line" x="776" y="388">confidence (124 × 70)</text><text class="t-code" x="1064" y="388" text-anchor="end">0.94 × 0.99 = 0.93</text>
+          <text class="t-small" x="776" y="410">3D links need confidence &gt; 0.5 at both ends</text>
+        </svg>

@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "model": "facebook/esm2_t6_8M_UR50D",
+  "model_revision": "c731040fcd8d73dceaa04b0a8e6329b345b0f5df",
+  "gene": "SUMO1",
+  "variants": 3,
+  "embedding_shape": [
+    101,
+    320
+  ],
+  "long_sequence_window_test": {
+    "window": 64,
+    "overlap": 16,
+    "sequence_length": 101
+  },
+  "masked_sites": 1,
+  "forward_backward_finite": true,
+  "note": "Real frozen ESM8M features and real SUMO1 rows; untrained MIPO forward/backward integration only. No accuracy claim."
+}

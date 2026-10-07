@@ -1,0 +1,367 @@
+assay_key,assay_id,gene,source,is_direct_ndd,publication_doi,source_raw_phenotype,selection_assay,selection_type,field,current_value,priority
+ADSL::gate_consensus,gate_consensus,ADSL,original_v3,1,,,,,host,unknown,original_provenance_required
+ADSL::gate_consensus,gate_consensus,ADSL,original_v3,1,,,,,selection,unknown,original_provenance_required
+ADSL::gate_consensus,gate_consensus,ADSL,original_v3,1,,,,,system,unknown,original_provenance_required
+ADSL::gate_consensus,gate_consensus,ADSL,original_v3,1,,,,,treatment,unknown,original_provenance_required
+ADSL::gate_consensus,gate_consensus,ADSL,original_v3,1,,,,,region,unknown,original_provenance_required
+AIRE::gate_consensus,gate_consensus,AIRE,original_v3,0,,,,,host,unknown,original_provenance_required
+AIRE::gate_consensus,gate_consensus,AIRE,original_v3,0,,,,,selection,unknown,original_provenance_required
+AIRE::gate_consensus,gate_consensus,AIRE,original_v3,0,,,,,system,unknown,original_provenance_required
+AIRE::gate_consensus,gate_consensus,AIRE,original_v3,0,,,,,treatment,unknown,original_provenance_required
+AIRE::gate_consensus,gate_consensus,AIRE,original_v3,0,,,,,region,unknown,original_provenance_required
+ASPA::gate_consensus,gate_consensus,ASPA,original_v3,1,,,,,host,unknown,original_provenance_required
+ASPA::gate_consensus,gate_consensus,ASPA,original_v3,1,,,,,selection,unknown,original_provenance_required
+ASPA::gate_consensus,gate_consensus,ASPA,original_v3,1,,,,,system,unknown,original_provenance_required
+ASPA::gate_consensus,gate_consensus,ASPA,original_v3,1,,,,,treatment,unknown,original_provenance_required
+ASPA::gate_consensus,gate_consensus,ASPA,original_v3,1,,,,,region,unknown,original_provenance_required
+BRCA1::gate_consensus,gate_consensus,BRCA1,original_v3,0,,,,,host,unknown,original_provenance_required
+BRCA1::gate_consensus,gate_consensus,BRCA1,original_v3,0,,,,,selection,unknown,original_provenance_required
+BRCA1::gate_consensus,gate_consensus,BRCA1,original_v3,0,,,,,system,unknown,original_provenance_required
+BRCA1::gate_consensus,gate_consensus,BRCA1,original_v3,0,,,,,treatment,unknown,original_provenance_required
+BRCA1::gate_consensus,gate_consensus,BRCA1,original_v3,0,,,,,region,unknown,original_provenance_required
+BRCA2::gate_consensus,gate_consensus,BRCA2,original_v3,0,,,,,host,unknown,original_provenance_required
+BRCA2::gate_consensus,gate_consensus,BRCA2,original_v3,0,,,,,selection,unknown,original_provenance_required
+BRCA2::gate_consensus,gate_consensus,BRCA2,original_v3,0,,,,,system,unknown,original_provenance_required
+BRCA2::gate_consensus,gate_consensus,BRCA2,original_v3,0,,,,,treatment,unknown,original_provenance_required
+BRCA2::gate_consensus,gate_consensus,BRCA2,original_v3,0,,,,,region,unknown,original_provenance_required
+CBS::gate_consensus,gate_consensus,CBS,original_v3,1,,,,,host,unknown,original_provenance_required
+CBS::gate_consensus,gate_consensus,CBS,original_v3,1,,,,,selection,unknown,original_provenance_required
+CBS::gate_consensus,gate_consensus,CBS,original_v3,1,,,,,system,unknown,original_provenance_required
+CBS::gate_consensus,gate_consensus,CBS,original_v3,1,,,,,treatment,unknown,original_provenance_required
+CBS::gate_consensus,gate_consensus,CBS,original_v3,1,,,,,region,unknown,original_provenance_required
+CRX::gate_consensus,gate_consensus,CRX,original_v3,0,,,,,host,unknown,original_provenance_required
+CRX::gate_consensus,gate_consensus,CRX,original_v3,0,,,,,selection,unknown,original_provenance_required
+CRX::gate_consensus,gate_consensus,CRX,original_v3,0,,,,,system,unknown,original_provenance_required
+CRX::gate_consensus,gate_consensus,CRX,original_v3,0,,,,,treatment,unknown,original_provenance_required
+CRX::gate_consensus,gate_consensus,CRX,original_v3,0,,,,,region,unknown,original_provenance_required
+DLG4::DLG4_HUMAN_Faure_2021,DLG4_HUMAN_Faure_2021,DLG4,ProteinGym_v1.3,1,10.1038/s41586-022-04586-4,fitness,Yeast growth,Growth,system,unknown,NDD_first
+DLG4::DLG4_HUMAN_Faure_2021,DLG4_HUMAN_Faure_2021,DLG4,ProteinGym_v1.3,1,10.1038/s41586-022-04586-4,fitness,Yeast growth,Growth,treatment,unknown,NDD_first
+FKRP::gate_consensus,gate_consensus,FKRP,original_v3,1,,,,,host,unknown,original_provenance_required
+FKRP::gate_consensus,gate_consensus,FKRP,original_v3,1,,,,,selection,unknown,original_provenance_required
+FKRP::gate_consensus,gate_consensus,FKRP,original_v3,1,,,,,system,unknown,original_provenance_required
+FKRP::gate_consensus,gate_consensus,FKRP,original_v3,1,,,,,treatment,unknown,original_provenance_required
+FKRP::gate_consensus,gate_consensus,FKRP,original_v3,1,,,,,region,unknown,original_provenance_required
+GDI1::GDIA_HUMAN_Silverstein_2021,GDIA_HUMAN_Silverstein_2021,GDI1,ProteinGym_v1.3,1,10.1101/2021.10.06.463360,fitness,Yeast Growth,Growth,system,unknown,NDD_first
+GDI1::GDIA_HUMAN_Silverstein_2021,GDIA_HUMAN_Silverstein_2021,GDI1,ProteinGym_v1.3,1,10.1101/2021.10.06.463360,fitness,Yeast Growth,Growth,treatment,unknown,NDD_first
+HMGCR::gate_consensus,gate_consensus,HMGCR,original_v3,0,,,,,host,unknown,original_provenance_required
+HMGCR::gate_consensus,gate_consensus,HMGCR,original_v3,0,,,,,selection,unknown,original_provenance_required
+HMGCR::gate_consensus,gate_consensus,HMGCR,original_v3,0,,,,,system,unknown,original_provenance_required
+HMGCR::gate_consensus,gate_consensus,HMGCR,original_v3,0,,,,,treatment,unknown,original_provenance_required
+HMGCR::gate_consensus,gate_consensus,HMGCR,original_v3,0,,,,,region,unknown,original_provenance_required
+HRAS::RASH_HUMAN_Bandaru_2017,RASH_HUMAN_Bandaru_2017,HRAS,ProteinGym_v1.3,1,10.7554/eLife.27810,unregulated,C-Raf binding and GEF,activity,host,unknown,NDD_first
+HRAS::RASH_HUMAN_Bandaru_2017,RASH_HUMAN_Bandaru_2017,HRAS,ProteinGym_v1.3,1,10.7554/eLife.27810,unregulated,C-Raf binding and GEF,activity,system,unknown,NDD_first
+HRAS::RASH_HUMAN_Bandaru_2017,RASH_HUMAN_Bandaru_2017,HRAS,ProteinGym_v1.3,1,10.7554/eLife.27810,unregulated,C-Raf binding and GEF,activity,treatment,unknown,NDD_first
+JAG1::gate_consensus,gate_consensus,JAG1,original_v3,0,,,,,host,unknown,original_provenance_required
+JAG1::gate_consensus,gate_consensus,JAG1,original_v3,0,,,,,selection,unknown,original_provenance_required
+JAG1::gate_consensus,gate_consensus,JAG1,original_v3,0,,,,,system,unknown,original_provenance_required
+JAG1::gate_consensus,gate_consensus,JAG1,original_v3,0,,,,,treatment,unknown,original_provenance_required
+JAG1::gate_consensus,gate_consensus,JAG1,original_v3,0,,,,,region,unknown,original_provenance_required
+KCNE1::gate_consensus,gate_consensus,KCNE1,original_v3,0,,,,,host,unknown,original_provenance_required
+KCNE1::gate_consensus,gate_consensus,KCNE1,original_v3,0,,,,,selection,unknown,original_provenance_required
+KCNE1::gate_consensus,gate_consensus,KCNE1,original_v3,0,,,,,system,unknown,original_provenance_required
+KCNE1::gate_consensus,gate_consensus,KCNE1,original_v3,0,,,,,treatment,unknown,original_provenance_required
+KCNE1::gate_consensus,gate_consensus,KCNE1,original_v3,0,,,,,region,unknown,original_provenance_required
+KCNQ1::gate_consensus,gate_consensus,KCNQ1,original_v3,0,,,,,host,unknown,original_provenance_required
+KCNQ1::gate_consensus,gate_consensus,KCNQ1,original_v3,0,,,,,selection,unknown,original_provenance_required
+KCNQ1::gate_consensus,gate_consensus,KCNQ1,original_v3,0,,,,,system,unknown,original_provenance_required
+KCNQ1::gate_consensus,gate_consensus,KCNQ1,original_v3,0,,,,,treatment,unknown,original_provenance_required
+KCNQ1::gate_consensus,gate_consensus,KCNQ1,original_v3,0,,,,,region,unknown,original_provenance_required
+KCNQ2::gate_consensus,gate_consensus,KCNQ2,original_v3,1,,,,,host,unknown,original_provenance_required
+KCNQ2::gate_consensus,gate_consensus,KCNQ2,original_v3,1,,,,,selection,unknown,original_provenance_required
+KCNQ2::gate_consensus,gate_consensus,KCNQ2,original_v3,1,,,,,system,unknown,original_provenance_required
+KCNQ2::gate_consensus,gate_consensus,KCNQ2,original_v3,1,,,,,treatment,unknown,original_provenance_required
+KCNQ2::gate_consensus,gate_consensus,KCNQ2,original_v3,1,,,,,region,unknown,original_provenance_required
+KRAS::gate_consensus,gate_consensus,KRAS,original_v3,1,,,,,host,unknown,original_provenance_required
+KRAS::gate_consensus,gate_consensus,KRAS,original_v3,1,,,,,selection,unknown,original_provenance_required
+KRAS::gate_consensus,gate_consensus,KRAS,original_v3,1,,,,,system,unknown,original_provenance_required
+KRAS::gate_consensus,gate_consensus,KRAS,original_v3,1,,,,,treatment,unknown,original_provenance_required
+KRAS::gate_consensus,gate_consensus,KRAS,original_v3,1,,,,,region,unknown,original_provenance_required
+LARGE1::gate_consensus,gate_consensus,LARGE1,original_v3,1,,,,,host,unknown,original_provenance_required
+LARGE1::gate_consensus,gate_consensus,LARGE1,original_v3,1,,,,,selection,unknown,original_provenance_required
+LARGE1::gate_consensus,gate_consensus,LARGE1,original_v3,1,,,,,system,unknown,original_provenance_required
+LARGE1::gate_consensus,gate_consensus,LARGE1,original_v3,1,,,,,treatment,unknown,original_provenance_required
+LARGE1::gate_consensus,gate_consensus,LARGE1,original_v3,1,,,,,region,unknown,original_provenance_required
+MAPK1::gate_consensus,gate_consensus,MAPK1,original_v3,1,,,,,host,unknown,original_provenance_required
+MAPK1::gate_consensus,gate_consensus,MAPK1,original_v3,1,,,,,selection,unknown,original_provenance_required
+MAPK1::gate_consensus,gate_consensus,MAPK1,original_v3,1,,,,,system,unknown,original_provenance_required
+MAPK1::gate_consensus,gate_consensus,MAPK1,original_v3,1,,,,,treatment,unknown,original_provenance_required
+MAPK1::gate_consensus,gate_consensus,MAPK1,original_v3,1,,,,,region,unknown,original_provenance_required
+MTHFR::gate_consensus,gate_consensus,MTHFR,original_v3,1,,,,,host,unknown,original_provenance_required
+MTHFR::gate_consensus,gate_consensus,MTHFR,original_v3,1,,,,,selection,unknown,original_provenance_required
+MTHFR::gate_consensus,gate_consensus,MTHFR,original_v3,1,,,,,system,unknown,original_provenance_required
+MTHFR::gate_consensus,gate_consensus,MTHFR,original_v3,1,,,,,treatment,unknown,original_provenance_required
+MTHFR::gate_consensus,gate_consensus,MTHFR,original_v3,1,,,,,region,unknown,original_provenance_required
+OTC::gate_consensus,gate_consensus,OTC,original_v3,1,,,,,host,unknown,original_provenance_required
+OTC::gate_consensus,gate_consensus,OTC,original_v3,1,,,,,selection,unknown,original_provenance_required
+OTC::gate_consensus,gate_consensus,OTC,original_v3,1,,,,,system,unknown,original_provenance_required
+OTC::gate_consensus,gate_consensus,OTC,original_v3,1,,,,,treatment,unknown,original_provenance_required
+OTC::gate_consensus,gate_consensus,OTC,original_v3,1,,,,,region,unknown,original_provenance_required
+PALB2::gate_consensus,gate_consensus,PALB2,original_v3,0,,,,,host,unknown,original_provenance_required
+PALB2::gate_consensus,gate_consensus,PALB2,original_v3,0,,,,,selection,unknown,original_provenance_required
+PALB2::gate_consensus,gate_consensus,PALB2,original_v3,0,,,,,system,unknown,original_provenance_required
+PALB2::gate_consensus,gate_consensus,PALB2,original_v3,0,,,,,treatment,unknown,original_provenance_required
+PALB2::gate_consensus,gate_consensus,PALB2,original_v3,0,,,,,region,unknown,original_provenance_required
+PAX6::gate_consensus,gate_consensus,PAX6,original_v3,1,,,,,host,unknown,original_provenance_required
+PAX6::gate_consensus,gate_consensus,PAX6,original_v3,1,,,,,selection,unknown,original_provenance_required
+PAX6::gate_consensus,gate_consensus,PAX6,original_v3,1,,,,,system,unknown,original_provenance_required
+PAX6::gate_consensus,gate_consensus,PAX6,original_v3,1,,,,,treatment,unknown,original_provenance_required
+PAX6::gate_consensus,gate_consensus,PAX6,original_v3,1,,,,,region,unknown,original_provenance_required
+PSAT1::gate_consensus,gate_consensus,PSAT1,original_v3,1,,,,,host,unknown,original_provenance_required
+PSAT1::gate_consensus,gate_consensus,PSAT1,original_v3,1,,,,,selection,unknown,original_provenance_required
+PSAT1::gate_consensus,gate_consensus,PSAT1,original_v3,1,,,,,system,unknown,original_provenance_required
+PSAT1::gate_consensus,gate_consensus,PSAT1,original_v3,1,,,,,treatment,unknown,original_provenance_required
+PSAT1::gate_consensus,gate_consensus,PSAT1,original_v3,1,,,,,region,unknown,original_provenance_required
+PTEN::gate_consensus,gate_consensus,PTEN,original_v3,1,,,,,host,unknown,original_provenance_required
+PTEN::gate_consensus,gate_consensus,PTEN,original_v3,1,,,,,selection,unknown,original_provenance_required
+PTEN::gate_consensus,gate_consensus,PTEN,original_v3,1,,,,,system,unknown,original_provenance_required
+PTEN::gate_consensus,gate_consensus,PTEN,original_v3,1,,,,,treatment,unknown,original_provenance_required
+PTEN::gate_consensus,gate_consensus,PTEN,original_v3,1,,,,,region,unknown,original_provenance_required
+SHOC2::SHOC2_HUMAN_Kwon_2022,SHOC2_HUMAN_Kwon_2022,SHOC2,ProteinGym_v1.3,1,10.1038/s41586-022-04928-2,LFC_scaled,Drug resistance,Survival (dosed with trametinib),host,unknown,NDD_first
+SHOC2::SHOC2_HUMAN_Kwon_2022,SHOC2_HUMAN_Kwon_2022,SHOC2,ProteinGym_v1.3,1,10.1038/s41586-022-04928-2,LFC_scaled,Drug resistance,Survival (dosed with trametinib),system,unknown,NDD_first
+SPOP::gate_consensus,gate_consensus,SPOP,original_v3,1,,,,,host,unknown,original_provenance_required
+SPOP::gate_consensus,gate_consensus,SPOP,original_v3,1,,,,,selection,unknown,original_provenance_required
+SPOP::gate_consensus,gate_consensus,SPOP,original_v3,1,,,,,system,unknown,original_provenance_required
+SPOP::gate_consensus,gate_consensus,SPOP,original_v3,1,,,,,treatment,unknown,original_provenance_required
+SPOP::gate_consensus,gate_consensus,SPOP,original_v3,1,,,,,region,unknown,original_provenance_required
+SUMO1::gate_consensus,gate_consensus,SUMO1,original_v3,0,,,,,host,unknown,original_provenance_required
+SUMO1::gate_consensus,gate_consensus,SUMO1,original_v3,0,,,,,selection,unknown,original_provenance_required
+SUMO1::gate_consensus,gate_consensus,SUMO1,original_v3,0,,,,,system,unknown,original_provenance_required
+SUMO1::gate_consensus,gate_consensus,SUMO1,original_v3,0,,,,,treatment,unknown,original_provenance_required
+SUMO1::gate_consensus,gate_consensus,SUMO1,original_v3,0,,,,,region,unknown,original_provenance_required
+TPK1::TPK1_HUMAN_Weile_2017,TPK1_HUMAN_Weile_2017,TPK1,ProteinGym_v1.3,0,10.15252/msb.20177908,screenscore,Yeast growth,complementation,system,unknown,support_assay
+TPK1::TPK1_HUMAN_Weile_2017,TPK1_HUMAN_Weile_2017,TPK1,ProteinGym_v1.3,0,10.15252/msb.20177908,screenscore,Yeast growth,complementation,treatment,unknown,support_assay
+TSC2::gate_consensus,gate_consensus,TSC2,original_v3,1,,,,,host,unknown,original_provenance_required
+TSC2::gate_consensus,gate_consensus,TSC2,original_v3,1,,,,,selection,unknown,original_provenance_required
+TSC2::gate_consensus,gate_consensus,TSC2,original_v3,1,,,,,system,unknown,original_provenance_required
+TSC2::gate_consensus,gate_consensus,TSC2,original_v3,1,,,,,treatment,unknown,original_provenance_required
+TSC2::gate_consensus,gate_consensus,TSC2,original_v3,1,,,,,region,unknown,original_provenance_required
+UBR5::UBR5_HUMAN_Tsuboyama_2023_1I2T,UBR5_HUMAN_Tsuboyama_2023_1I2T,UBR5,ProteinGym_v1.3,1,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,NDD_first
+UBR5::UBR5_HUMAN_Tsuboyama_2023_1I2T,UBR5_HUMAN_Tsuboyama_2023_1I2T,UBR5,ProteinGym_v1.3,1,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,NDD_first
+APP::A4_HUMAN_Seuma_2022,A4_HUMAN_Seuma_2022,APP,ProteinGym_v1.3,0,10.1038/s41467-022-34742-3,nscore,aggregation,survival assessment assay,host,unknown,support_assay
+APP::A4_HUMAN_Seuma_2022,A4_HUMAN_Seuma_2022,APP,ProteinGym_v1.3,0,10.1038/s41467-022-34742-3,nscore,aggregation,survival assessment assay,system,unknown,support_assay
+APP::A4_HUMAN_Seuma_2022,A4_HUMAN_Seuma_2022,APP,ProteinGym_v1.3,0,10.1038/s41467-022-34742-3,nscore,aggregation,survival assessment assay,treatment,unknown,support_assay
+ACE2::ACE2_HUMAN_Chan_2020,ACE2_HUMAN_Chan_2020,ACE2,ProteinGym_v1.3,0,10.1126/science.abc0870,score,Binding affinity,Flow Cytometry Assay,host,unknown,support_assay
+ACE2::ACE2_HUMAN_Chan_2020,ACE2_HUMAN_Chan_2020,ACE2,ProteinGym_v1.3,0,10.1126/science.abc0870,score,Binding affinity,Flow Cytometry Assay,treatment,unknown,support_assay
+ADRB2::ADRB2_HUMAN_Jones_2020,ADRB2_HUMAN_Jones_2020,ADRB2,ProteinGym_v1.3,0,10.7554/eLife.54895,0.625,"transcription (luciferase reporter, isoproterenol (beta2AR agonist)-induced)",Receptor activity,host,unknown,support_assay
+ADRB2::ADRB2_HUMAN_Jones_2020,ADRB2_HUMAN_Jones_2020,ADRB2,ProteinGym_v1.3,0,10.7554/eLife.54895,0.625,"transcription (luciferase reporter, isoproterenol (beta2AR agonist)-induced)",Receptor activity,system,unknown,support_assay
+AICDA::AICDA_HUMAN_Gajula_2014_3cycles,AICDA_HUMAN_Gajula_2014_3cycles,AICDA,ProteinGym_v1.3,0,10.1093/nar/gku689,DMS_score,Enzymatic activity,bulk RNA-sequencing,host,unknown,support_assay
+AICDA::AICDA_HUMAN_Gajula_2014_3cycles,AICDA_HUMAN_Gajula_2014_3cycles,AICDA,ProteinGym_v1.3,0,10.1093/nar/gku689,DMS_score,Enzymatic activity,bulk RNA-sequencing,treatment,unknown,support_assay
+AMFR::AMFR_HUMAN_Tsuboyama_2023_4G3O,AMFR_HUMAN_Tsuboyama_2023_4G3O,AMFR,ProteinGym_v1.3,1,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,NDD_first
+AMFR::AMFR_HUMAN_Tsuboyama_2023_4G3O,AMFR_HUMAN_Tsuboyama_2023_4G3O,AMFR,ProteinGym_v1.3,1,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,NDD_first
+BCL2L11::B2L11_HUMAN_Dutta_2010_binding-Mcl-1,B2L11_HUMAN_Dutta_2010_binding-Mcl-1,BCL2L11,ProteinGym_v1.3,0,10.1016/j.jmb.2010.03.058,score,Binding to Mcl-1 (FACS; yeast-displayed and antibody stained for binding partner),FACS,treatment,unknown,support_assay
+BRCA1::BRCA1_HUMAN_Findlay_2018,BRCA1_HUMAN_Findlay_2018,BRCA1,ProteinGym_v1.3,0,10.1038/s41586-018-0461-z,function_score,Growth,Growth,host,unknown,support_assay
+BRCA1::BRCA1_HUMAN_Findlay_2018,BRCA1_HUMAN_Findlay_2018,BRCA1,ProteinGym_v1.3,0,10.1038/s41586-018-0461-z,function_score,Growth,Growth,system,unknown,support_assay
+BRCA1::BRCA1_HUMAN_Findlay_2018,BRCA1_HUMAN_Findlay_2018,BRCA1,ProteinGym_v1.3,0,10.1038/s41586-018-0461-z,function_score,Growth,Growth,treatment,unknown,support_assay
+BRCA2::BRCA2_HUMAN_Erwood_2022_HEK293T,BRCA2_HUMAN_Erwood_2022_HEK293T,BRCA2,ProteinGym_v1.3,0,10.1038/s41587-021-01201-1,Function Score,Fitness,Growth,host,unknown,support_assay
+BRCA2::BRCA2_HUMAN_Erwood_2022_HEK293T,BRCA2_HUMAN_Erwood_2022_HEK293T,BRCA2,ProteinGym_v1.3,0,10.1038/s41587-021-01201-1,Function Score,Fitness,Growth,system,unknown,support_assay
+BRCA2::BRCA2_HUMAN_Erwood_2022_HEK293T,BRCA2_HUMAN_Erwood_2022_HEK293T,BRCA2,ProteinGym_v1.3,0,10.1038/s41587-021-01201-1,Function Score,Fitness,Growth,treatment,unknown,support_assay
+CALM1::CALM1_HUMAN_Weile_2017,CALM1_HUMAN_Weile_2017,CALM1,ProteinGym_v1.3,0,10.15252/msb.20177908,screenscore,Yeast growth,complementation,system,unknown,support_assay
+CALM1::CALM1_HUMAN_Weile_2017,CALM1_HUMAN_Weile_2017,CALM1,ProteinGym_v1.3,0,10.15252/msb.20177908,screenscore,Yeast growth,complementation,treatment,unknown,support_assay
+CARD11::CAR11_HUMAN_Meitlis_2020_gof,CAR11_HUMAN_Meitlis_2020_gof,CARD11,ProteinGym_v1.3,0,10.1016/j.ajhg.2020.10.015.,log2_score,Signaling (in presence of ibrutinib),survival assessment assay,host,unknown,support_assay
+CARD11::CAR11_HUMAN_Meitlis_2020_gof,CAR11_HUMAN_Meitlis_2020_gof,CARD11,ProteinGym_v1.3,0,10.1016/j.ajhg.2020.10.015.,log2_score,Signaling (in presence of ibrutinib),survival assessment assay,system,unknown,support_assay
+CARD11::CAR11_HUMAN_Meitlis_2020_lof,CAR11_HUMAN_Meitlis_2020_lof,CARD11,ProteinGym_v1.3,0,10.1016/j.ajhg.2020.10.015.,log2_score,Signaling,survival assessment assay,host,unknown,support_assay
+CARD11::CAR11_HUMAN_Meitlis_2020_lof,CAR11_HUMAN_Meitlis_2020_lof,CARD11,ProteinGym_v1.3,0,10.1016/j.ajhg.2020.10.015.,log2_score,Signaling,survival assessment assay,system,unknown,support_assay
+CARD11::CAR11_HUMAN_Meitlis_2020_lof,CAR11_HUMAN_Meitlis_2020_lof,CARD11,ProteinGym_v1.3,0,10.1016/j.ajhg.2020.10.015.,log2_score,Signaling,survival assessment assay,treatment,unknown,support_assay
+CASP3::CASP3_HUMAN_Roychowdhury_2020,CASP3_HUMAN_Roychowdhury_2020,CASP3,ProteinGym_v1.3,0,10.1038/s41420-021-00799-0,coef,Fluorescence measurement,,host,unknown,support_assay
+CASP3::CASP3_HUMAN_Roychowdhury_2020,CASP3_HUMAN_Roychowdhury_2020,CASP3,ProteinGym_v1.3,0,10.1038/s41420-021-00799-0,coef,Fluorescence measurement,,system,unknown,support_assay
+CASP3::CASP3_HUMAN_Roychowdhury_2020,CASP3_HUMAN_Roychowdhury_2020,CASP3,ProteinGym_v1.3,0,10.1038/s41420-021-00799-0,coef,Fluorescence measurement,,treatment,unknown,support_assay
+CASP7::CASP7_HUMAN_Roychowdhury_2020,CASP7_HUMAN_Roychowdhury_2020,CASP7,ProteinGym_v1.3,0,10.1038/s41420-021-00799-0,coef,Fluorescence measurement,,host,unknown,support_assay
+CASP7::CASP7_HUMAN_Roychowdhury_2020,CASP7_HUMAN_Roychowdhury_2020,CASP7,ProteinGym_v1.3,0,10.1038/s41420-021-00799-0,coef,Fluorescence measurement,,system,unknown,support_assay
+CASP7::CASP7_HUMAN_Roychowdhury_2020,CASP7_HUMAN_Roychowdhury_2020,CASP7,ProteinGym_v1.3,0,10.1038/s41420-021-00799-0,coef,Fluorescence measurement,,treatment,unknown,support_assay
+CPA2::CBPA2_HUMAN_Tsuboyama_2023_1O6X,CBPA2_HUMAN_Tsuboyama_2023_1O6X,CPA2,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+CPA2::CBPA2_HUMAN_Tsuboyama_2023_1O6X,CBPA2_HUMAN_Tsuboyama_2023_1O6X,CPA2,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+CBS::CBS_HUMAN_Sun_2020,CBS_HUMAN_Sun_2020,CBS,ProteinGym_v1.3,1,10.1186/s13073-020-0711-1,score,Yeast Growth,Growth,system,unknown,NDD_first
+CBS::CBS_HUMAN_Sun_2020,CBS_HUMAN_Sun_2020,CBS,ProteinGym_v1.3,1,10.1186/s13073-020-0711-1,score,Yeast Growth,Growth,treatment,unknown,NDD_first
+CBX4::CBX4_HUMAN_Tsuboyama_2023_2K28,CBX4_HUMAN_Tsuboyama_2023_2K28,CBX4,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+CBX4::CBX4_HUMAN_Tsuboyama_2023_2K28,CBX4_HUMAN_Tsuboyama_2023_2K28,CBX4,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+CCR5::CCR5_HUMAN_Gill_2023,CCR5_HUMAN_Gill_2023,CCR5,ProteinGym_v1.3,0,10.1101/2023.03.25.534231,avg_score,"binding affinity, surface expression",FACS,host,unknown,support_assay
+CCR5::CCR5_HUMAN_Gill_2023,CCR5_HUMAN_Gill_2023,CCR5,ProteinGym_v1.3,0,10.1101/2023.03.25.534231,avg_score,"binding affinity, surface expression",FACS,treatment,unknown,support_assay
+CD19::CD19_HUMAN_Klesmith_2019_FMC_singles,CD19_HUMAN_Klesmith_2019_FMC_singles,CD19,ProteinGym_v1.3,0,10.1021/acs.molpharmaceut.9b00418,Fitness,Binding affinity,FACS,host,unknown,support_assay
+CD19::CD19_HUMAN_Klesmith_2019_FMC_singles,CD19_HUMAN_Klesmith_2019_FMC_singles,CD19,ProteinGym_v1.3,0,10.1021/acs.molpharmaceut.9b00418,Fitness,Binding affinity,FACS,treatment,unknown,support_assay
+CYP2C9::CP2C9_HUMAN_Amorosi_2021_abundance,CP2C9_HUMAN_Amorosi_2021_abundance,CYP2C9,ProteinGym_v1.3,0,10.1016/j.ajhg.2021.07.001,abundance_score,protein abundance,protein abundance,host,unknown,support_assay
+CYP2C9::CP2C9_HUMAN_Amorosi_2021_abundance,CP2C9_HUMAN_Amorosi_2021_abundance,CYP2C9,ProteinGym_v1.3,0,10.1016/j.ajhg.2021.07.001,abundance_score,protein abundance,protein abundance,system,unknown,support_assay
+CYP2C9::CP2C9_HUMAN_Amorosi_2021_abundance,CP2C9_HUMAN_Amorosi_2021_abundance,CYP2C9,ProteinGym_v1.3,0,10.1016/j.ajhg.2021.07.001,abundance_score,protein abundance,protein abundance,treatment,unknown,support_assay
+CYP2C9::CP2C9_HUMAN_Amorosi_2021_activity,CP2C9_HUMAN_Amorosi_2021_activity,CYP2C9,ProteinGym_v1.3,0,10.1016/j.ajhg.2021.07.001,activity_score,"activity, binding (to fluorescent CYP probe)","Activity, binding",host,unknown,support_assay
+CYP2C9::CP2C9_HUMAN_Amorosi_2021_activity,CP2C9_HUMAN_Amorosi_2021_activity,CYP2C9,ProteinGym_v1.3,0,10.1016/j.ajhg.2021.07.001,activity_score,"activity, binding (to fluorescent CYP probe)","Activity, binding",system,unknown,support_assay
+CYP2C9::CP2C9_HUMAN_Amorosi_2021_activity,CP2C9_HUMAN_Amorosi_2021_activity,CYP2C9,ProteinGym_v1.3,0,10.1016/j.ajhg.2021.07.001,activity_score,"activity, binding (to fluorescent CYP probe)","Activity, binding",treatment,unknown,support_assay
+DNAJA1::DNJA1_HUMAN_Tsuboyama_2023_2LO1,DNJA1_HUMAN_Tsuboyama_2023_2LO1,DNAJA1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+DNAJA1::DNJA1_HUMAN_Tsuboyama_2023_2LO1,DNJA1_HUMAN_Tsuboyama_2023_2LO1,DNAJA1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+EPHB2::EPHB2_HUMAN_Tsuboyama_2023_1F0M,EPHB2_HUMAN_Tsuboyama_2023_1F0M,EPHB2,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+EPHB2::EPHB2_HUMAN_Tsuboyama_2023_1F0M,EPHB2_HUMAN_Tsuboyama_2023_1F0M,EPHB2,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+ERBB2::ERBB2_HUMAN_Elazar_2016,ERBB2_HUMAN_Elazar_2016,ERBB2,ProteinGym_v1.3,0,10.7554/eLife.12125,score,Membrane-protein insertion,TOXCAT-Beta-lactamase (TbL) screen,host,unknown,support_assay
+ERBB2::ERBB2_HUMAN_Elazar_2016,ERBB2_HUMAN_Elazar_2016,ERBB2,ProteinGym_v1.3,0,10.7554/eLife.12125,score,Membrane-protein insertion,TOXCAT-Beta-lactamase (TbL) screen,system,unknown,support_assay
+ERBB2::ERBB2_HUMAN_Elazar_2016,ERBB2_HUMAN_Elazar_2016,ERBB2,ProteinGym_v1.3,0,10.7554/eLife.12125,score,Membrane-protein insertion,TOXCAT-Beta-lactamase (TbL) screen,treatment,unknown,support_assay
+FKBP3::FKBP3_HUMAN_Tsuboyama_2023_2KFV,FKBP3_HUMAN_Tsuboyama_2023_2KFV,FKBP3,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+FKBP3::FKBP3_HUMAN_Tsuboyama_2023_2KFV,FKBP3_HUMAN_Tsuboyama_2023_2KFV,FKBP3,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+GYPA::GLPA_HUMAN_Elazar_2016,GLPA_HUMAN_Elazar_2016,GYPA,ProteinGym_v1.3,0,10.7554/eLife.12125,score,Membrane-protein insertion,TOXCAT-Beta-lactamase (TbL) screen,host,unknown,support_assay
+GYPA::GLPA_HUMAN_Elazar_2016,GLPA_HUMAN_Elazar_2016,GYPA,ProteinGym_v1.3,0,10.7554/eLife.12125,score,Membrane-protein insertion,TOXCAT-Beta-lactamase (TbL) screen,system,unknown,support_assay
+GYPA::GLPA_HUMAN_Elazar_2016,GLPA_HUMAN_Elazar_2016,GYPA,ProteinGym_v1.3,0,10.7554/eLife.12125,score,Membrane-protein insertion,TOXCAT-Beta-lactamase (TbL) screen,treatment,unknown,support_assay
+GRB2::GRB2_HUMAN_Faure_2021,GRB2_HUMAN_Faure_2021,GRB2,ProteinGym_v1.3,0,10.1038/s41586-022-04586-4,fitness,Yeast growth,Growth,system,unknown,support_assay
+GRB2::GRB2_HUMAN_Faure_2021,GRB2_HUMAN_Faure_2021,GRB2,ProteinGym_v1.3,0,10.1038/s41586-022-04586-4,fitness,Yeast growth,Growth,treatment,unknown,support_assay
+HECTD1::HECD1_HUMAN_Tsuboyama_2023_3DKM,HECD1_HUMAN_Tsuboyama_2023_3DKM,HECTD1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+HECTD1::HECD1_HUMAN_Tsuboyama_2023_3DKM,HECD1_HUMAN_Tsuboyama_2023_3DKM,HECTD1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+HMBS::HEM3_HUMAN_Loggerenberg_2023,HEM3_HUMAN_Loggerenberg_2023,HMBS,ProteinGym_v1.3,0,10.1101/2023.02.06.527353,score,activity,Yeast complementation,system,unknown,support_assay
+HMBS::HEM3_HUMAN_Loggerenberg_2023,HEM3_HUMAN_Loggerenberg_2023,HMBS,ProteinGym_v1.3,0,10.1101/2023.02.06.527353,score,activity,Yeast complementation,treatment,unknown,support_assay
+HMGCR::HMDH_HUMAN_Jiang_2019,HMDH_HUMAN_Jiang_2019,HMGCR,ProteinGym_v1.3,0,https://hdl.handle.net/1807/98076,score,Fitness,Resistance to statin inhibition,host,unknown,support_assay
+HMGCR::HMDH_HUMAN_Jiang_2019,HMDH_HUMAN_Jiang_2019,HMGCR,ProteinGym_v1.3,0,https://hdl.handle.net/1807/98076,score,Fitness,Resistance to statin inhibition,system,unknown,support_assay
+HMGCR::HMDH_HUMAN_Jiang_2019,HMDH_HUMAN_Jiang_2019,HMGCR,ProteinGym_v1.3,0,https://hdl.handle.net/1807/98076,score,Fitness,Resistance to statin inhibition,treatment,unknown,support_assay
+GCK::HXK4_HUMAN_Gersing_2022_activity,HXK4_HUMAN_Gersing_2022_activity,GCK,ProteinGym_v1.3,0,10.1101/2022.05.04.490571,score,functional complementation to reduced growth on glucose medium,enzymatic activity,host,unknown,support_assay
+GCK::HXK4_HUMAN_Gersing_2022_activity,HXK4_HUMAN_Gersing_2022_activity,GCK,ProteinGym_v1.3,0,10.1101/2022.05.04.490571,score,functional complementation to reduced growth on glucose medium,enzymatic activity,system,unknown,support_assay
+GCK::HXK4_HUMAN_Gersing_2022_activity,HXK4_HUMAN_Gersing_2022_activity,GCK,ProteinGym_v1.3,0,10.1101/2022.05.04.490571,score,functional complementation to reduced growth on glucose medium,enzymatic activity,treatment,unknown,support_assay
+GCK::HXK4_HUMAN_Gersing_2023_abundance,HXK4_HUMAN_Gersing_2023_abundance,GCK,ProteinGym_v1.3,0,10.1101/2023.05.24.542036,score,abundance,Growth,host,unknown,support_assay
+GCK::HXK4_HUMAN_Gersing_2023_abundance,HXK4_HUMAN_Gersing_2023_abundance,GCK,ProteinGym_v1.3,0,10.1101/2023.05.24.542036,score,abundance,Growth,system,unknown,support_assay
+GCK::HXK4_HUMAN_Gersing_2023_abundance,HXK4_HUMAN_Gersing_2023_abundance,GCK,ProteinGym_v1.3,0,10.1101/2023.05.24.542036,score,abundance,Growth,treatment,unknown,support_assay
+ILF3::ILF3_HUMAN_Tsuboyama_2023_2L33,ILF3_HUMAN_Tsuboyama_2023_2L33,ILF3,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+ILF3::ILF3_HUMAN_Tsuboyama_2023_2L33,ILF3_HUMAN_Tsuboyama_2023_2L33,ILF3,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+KCNE1::KCNE1_HUMAN_Muhammad_2023_expression,KCNE1_HUMAN_Muhammad_2023_expression,KCNE1,ProteinGym_v1.3,0,10.1101/2023.04.28.538612,TrafScore,cell surface expression,FACS,host,unknown,support_assay
+KCNE1::KCNE1_HUMAN_Muhammad_2023_expression,KCNE1_HUMAN_Muhammad_2023_expression,KCNE1,ProteinGym_v1.3,0,10.1101/2023.04.28.538612,TrafScore,cell surface expression,FACS,treatment,unknown,support_assay
+KCNE1::KCNE1_HUMAN_Muhammad_2023_function,KCNE1_HUMAN_Muhammad_2023_function,KCNE1,ProteinGym_v1.3,0,10.1101/2023.04.28.538612,funcScore,potassium channel function,Growth,host,unknown,support_assay
+KCNE1::KCNE1_HUMAN_Muhammad_2023_function,KCNE1_HUMAN_Muhammad_2023_function,KCNE1,ProteinGym_v1.3,0,10.1101/2023.04.28.538612,funcScore,potassium channel function,Growth,system,unknown,support_assay
+KCNE1::KCNE1_HUMAN_Muhammad_2023_function,KCNE1_HUMAN_Muhammad_2023_function,KCNE1,ProteinGym_v1.3,0,10.1101/2023.04.28.538612,funcScore,potassium channel function,Growth,treatment,unknown,support_assay
+KCNH2::KCNH2_HUMAN_Kozek_2020,KCNH2_HUMAN_Kozek_2020,KCNH2,ProteinGym_v1.3,0,10.1016/j.hrthm.2020.05.041,score.ave,Voltage,Voltage,host,unknown,support_assay
+KCNH2::KCNH2_HUMAN_Kozek_2020,KCNH2_HUMAN_Kozek_2020,KCNH2,ProteinGym_v1.3,0,10.1016/j.hrthm.2020.05.041,score.ave,Voltage,Voltage,system,unknown,support_assay
+KCNH2::KCNH2_HUMAN_Kozek_2020,KCNH2_HUMAN_Kozek_2020,KCNH2,ProteinGym_v1.3,0,10.1016/j.hrthm.2020.05.041,score.ave,Voltage,Voltage,treatment,unknown,support_assay
+KCNJ2::KCNJ2_MOUSE_Coyote-Maestas_2022_function,KCNJ2_MOUSE_Coyote-Maestas_2022_function,KCNJ2,ProteinGym_v1.3,0,10.7554/eLife.76903,function_score,Ion conduction,FACS,host,unknown,support_assay
+KCNJ2::KCNJ2_MOUSE_Coyote-Maestas_2022_function,KCNJ2_MOUSE_Coyote-Maestas_2022_function,KCNJ2,ProteinGym_v1.3,0,10.7554/eLife.76903,function_score,Ion conduction,FACS,treatment,unknown,support_assay
+KCNJ2::KCNJ2_MOUSE_Coyote-Maestas_2022_surface,KCNJ2_MOUSE_Coyote-Maestas_2022_surface,KCNJ2,ProteinGym_v1.3,0,10.7554/eLife.76903,surface_score,Surface trafficking,FACS,host,unknown,support_assay
+KCNJ2::KCNJ2_MOUSE_Coyote-Maestas_2022_surface,KCNJ2_MOUSE_Coyote-Maestas_2022_surface,KCNJ2,ProteinGym_v1.3,0,10.7554/eLife.76903,surface_score,Surface trafficking,FACS,treatment,unknown,support_assay
+SELL::LYAM1_HUMAN_Elazar_2016,LYAM1_HUMAN_Elazar_2016,SELL,ProteinGym_v1.3,0,10.7554/eLife.12125,score,Membrane-protein insertion,TOXCAT-Beta-lactamase (TbL) screen,host,unknown,support_assay
+SELL::LYAM1_HUMAN_Elazar_2016,LYAM1_HUMAN_Elazar_2016,SELL,ProteinGym_v1.3,0,10.7554/eLife.12125,score,Membrane-protein insertion,TOXCAT-Beta-lactamase (TbL) screen,system,unknown,support_assay
+SELL::LYAM1_HUMAN_Elazar_2016,LYAM1_HUMAN_Elazar_2016,SELL,ProteinGym_v1.3,0,10.7554/eLife.12125,score,Membrane-protein insertion,TOXCAT-Beta-lactamase (TbL) screen,treatment,unknown,support_assay
+MET::MET_HUMAN_Estevam_2023,MET_HUMAN_Estevam_2023,MET,ProteinGym_v1.3,0,10.1101/2023.08.03.551866,IL3_withdrawal_score,Human cell line with growth linked to kinase activity in the absense of IL-3,Growth,host,unknown,support_assay
+MET::MET_HUMAN_Estevam_2023,MET_HUMAN_Estevam_2023,MET,ProteinGym_v1.3,0,10.1101/2023.08.03.551866,IL3_withdrawal_score,Human cell line with growth linked to kinase activity in the absense of IL-3,Growth,system,unknown,support_assay
+MET::MET_HUMAN_Estevam_2023,MET_HUMAN_Estevam_2023,MET,ProteinGym_v1.3,0,10.1101/2023.08.03.551866,IL3_withdrawal_score,Human cell line with growth linked to kinase activity in the absense of IL-3,Growth,treatment,unknown,support_assay
+MAPK1::MK01_HUMAN_Brenan_2016,MK01_HUMAN_Brenan_2016,MAPK1,ProteinGym_v1.3,1,10.1016/j.celrep.2016.09.061,DOX_Average,Growth,inhibitor resistance,host,unknown,NDD_first
+MAPK1::MK01_HUMAN_Brenan_2016,MK01_HUMAN_Brenan_2016,MAPK1,ProteinGym_v1.3,1,10.1016/j.celrep.2016.09.061,DOX_Average,Growth,inhibitor resistance,system,unknown,NDD_first
+MAPK1::MK01_HUMAN_Brenan_2016,MK01_HUMAN_Brenan_2016,MAPK1,ProteinGym_v1.3,1,10.1016/j.celrep.2016.09.061,DOX_Average,Growth,inhibitor resistance,treatment,unknown,NDD_first
+MSH2::MSH2_HUMAN_Jia_2020,MSH2_HUMAN_Jia_2020,MSH2,ProteinGym_v1.3,0,10.1016/j.ajhg.2020.12.003,LOF score,"drug resistance (surrogate for protein activity, 6-thioguanine (6-TG))",,host,unknown,support_assay
+MSH2::MSH2_HUMAN_Jia_2020,MSH2_HUMAN_Jia_2020,MSH2,ProteinGym_v1.3,0,10.1016/j.ajhg.2020.12.003,LOF score,"drug resistance (surrogate for protein activity, 6-thioguanine (6-TG))",,system,unknown,support_assay
+MSH2::MSH2_HUMAN_Jia_2020,MSH2_HUMAN_Jia_2020,MSH2,ProteinGym_v1.3,0,10.1016/j.ajhg.2020.12.003,LOF score,"drug resistance (surrogate for protein activity, 6-thioguanine (6-TG))",,treatment,unknown,support_assay
+MTHFR::MTHR_HUMAN_Weile_2021,MTHR_HUMAN_Weile_2021,MTHFR,ProteinGym_v1.3,1,10.1016/j.ajhg.2021.05.009,score,Growth,,host,unknown,NDD_first
+MTHFR::MTHR_HUMAN_Weile_2021,MTHR_HUMAN_Weile_2021,MTHFR,ProteinGym_v1.3,1,10.1016/j.ajhg.2021.05.009,score,Growth,,system,unknown,NDD_first
+MTHFR::MTHR_HUMAN_Weile_2021,MTHR_HUMAN_Weile_2021,MTHFR,ProteinGym_v1.3,1,10.1016/j.ajhg.2021.05.009,score,Growth,,treatment,unknown,NDD_first
+NKX3-1::NKX31_HUMAN_Tsuboyama_2023_2L9R,NKX31_HUMAN_Tsuboyama_2023_2L9R,NKX3-1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+NKX3-1::NKX31_HUMAN_Tsuboyama_2023_2L9R,NKX31_HUMAN_Tsuboyama_2023_2L9R,NKX3-1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+NPC1::NPC1_HUMAN_Erwood_2022_HEK293T,NPC1_HUMAN_Erwood_2022_HEK293T,NPC1,ProteinGym_v1.3,1,10.1038/s41587-021-01201-1,Function Score,Fluorescence measurement,Flow Cytometry Assay,host,unknown,NDD_first
+NPC1::NPC1_HUMAN_Erwood_2022_HEK293T,NPC1_HUMAN_Erwood_2022_HEK293T,NPC1,ProteinGym_v1.3,1,10.1038/s41587-021-01201-1,Function Score,Fluorescence measurement,Flow Cytometry Assay,treatment,unknown,NDD_first
+NPC1::NPC1_HUMAN_Erwood_2022_RPE1,NPC1_HUMAN_Erwood_2022_RPE1,NPC1,ProteinGym_v1.3,1,10.1038/s41587-021-01201-1,Function Score,Fluorescence measurement,Flow Cytometry Assay,host,unknown,NDD_first
+NPC1::NPC1_HUMAN_Erwood_2022_RPE1,NPC1_HUMAN_Erwood_2022_RPE1,NPC1,ProteinGym_v1.3,1,10.1038/s41587-021-01201-1,Function Score,Fluorescence measurement,Flow Cytometry Assay,treatment,unknown,NDD_first
+NUDT15::NUD15_HUMAN_Suiter_2020,NUD15_HUMAN_Suiter_2020,NUDT15,ProteinGym_v1.3,0,10.1073/pnas.1915680117,Final NUDT15 activity Score,,"VAMP-seq, drug sensitivity",host,unknown,support_assay
+NUDT15::NUD15_HUMAN_Suiter_2020,NUD15_HUMAN_Suiter_2020,NUDT15,ProteinGym_v1.3,0,10.1073/pnas.1915680117,Final NUDT15 activity Score,,"VAMP-seq, drug sensitivity",selection,unknown,support_assay
+NUDT15::NUD15_HUMAN_Suiter_2020,NUD15_HUMAN_Suiter_2020,NUDT15,ProteinGym_v1.3,0,10.1073/pnas.1915680117,Final NUDT15 activity Score,,"VAMP-seq, drug sensitivity",system,unknown,support_assay
+NUDT15::NUD15_HUMAN_Suiter_2020,NUD15_HUMAN_Suiter_2020,NUDT15,ProteinGym_v1.3,0,10.1073/pnas.1915680117,Final NUDT15 activity Score,,"VAMP-seq, drug sensitivity",treatment,unknown,support_assay
+OBSCN::OBSCN_HUMAN_Tsuboyama_2023_1V1C,OBSCN_HUMAN_Tsuboyama_2023_1V1C,OBSCN,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+OBSCN::OBSCN_HUMAN_Tsuboyama_2023_1V1C,OBSCN_HUMAN_Tsuboyama_2023_1V1C,OBSCN,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+RHO::OPSD_HUMAN_Wan_2019,OPSD_HUMAN_Wan_2019,RHO,ProteinGym_v1.3,0,10.1002/humu.23762,score,Expression,Flow Cytometry Assay,host,unknown,support_assay
+RHO::OPSD_HUMAN_Wan_2019,OPSD_HUMAN_Wan_2019,RHO,ProteinGym_v1.3,0,10.1002/humu.23762,score,Expression,Flow Cytometry Assay,treatment,unknown,support_assay
+OTC::OTC_HUMAN_Lo_2023,OTC_HUMAN_Lo_2023,OTC,ProteinGym_v1.3,1,10.1016/j.ajhg.2023.03.019,DMS_score,Enzymatic activity,,host,unknown,NDD_first
+OTC::OTC_HUMAN_Lo_2023,OTC_HUMAN_Lo_2023,OTC,ProteinGym_v1.3,1,10.1016/j.ajhg.2023.03.019,DMS_score,Enzymatic activity,,system,unknown,NDD_first
+OTC::OTC_HUMAN_Lo_2023,OTC_HUMAN_Lo_2023,OTC,ProteinGym_v1.3,1,10.1016/j.ajhg.2023.03.019,DMS_score,Enzymatic activity,,treatment,unknown,NDD_first
+OTUD7A::OTU7A_HUMAN_Tsuboyama_2023_2L2D,OTU7A_HUMAN_Tsuboyama_2023_2L2D,OTUD7A,ProteinGym_v1.3,1,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,NDD_first
+OTUD7A::OTU7A_HUMAN_Tsuboyama_2023_2L2D,OTU7A_HUMAN_Tsuboyama_2023_2L2D,OTUD7A,ProteinGym_v1.3,1,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,NDD_first
+TP53::P53_HUMAN_Giacomelli_2018_Null_Etoposide,P53_HUMAN_Giacomelli_2018_Null_Etoposide,TP53,ProteinGym_v1.3,0,10.1038/s41588-018-0204-y,A549_p53NULL_Etoposide_Z-score,"drug resistance (nutlin-3, etoposide)",Growth,host,unknown,support_assay
+TP53::P53_HUMAN_Giacomelli_2018_Null_Etoposide,P53_HUMAN_Giacomelli_2018_Null_Etoposide,TP53,ProteinGym_v1.3,0,10.1038/s41588-018-0204-y,A549_p53NULL_Etoposide_Z-score,"drug resistance (nutlin-3, etoposide)",Growth,system,unknown,support_assay
+TP53::P53_HUMAN_Giacomelli_2018_Null_Etoposide,P53_HUMAN_Giacomelli_2018_Null_Etoposide,TP53,ProteinGym_v1.3,0,10.1038/s41588-018-0204-y,A549_p53NULL_Etoposide_Z-score,"drug resistance (nutlin-3, etoposide)",Growth,treatment,unknown,support_assay
+TP53::P53_HUMAN_Giacomelli_2018_Null_Nutlin,P53_HUMAN_Giacomelli_2018_Null_Nutlin,TP53,ProteinGym_v1.3,0,10.1038/s41588-018-0204-y,A549_p53NULL_Nutlin-3_Z-score,"drug resistance (nutlin-3, etoposide)",Growth,host,unknown,support_assay
+TP53::P53_HUMAN_Giacomelli_2018_Null_Nutlin,P53_HUMAN_Giacomelli_2018_Null_Nutlin,TP53,ProteinGym_v1.3,0,10.1038/s41588-018-0204-y,A549_p53NULL_Nutlin-3_Z-score,"drug resistance (nutlin-3, etoposide)",Growth,system,unknown,support_assay
+TP53::P53_HUMAN_Giacomelli_2018_Null_Nutlin,P53_HUMAN_Giacomelli_2018_Null_Nutlin,TP53,ProteinGym_v1.3,0,10.1038/s41588-018-0204-y,A549_p53NULL_Nutlin-3_Z-score,"drug resistance (nutlin-3, etoposide)",Growth,treatment,unknown,support_assay
+TP53::P53_HUMAN_Giacomelli_2018_WT_Nutlin,P53_HUMAN_Giacomelli_2018_WT_Nutlin,TP53,ProteinGym_v1.3,0,10.1038/s41588-018-0204-y,A549_p53WT_Nutlin-3_Z-score,"drug resistance (nutlin-3, etoposide)",Growth,host,unknown,support_assay
+TP53::P53_HUMAN_Giacomelli_2018_WT_Nutlin,P53_HUMAN_Giacomelli_2018_WT_Nutlin,TP53,ProteinGym_v1.3,0,10.1038/s41588-018-0204-y,A549_p53WT_Nutlin-3_Z-score,"drug resistance (nutlin-3, etoposide)",Growth,system,unknown,support_assay
+TP53::P53_HUMAN_Giacomelli_2018_WT_Nutlin,P53_HUMAN_Giacomelli_2018_WT_Nutlin,TP53,ProteinGym_v1.3,0,10.1038/s41588-018-0204-y,A549_p53WT_Nutlin-3_Z-score,"drug resistance (nutlin-3, etoposide)",Growth,treatment,unknown,support_assay
+TP53::P53_HUMAN_Kotler_2018,P53_HUMAN_Kotler_2018,TP53,ProteinGym_v1.3,0,10.1016/j.molcel.2018.06.012,RFS_H1299,growth,Growth,host,unknown,support_assay
+TP53::P53_HUMAN_Kotler_2018,P53_HUMAN_Kotler_2018,TP53,ProteinGym_v1.3,0,10.1016/j.molcel.2018.06.012,RFS_H1299,growth,Growth,system,unknown,support_assay
+TP53::P53_HUMAN_Kotler_2018,P53_HUMAN_Kotler_2018,TP53,ProteinGym_v1.3,0,10.1016/j.molcel.2018.06.012,RFS_H1299,growth,Growth,treatment,unknown,support_assay
+SERPINE1::PAI1_HUMAN_Huttinger_2021,PAI1_HUMAN_Huttinger_2021,SERPINE1,ProteinGym_v1.3,0,10.1038/s41598-021-97871-7,log2FoldChange,PAI-1 inhibition of uPA,phage fitness,host,unknown,support_assay
+SERPINE1::PAI1_HUMAN_Huttinger_2021,PAI1_HUMAN_Huttinger_2021,SERPINE1,ProteinGym_v1.3,0,10.1038/s41598-021-97871-7,log2FoldChange,PAI-1 inhibition of uPA,phage fitness,system,unknown,support_assay
+SERPINE1::PAI1_HUMAN_Huttinger_2021,PAI1_HUMAN_Huttinger_2021,SERPINE1,ProteinGym_v1.3,0,10.1038/s41598-021-97871-7,log2FoldChange,PAI-1 inhibition of uPA,phage fitness,treatment,unknown,support_assay
+PIN1::PIN1_HUMAN_Tsuboyama_2023_1I6C,PIN1_HUMAN_Tsuboyama_2023_1I6C,PIN1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+PIN1::PIN1_HUMAN_Tsuboyama_2023_1I6C,PIN1_HUMAN_Tsuboyama_2023_1I6C,PIN1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+PITX2::PITX2_HUMAN_Tsuboyama_2023_2L7M,PITX2_HUMAN_Tsuboyama_2023_2L7M,PITX2,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+PITX2::PITX2_HUMAN_Tsuboyama_2023_2L7M,PITX2_HUMAN_Tsuboyama_2023_2L7M,PITX2,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+PKN1::PKN1_HUMAN_Tsuboyama_2023_1URF,PKN1_HUMAN_Tsuboyama_2023_1URF,PKN1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+PKN1::PKN1_HUMAN_Tsuboyama_2023_1URF,PKN1_HUMAN_Tsuboyama_2023_1URF,PKN1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+PPARG::PPARG_HUMAN_Majithia_2016,PPARG_HUMAN_Majithia_2016,PPARG,ProteinGym_v1.3,0,10.1038/ng.3700,Experimental function score,Expression of CD36,FACS,host,unknown,support_assay
+PPARG::PPARG_HUMAN_Majithia_2016,PPARG_HUMAN_Majithia_2016,PPARG,ProteinGym_v1.3,0,10.1038/ng.3700,Experimental function score,Expression of CD36,FACS,treatment,unknown,support_assay
+PPM1D::PPM1D_HUMAN_Miller_2022,PPM1D_HUMAN_Miller_2022,PPM1D,ProteinGym_v1.3,1,10.1038/s41467-022-30463-9,fitness,Fitness with GFP reporter,quantification and selection of GFP-positive cells by flow cytometry after DNA damage induced by daunorubicin,host,unknown,NDD_first
+PPM1D::PPM1D_HUMAN_Miller_2022,PPM1D_HUMAN_Miller_2022,PPM1D,ProteinGym_v1.3,1,10.1038/s41467-022-30463-9,fitness,Fitness with GFP reporter,quantification and selection of GFP-positive cells by flow cytometry after DNA damage induced by daunorubicin,treatment,unknown,NDD_first
+PRPF40A::PR40A_HUMAN_Tsuboyama_2023_1UZC,PR40A_HUMAN_Tsuboyama_2023_1UZC,PRPF40A,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+PRPF40A::PR40A_HUMAN_Tsuboyama_2023_1UZC,PR40A_HUMAN_Tsuboyama_2023_1UZC,PRPF40A,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+PRKN::PRKN_HUMAN_Clausen_2023,PRKN_HUMAN_Clausen_2023,PRKN,ProteinGym_v1.3,0,10.1101/2023.06.08.544160,score,protein stability,FACS,host,unknown,support_assay
+PRKN::PRKN_HUMAN_Clausen_2023,PRKN_HUMAN_Clausen_2023,PRKN,ProteinGym_v1.3,0,10.1101/2023.06.08.544160,score,protein stability,FACS,treatment,unknown,support_assay
+PTEN::PTEN_HUMAN_Matreyek_2021,PTEN_HUMAN_Matreyek_2021,PTEN,ProteinGym_v1.3,1,10.1186/s13073-021-00984-x,score_total,Protein abundance (FACS sorting for abundance of GFP-fused target),Protein stability,host,unknown,NDD_first
+PTEN::PTEN_HUMAN_Matreyek_2021,PTEN_HUMAN_Matreyek_2021,PTEN,ProteinGym_v1.3,1,10.1186/s13073-021-00984-x,score_total,Protein abundance (FACS sorting for abundance of GFP-fused target),Protein stability,treatment,unknown,NDD_first
+PTEN::PTEN_HUMAN_Mighell_2018,PTEN_HUMAN_Mighell_2018,PTEN,ProteinGym_v1.3,1,10.1016/j.ajhg.2018.03.018,Fitness_score,"growth (surrogate for enzymatic activity/hydrolysis of lipid phosphates to restore PIP2, which affects proliferation rate)",lipid phosphatase activity,host,unknown,NDD_first
+PTEN::PTEN_HUMAN_Mighell_2018,PTEN_HUMAN_Mighell_2018,PTEN,ProteinGym_v1.3,1,10.1016/j.ajhg.2018.03.018,Fitness_score,"growth (surrogate for enzymatic activity/hydrolysis of lipid phosphates to restore PIP2, which affects proliferation rate)",lipid phosphatase activity,system,unknown,NDD_first
+PTEN::PTEN_HUMAN_Mighell_2018,PTEN_HUMAN_Mighell_2018,PTEN,ProteinGym_v1.3,1,10.1016/j.ajhg.2018.03.018,Fitness_score,"growth (surrogate for enzymatic activity/hydrolysis of lipid phosphates to restore PIP2, which affects proliferation rate)",lipid phosphatase activity,treatment,unknown,NDD_first
+HLA-A::Q53Z42_HUMAN_McShan_2019_binding-TAPBPR,Q53Z42_HUMAN_McShan_2019_binding-TAPBPR,HLA-A,ProteinGym_v1.3,0,10.1073/pnas.1915562116,score,binding affinity (TAPBPR),,host,unknown,support_assay
+HLA-A::Q53Z42_HUMAN_McShan_2019_binding-TAPBPR,Q53Z42_HUMAN_McShan_2019_binding-TAPBPR,HLA-A,ProteinGym_v1.3,0,10.1073/pnas.1915562116,score,binding affinity (TAPBPR),,system,unknown,support_assay
+HLA-A::Q53Z42_HUMAN_McShan_2019_binding-TAPBPR,Q53Z42_HUMAN_McShan_2019_binding-TAPBPR,HLA-A,ProteinGym_v1.3,0,10.1073/pnas.1915562116,score,binding affinity (TAPBPR),,treatment,unknown,support_assay
+HLA-A::Q53Z42_HUMAN_McShan_2019_expression,Q53Z42_HUMAN_McShan_2019_expression,HLA-A,ProteinGym_v1.3,0,10.1073/pnas.1915562116,score,surface expression,,host,unknown,support_assay
+HLA-A::Q53Z42_HUMAN_McShan_2019_expression,Q53Z42_HUMAN_McShan_2019_expression,HLA-A,ProteinGym_v1.3,0,10.1073/pnas.1915562116,score,surface expression,,system,unknown,support_assay
+HLA-A::Q53Z42_HUMAN_McShan_2019_expression,Q53Z42_HUMAN_McShan_2019_expression,HLA-A,ProteinGym_v1.3,0,10.1073/pnas.1915562116,score,surface expression,,treatment,unknown,support_assay
+RAF1::RAF1_HUMAN_Zinkus-Boltz_2019,RAF1_HUMAN_Zinkus-Boltz_2019,RAF1,ProteinGym_v1.3,1,10.1021/acschembio.9b00669,score,Viral Replication,binding assays,host,unknown,NDD_first
+RAF1::RAF1_HUMAN_Zinkus-Boltz_2019,RAF1_HUMAN_Zinkus-Boltz_2019,RAF1,ProteinGym_v1.3,1,10.1021/acschembio.9b00669,score,Viral Replication,binding assays,system,unknown,NDD_first
+RAF1::RAF1_HUMAN_Zinkus-Boltz_2019,RAF1_HUMAN_Zinkus-Boltz_2019,RAF1,ProteinGym_v1.3,1,10.1021/acschembio.9b00669,score,Viral Replication,binding assays,treatment,unknown,NDD_first
+KRAS::RASK_HUMAN_Weng_2022_abundance,RASK_HUMAN_Weng_2022_abundance,KRAS,ProteinGym_v1.3,1,10.1101/2022.12.06.519122,fitness,Yeast growth,,system,unknown,NDD_first
+KRAS::RASK_HUMAN_Weng_2022_abundance,RASK_HUMAN_Weng_2022_abundance,KRAS,ProteinGym_v1.3,1,10.1101/2022.12.06.519122,fitness,Yeast growth,,treatment,unknown,NDD_first
+KRAS::RASK_HUMAN_Weng_2022_binding-DARPin_K55,RASK_HUMAN_Weng_2022_binding-DARPin_K55,KRAS,ProteinGym_v1.3,1,10.1101/2022.12.06.519127,fitness,Yeast growth,,system,unknown,NDD_first
+KRAS::RASK_HUMAN_Weng_2022_binding-DARPin_K55,RASK_HUMAN_Weng_2022_binding-DARPin_K55,KRAS,ProteinGym_v1.3,1,10.1101/2022.12.06.519127,fitness,Yeast growth,,treatment,unknown,NDD_first
+RALBP1::RBP1_HUMAN_Tsuboyama_2023_2KWH,RBP1_HUMAN_Tsuboyama_2023_2KWH,RALBP1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+RALBP1::RBP1_HUMAN_Tsuboyama_2023_2KWH,RBP1_HUMAN_Tsuboyama_2023_2KWH,RALBP1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+RAD23A::RD23A_HUMAN_Tsuboyama_2023_1IFY,RD23A_HUMAN_Tsuboyama_2023_1IFY,RAD23A,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+RAD23A::RD23A_HUMAN_Tsuboyama_2023_1IFY,RD23A_HUMAN_Tsuboyama_2023_1IFY,RAD23A,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+SLC22A1::S22A1_HUMAN_Yee_2023_abundance,S22A1_HUMAN_Yee_2023_abundance,SLC22A1,ProteinGym_v1.3,0,10.1101/2023.06.06.543963,GFP_score,abundance,FACS,host,unknown,support_assay
+SLC22A1::S22A1_HUMAN_Yee_2023_abundance,S22A1_HUMAN_Yee_2023_abundance,SLC22A1,ProteinGym_v1.3,0,10.1101/2023.06.06.543963,GFP_score,abundance,FACS,treatment,unknown,support_assay
+SLC22A1::S22A1_HUMAN_Yee_2023_activity,S22A1_HUMAN_Yee_2023_activity,SLC22A1,ProteinGym_v1.3,0,10.1101/2023.06.06.543963,SM73_1_score,uptake of cytotoxic substrate,Growth,host,unknown,support_assay
+SLC22A1::S22A1_HUMAN_Yee_2023_activity,S22A1_HUMAN_Yee_2023_activity,SLC22A1,ProteinGym_v1.3,0,10.1101/2023.06.06.543963,SM73_1_score,uptake of cytotoxic substrate,Growth,system,unknown,support_assay
+SLC22A1::S22A1_HUMAN_Yee_2023_activity,S22A1_HUMAN_Yee_2023_activity,SLC22A1,ProteinGym_v1.3,0,10.1101/2023.06.06.543963,SM73_1_score,uptake of cytotoxic substrate,Growth,treatment,unknown,support_assay
+SLC6A4::SC6A4_HUMAN_Young_2021,SC6A4_HUMAN_Young_2021,SLC6A4,ProteinGym_v1.3,0,10.1101/2021.04.19.440442,avg_MYC,Fluorescence,Fluorescence,host,unknown,support_assay
+SLC6A4::SC6A4_HUMAN_Young_2021,SC6A4_HUMAN_Young_2021,SLC6A4,ProteinGym_v1.3,0,10.1101/2021.04.19.440442,avg_MYC,Fluorescence,Fluorescence,system,unknown,support_assay
+SLC6A4::SC6A4_HUMAN_Young_2021,SC6A4_HUMAN_Young_2021,SLC6A4,ProteinGym_v1.3,0,10.1101/2021.04.19.440442,avg_MYC,Fluorescence,Fluorescence,treatment,unknown,support_assay
+SCN5A::SCN5A_HUMAN_Glazer_2019,SCN5A_HUMAN_Glazer_2019,SCN5A,ProteinGym_v1.3,0,10.1161/CIRCGEN.119.002786,dms,"drug resistance (triple-drug assay: veratridine + brevetoxin + ouabain; surrogate for sodium channel dysfunction, select against function)",,host,unknown,support_assay
+SCN5A::SCN5A_HUMAN_Glazer_2019,SCN5A_HUMAN_Glazer_2019,SCN5A,ProteinGym_v1.3,0,10.1161/CIRCGEN.119.002786,dms,"drug resistance (triple-drug assay: veratridine + brevetoxin + ouabain; surrogate for sodium channel dysfunction, select against function)",,system,unknown,support_assay
+PSAT1::SERC_HUMAN_Xie_2023,SERC_HUMAN_Xie_2023,PSAT1,ProteinGym_v1.3,1,10.1101/2023.01.11.523651,score,Yeast growth,,system,unknown,NDD_first
+PSAT1::SERC_HUMAN_Xie_2023,SERC_HUMAN_Xie_2023,PSAT1,ProteinGym_v1.3,1,10.1101/2023.01.11.523651,score,Yeast growth,,treatment,unknown,NDD_first
+SOX30::SOX30_HUMAN_Tsuboyama_2023_7JJK,SOX30_HUMAN_Tsuboyama_2023_7JJK,SOX30,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+SOX30::SOX30_HUMAN_Tsuboyama_2023_7JJK,SOX30_HUMAN_Tsuboyama_2023_7JJK,SOX30,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+SORBS1::SRBS1_HUMAN_Tsuboyama_2023_2O2W,SRBS1_HUMAN_Tsuboyama_2023_2O2W,SORBS1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+SORBS1::SRBS1_HUMAN_Tsuboyama_2023_2O2W,SRBS1_HUMAN_Tsuboyama_2023_2O2W,SORBS1,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+SRC::SRC_HUMAN_Ahler_2019,SRC_HUMAN_Ahler_2019,SRC,ProteinGym_v1.3,0,10.1016/j.molcel.2019.02.003,Activity_Score,growth (surrogate for phosphorylation activity),Growth,host,unknown,support_assay
+SRC::SRC_HUMAN_Ahler_2019,SRC_HUMAN_Ahler_2019,SRC,ProteinGym_v1.3,0,10.1016/j.molcel.2019.02.003,Activity_Score,growth (surrogate for phosphorylation activity),Growth,system,unknown,support_assay
+SRC::SRC_HUMAN_Ahler_2019,SRC_HUMAN_Ahler_2019,SRC,ProteinGym_v1.3,0,10.1016/j.molcel.2019.02.003,Activity_Score,growth (surrogate for phosphorylation activity),Growth,treatment,unknown,support_assay
+SRC::SRC_HUMAN_Chakraborty_2023_binding-DAS_25uM,SRC_HUMAN_Chakraborty_2023_binding-DAS_25uM,SRC,ProteinGym_v1.3,0,10.1101/2021.12.05.471322,DMS_score,Fluorescence measurement,,host,unknown,support_assay
+SRC::SRC_HUMAN_Chakraborty_2023_binding-DAS_25uM,SRC_HUMAN_Chakraborty_2023_binding-DAS_25uM,SRC,ProteinGym_v1.3,0,10.1101/2021.12.05.471322,DMS_score,Fluorescence measurement,,system,unknown,support_assay
+SRC::SRC_HUMAN_Chakraborty_2023_binding-DAS_25uM,SRC_HUMAN_Chakraborty_2023_binding-DAS_25uM,SRC,ProteinGym_v1.3,0,10.1101/2021.12.05.471322,DMS_score,Fluorescence measurement,,treatment,unknown,support_assay
+SRC::SRC_HUMAN_Nguyen_2022,SRC_HUMAN_Nguyen_2022,SRC,ProteinGym_v1.3,0,10.1002/pro.4656,diffsel,growth enrichment,,host,unknown,support_assay
+SRC::SRC_HUMAN_Nguyen_2022,SRC_HUMAN_Nguyen_2022,SRC,ProteinGym_v1.3,0,10.1002/pro.4656,diffsel,growth enrichment,,system,unknown,support_assay
+SRC::SRC_HUMAN_Nguyen_2022,SRC_HUMAN_Nguyen_2022,SRC,ProteinGym_v1.3,0,10.1002/pro.4656,diffsel,growth enrichment,,treatment,unknown,support_assay
+SUMO1::SUMO1_HUMAN_Weile_2017,SUMO1_HUMAN_Weile_2017,SUMO1,ProteinGym_v1.3,0,10.15252/msb.20177908,screenscore,Yeast growth,complementation,system,unknown,support_assay
+SUMO1::SUMO1_HUMAN_Weile_2017,SUMO1_HUMAN_Weile_2017,SUMO1,ProteinGym_v1.3,0,10.15252/msb.20177908,screenscore,Yeast growth,complementation,treatment,unknown,support_assay
+SNCA::SYUA_HUMAN_Newberry_2020,SYUA_HUMAN_Newberry_2020,SNCA,ProteinGym_v1.3,0,10.1021/acschembio.0c00339,Fitness Score,Growth,Growth,host,unknown,support_assay
+SNCA::SYUA_HUMAN_Newberry_2020,SYUA_HUMAN_Newberry_2020,SNCA,ProteinGym_v1.3,0,10.1021/acschembio.0c00339,Fitness Score,Growth,Growth,system,unknown,support_assay
+SNCA::SYUA_HUMAN_Newberry_2020,SYUA_HUMAN_Newberry_2020,SNCA,ProteinGym_v1.3,0,10.1021/acschembio.0c00339,Fitness Score,Growth,Growth,treatment,unknown,support_assay
+TARDBP::TADBP_HUMAN_Bolognesi_2019,TADBP_HUMAN_Bolognesi_2019,TARDBP,ProteinGym_v1.3,0,10.1038/s41467-019-12101-z,toxicity,growth (surrogate for toxicity),Growth,host,unknown,support_assay
+TARDBP::TADBP_HUMAN_Bolognesi_2019,TADBP_HUMAN_Bolognesi_2019,TARDBP,ProteinGym_v1.3,0,10.1038/s41467-019-12101-z,toxicity,growth (surrogate for toxicity),Growth,system,unknown,support_assay
+TARDBP::TADBP_HUMAN_Bolognesi_2019,TADBP_HUMAN_Bolognesi_2019,TARDBP,ProteinGym_v1.3,0,10.1038/s41467-019-12101-z,toxicity,growth (surrogate for toxicity),Growth,treatment,unknown,support_assay
+TNKS2::TNKS2_HUMAN_Tsuboyama_2023_5JRT,TNKS2_HUMAN_Tsuboyama_2023_5JRT,TNKS2,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+TNKS2::TNKS2_HUMAN_Tsuboyama_2023_5JRT,TNKS2_HUMAN_Tsuboyama_2023_5JRT,TNKS2,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+TPMT::TPMT_HUMAN_Matreyek_2018,TPMT_HUMAN_Matreyek_2018,TPMT,ProteinGym_v1.3,0,10.1038/s41588-018-0122-z,score,Protein abundance (FACS sorting for abundance of GFP-fused target),Protein stability,host,unknown,support_assay
+TPMT::TPMT_HUMAN_Matreyek_2018,TPMT_HUMAN_Matreyek_2018,TPMT,ProteinGym_v1.3,0,10.1038/s41588-018-0122-z,score,Protein abundance (FACS sorting for abundance of GFP-fused target),Protein stability,treatment,unknown,support_assay
+MPL::TPOR_HUMAN_Bridgford_2020,TPOR_HUMAN_Bridgford_2020,MPL,ProteinGym_v1.3,0,10.1182/blood.2019002561,score,growth/survival (surrogate for TpoR/MPL enhanced constitutive activation),Growth,host,unknown,support_assay
+MPL::TPOR_HUMAN_Bridgford_2020,TPOR_HUMAN_Bridgford_2020,MPL,ProteinGym_v1.3,0,10.1182/blood.2019002561,score,growth/survival (surrogate for TpoR/MPL enhanced constitutive activation),Growth,system,unknown,support_assay
+MPL::TPOR_HUMAN_Bridgford_2020,TPOR_HUMAN_Bridgford_2020,MPL,ProteinGym_v1.3,0,10.1182/blood.2019002561,score,growth/survival (surrogate for TpoR/MPL enhanced constitutive activation),Growth,treatment,unknown,support_assay
+UBE2I::UBC9_HUMAN_Weile_2017,UBC9_HUMAN_Weile_2017,UBE2I,ProteinGym_v1.3,0,10.15252/msb.20177908,screenscore,Yeast growth,complementation,system,unknown,support_assay
+UBE2I::UBC9_HUMAN_Weile_2017,UBC9_HUMAN_Weile_2017,UBE2I,ProteinGym_v1.3,0,10.15252/msb.20177908,screenscore,Yeast growth,complementation,treatment,unknown,support_assay
+UBE4B::UBE4B_HUMAN_Tsuboyama_2023_3L1X,UBE4B_HUMAN_Tsuboyama_2023_3L1X,UBE4B,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,host,unknown,support_assay
+UBE4B::UBE4B_HUMAN_Tsuboyama_2023_3L1X,UBE4B_HUMAN_Tsuboyama_2023_3L1X,UBE4B,ProteinGym_v1.3,0,10.1038/s41586-023-06328-6,ddG_ML_float,Stability,cDNA display proteolysis,treatment,unknown,support_assay
+UBE4B::UBE4B_MOUSE_Starita_2013,UBE4B_MOUSE_Starita_2013,UBE4B,ProteinGym_v1.3,0,10.1073/pnas.1303309110,log2_ratio,Ligase activity (phage display),Auto-ubiquitination,host,unknown,support_assay
+UBE4B::UBE4B_MOUSE_Starita_2013,UBE4B_MOUSE_Starita_2013,UBE4B,ProteinGym_v1.3,0,10.1073/pnas.1303309110,log2_ratio,Ligase activity (phage display),Auto-ubiquitination,treatment,unknown,support_assay
+VKORC1::VKOR1_HUMAN_Chiasson_2020_abundance,VKOR1_HUMAN_Chiasson_2020_abundance,VKORC1,ProteinGym_v1.3,0,10.7554/eLife.58026,abundance_score,protein abundance (eGFP fusion reporter),Fluorescence,host,unknown,support_assay
+VKORC1::VKOR1_HUMAN_Chiasson_2020_abundance,VKOR1_HUMAN_Chiasson_2020_abundance,VKORC1,ProteinGym_v1.3,0,10.7554/eLife.58026,abundance_score,protein abundance (eGFP fusion reporter),Fluorescence,system,unknown,support_assay
+VKORC1::VKOR1_HUMAN_Chiasson_2020_abundance,VKOR1_HUMAN_Chiasson_2020_abundance,VKORC1,ProteinGym_v1.3,0,10.7554/eLife.58026,abundance_score,protein abundance (eGFP fusion reporter),Fluorescence,treatment,unknown,support_assay
+VKORC1::VKOR1_HUMAN_Chiasson_2020_activity,VKOR1_HUMAN_Chiasson_2020_activity,VKORC1,ProteinGym_v1.3,0,10.7554/eLife.58026,activity_score,carboxylation activity (carboxylation reporter on cell surface),enzymatic activity,host,unknown,support_assay
+VKORC1::VKOR1_HUMAN_Chiasson_2020_activity,VKOR1_HUMAN_Chiasson_2020_activity,VKORC1,ProteinGym_v1.3,0,10.7554/eLife.58026,activity_score,carboxylation activity (carboxylation reporter on cell surface),enzymatic activity,system,unknown,support_assay
+VKORC1::VKOR1_HUMAN_Chiasson_2020_activity,VKOR1_HUMAN_Chiasson_2020_activity,VKORC1,ProteinGym_v1.3,0,10.7554/eLife.58026,activity_score,carboxylation activity (carboxylation reporter on cell surface),enzymatic activity,treatment,unknown,support_assay
+YAP1::YAP1_HUMAN_Araya_2012,YAP1_HUMAN_Araya_2012,YAP1,ProteinGym_v1.3,1,10.1073/pnas.1209751109,W,peptide binding,Binding,host,unknown,NDD_first
+YAP1::YAP1_HUMAN_Araya_2012,YAP1_HUMAN_Araya_2012,YAP1,ProteinGym_v1.3,1,10.1073/pnas.1209751109,W,peptide binding,Binding,system,unknown,NDD_first
+YAP1::YAP1_HUMAN_Araya_2012,YAP1_HUMAN_Araya_2012,YAP1,ProteinGym_v1.3,1,10.1073/pnas.1209751109,W,peptide binding,Binding,treatment,unknown,NDD_first

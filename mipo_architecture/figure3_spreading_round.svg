@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="300" viewBox="0 0 1100 300" role="img" aria-label="In each round a residue combines neighbour messages, a 3D direction signal and messages from 16 shared hubs into an update. Residue 124 starts with the impulse and all others start at zero; after round 1 its linked residues carry part of the signal, and the hubs reach every kept residue.">
+<style><![CDATA[
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+svg { font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+/* SVG styling from the page stylesheet */
+.box { fill: #ffffff; stroke-width: 1.75; }
+.core { fill: #f5f7fa; stroke: #1b2430; stroke-width: 1.25; }
+.chipbox { fill: #ffffff; stroke: #b3bcc7; stroke-width: 1; }
+.ln { fill: none; stroke-width: 1.7; }
+.dash { stroke-dasharray: 4 4; }
+.sep { stroke: #dde2e8; stroke-width: 1; }
+.k-ink { stroke: #1b2430; } .k-seq { stroke: #2a78d6; } .k-mut { stroke: #4a3aa7; }
+.k-str { stroke: #008300; } .k-llr { stroke: #e87ba4; } .k-assay { stroke: #eda100; }
+.f-ink { fill: #1b2430; } .f-seq { fill: #2a78d6; } .f-mut { fill: #4a3aa7; }
+.f-str { fill: #008300; } .f-llr { fill: #e87ba4; } .f-assay { fill: #eda100; }
+.f-rest { fill: #8b95a1; } .f-unused { fill: #e6e9ed; } .f-bg { fill: #ffffff; }
+.pick { cursor: pointer; }
+.pick .hitbox { fill: #1b2430; fill-opacity: 0; stroke: none; transition: fill-opacity .12s; }
+.pick:hover .hitbox { fill-opacity: .05; }
+.pick:focus { outline: none; }
+.pick:focus-visible .hitbox, .pick.on .hitbox { fill-opacity: .06; stroke: #1b2430; stroke-width: 2.5; stroke-dasharray: 6 4; }
+.t-title { font: 600 14px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-line { font: 400 12px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #5b6472; }
+.t-ink { font: 400 12px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-small { font: 400 11px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #5b6472; }
+.t-chip { font: 500 11px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-code { font: 400 11px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #1b2430; }
+.t-eye { font: 600 10px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .08em; fill: #5b6472; }
+.t-arrow { font: 500 11px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #5b6472; }
+.t-num { font: 600 24px 'IBM Plex Sans Condensed', 'Arial Narrow', 'Helvetica Neue', sans-serif; fill: #1b2430; }
+.t-stage { font: 600 14px 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #1b2430; }
+.t-bead { font: 500 10px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #1b2430; }
+.t-axis { font: 400 11px 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #5b6472; }
+.chainline { fill: none; stroke: #b3bcc7; stroke-width: 4; stroke-linecap: round; }
+.bead { fill: #ffffff; stroke: #b3bcc7; stroke-width: 1.5; }
+.bead-mut { fill: #4a3aa7; stroke: #4a3aa7; stroke-width: 1.5; }
+.bead-seq { fill: #ffffff; stroke: #2a78d6; stroke-width: 2.5; }
+.bead-str { fill: #ffffff; stroke: #008300; stroke-width: 2.5; }
+.grid { stroke: #dde2e8; stroke-width: 1; }
+.meas { fill: #ffffff; stroke: #1b2430; stroke-width: 2; }
+.pred { fill: #1b2430; }
+.conn { stroke: #b3bcc7; stroke-width: 2; }
+.hit { fill: #ffffff; fill-opacity: 0; }
+
+]]></style>
+<rect width="1100" height="300" fill="#ffffff"/>
+          <defs>
+            <marker id="m2-ink" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker>
+          </defs>
+          <rect class="box k-ink" x="30" y="24" width="320" height="76" rx="8"/>
+          <text class="t-title" x="46" y="50">Neighbour messages</text>
+          <text class="t-line" x="46" y="69">weighted mix of the 16 linked residues</text>
+          <text class="t-line" x="46" y="86">weights: both contexts + 5 link numbers</text>
+
+          <rect class="box k-str" x="30" y="114" width="320" height="76" rx="8"/>
+          <text class="t-title" x="46" y="140">3D direction</text>
+          <text class="t-line" x="46" y="159">arrows to linked residues, summed;</text>
+          <text class="t-line" x="46" y="176">only the length is kept (rotation-proof)</text>
+
+          <rect class="box k-ink" x="30" y="204" width="320" height="76" rx="8"/>
+          <text class="t-title" x="46" y="230">16 hubs (landmarks)</text>
+          <text class="t-line" x="46" y="249">every residue pools into hubs and hears</text>
+          <text class="t-line" x="46" y="266">back: long reach in a single step</text>
+
+          <line class="ln k-ink" x1="350" y1="62" x2="430" y2="138" marker-end="url(#m2-ink)"/>
+          <line class="ln k-ink" x1="350" y1="152" x2="430" y2="152" marker-end="url(#m2-ink)"/>
+          <line class="ln k-ink" x1="350" y1="242" x2="430" y2="166" marker-end="url(#m2-ink)"/>
+
+          <rect class="core" x="430" y="112" width="230" height="80" rx="8"/>
+          <text class="t-title" x="446" y="138">Update</text>
+          <text class="t-line" x="446" y="157">new = old + step × change</text>
+          <text class="t-line" x="446" y="174">no bias: zero in → zero out</text>
+          <path class="ln k-ink" d="M545,192 V222 H470 V200" marker-end="url(#m2-ink)"/>
+          <text class="t-arrow" x="552" y="238">repeat: 3 rounds</text>
+
+          <line class="ln k-ink" x1="660" y1="152" x2="730" y2="152" marker-end="url(#m2-ink)"/>
+          <rect class="core" x="730" y="60" width="340" height="184" rx="8"/>
+          <text class="t-title" x="746" y="86">How the signal travels</text>
+          <text class="t-line" x="746" y="108">before round 1: only residue 124 is non-zero</text>
+          <text class="t-line" x="746" y="128">round 1: its 15 linked residues (118–130,</text>
+          <text class="t-line" x="746" y="145">F37, L70, C71) receive part of it; the hubs</text>
+          <text class="t-line" x="746" y="162">pass a share to every kept residue</text>
+          <text class="t-line" x="746" y="182">rounds 2–3: neighbours of neighbours</text>
+          <text class="t-line" x="746" y="199">receive it too</text>
+          <text class="t-line" x="746" y="222">result: the response field (128 per residue)</text>
+        </svg>

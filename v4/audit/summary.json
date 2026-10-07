@@ -1,0 +1,152 @@
+{
+  "rows": 994673,
+  "genes": 495,
+  "references": 598,
+  "assays": 625,
+  "direct_ndd_rows": 318274,
+  "direct_ndd_genes": 135,
+  "tier_rows": {
+    "E_GENERIC_HUMAN_DMS": 540234,
+    "C_DIRECT_NDD_STABILITY": 159715,
+    "A_LEGACY_CONSENSUS": 136734,
+    "D_NDD_FAMILY_TEACHER": 83735,
+    "B_DIRECT_NDD_FUNCTIONAL": 74255
+  },
+  "tier_genes": {
+    "A_LEGACY_CONSENSUS": 25,
+    "B_DIRECT_NDD_FUNCTIONAL": 15,
+    "C_DIRECT_NDD_STABILITY": 116,
+    "D_NDD_FAMILY_TEACHER": 13,
+    "E_GENERIC_HUMAN_DMS": 343
+  },
+  "task_rows": {
+    "stability": 538060,
+    "fitness": 140624,
+    "consensus": 136734,
+    "activity": 89676,
+    "abundance": 64356,
+    "binding": 25223
+  },
+  "raw_multi_property_genes": 16,
+  "paired_multi_property_variants": 46681,
+  "original_rows_preserved": 157549,
+  "legacy_ndd_unverified_genes": [
+    "AIRE",
+    "BRCA1",
+    "BRCA2",
+    "CRX",
+    "HMGCR",
+    "JAG1",
+    "KCNE1",
+    "KCNQ1",
+    "PALB2",
+    "SUMO1",
+    "TPK1"
+  ],
+  "possible_consensus_overlap_rows": 60535,
+  "excluded_assays": [
+    {
+      "source_id": "urn:mavedb:00000732-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "cI Helix-turn-helix domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00000752-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "cspA Cold-shock protein, DNA-binding domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00000754-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "cspB Cold-shock protein, DNA-binding domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00000753-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "cspB Cold-shock protein, DNA-binding domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00000755-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "CUE2 Ubiquitin system component CUE domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00000920-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "NA EHEE fold domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00000921-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "NA HHH fold domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00000923-a-1",
+      "reason": "no_verified_UniProt_gene_mapping",
+      "title": "NA Transcription factor IIS, N-terminal domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00000924-a-1",
+      "reason": "no_verified_UniProt_gene_mapping",
+      "title": "NA Ubiquitin-like domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00000954-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "pdhC Peripheral subunit-binding domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00000964-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": " Potato inhibitor I family domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00000965-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": " Potato inhibitor I family domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00001023-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "rplI Ribosomal protein L9, N-terminal domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00001025-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "RSP5 WW domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00001028-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "S100G S100/CaBP-9k-type, calcium binding, subdomain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00001061-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "Snta1 PDZ domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00001076-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "SPTAN1 SH3 domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00001103-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "THO1 SAP domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00001138-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "VIL1 Villin headpiece domain domainome 1.0"
+    },
+    {
+      "source_id": "urn:mavedb:00001136-a-1",
+      "reason": "not_one_human_protein_target",
+      "title": "VIL1 Villin headpiece domain domainome 1.0"
+    }
+  ],
+  "build_date": "2026-09-19",
+  "csv_sha256": "ad07b7da773fb2cc23e2c8a3e7d55996be275736287d046cdc7e272dbeca26d4",
+  "source_v3_sha256": "9fc238ea9a499f78694f5334a32284a2ab89d1b009a122fcf3a425a70878df2b"
+}

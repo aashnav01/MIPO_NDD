@@ -1,0 +1,1441 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MIPO Model Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+html, body { margin: 0; }
+
+/* Layout: one reading column (680px) inside a 1180px page; figures use the full width.
+   White paper by request (single light theme). Stream colours are a validated categorical set
+   (all-pairs CVD ΔE ≥ 13); every coloured mark also carries a text label, and all text is ink. */
+:root {
+  --bg: #ffffff;
+  --ink: #1b2430;
+  --muted: #5b6472;
+  --line: #dde2e8;
+  --panel: #f5f7fa;
+  --chain: #b3bcc7;
+  --seq: #2a78d6;     /* protein sequence / ESM-2 */
+  --mut: #4a3aa7;     /* the mutation */
+  --str: #008300;     /* 3D structure */
+  --llr: #e87ba4;     /* zero-shot LLR */
+  --assay: #eda100;   /* assay description */
+  --rest: #8b95a1;    /* evenly spaced residues */
+  --unused: #e6e9ed;  /* residues not used */
+  --shadow-far: rgba(27, 36, 48, .22);
+  --shadow-near: rgba(27, 36, 48, .12);
+  --on-bg: #e3f1e3;
+  --off-bg: #f6e3e3;
+  --part-bg: #fbf0d6;
+  --display: 'IBM Plex Sans Condensed', 'Arial Narrow', 'Helvetica Neue', sans-serif;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+[hidden] { display: none !important; }  /* the standalone file has no viewer reset, so state it here */
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
+.page { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 44px 72px; display: grid; gap: 60px; }
+.prose { max-width: 700px; }
+header { display: grid; gap: 14px; }
+.eyebrow { font: 600 12px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+h1 { font: 600 clamp(32px, 5.2vw, 46px)/1.08 var(--display); margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h2 { font: 600 clamp(24px, 3.4vw, 30px)/1.15 var(--display); margin: 0; text-wrap: balance; }
+h3 { font: 600 18px/1.3 var(--sans); margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.lede { font-size: 18px; line-height: 1.55; max-width: 700px; }
+section { display: grid; gap: 18px; }
+.stack { display: grid; gap: 10px; }
+code, .mono { font-family: var(--mono); font-size: .88em; }
+
+.facts { display: flex; flex-wrap: wrap; gap: 8px 30px; margin: 6px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line); }
+.facts div { display: grid; min-width: 0; }
+.facts dt { font: 600 20px/1.2 var(--mono); font-variant-numeric: tabular-nums; }
+.facts dd { margin: 0; font-size: 13px; color: var(--muted); }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px 20px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+.legend li { display: flex; align-items: center; gap: 8px; }
+.swatch { width: 22px; height: 0; border-top: 3px solid; display: inline-block; }
+
+figure { margin: 0; display: grid; gap: 10px; }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+svg.diagram { display: block; width: 100%; min-width: 900px; height: auto; font-family: var(--sans); }
+figcaption { font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 820px; }
+figcaption strong { color: var(--ink); font-weight: 600; }
+
+/* SVG styling from the page stylesheet */
+.box { fill: var(--bg); stroke-width: 1.75; }
+.core { fill: var(--panel); stroke: var(--ink); stroke-width: 1.25; }
+.chipbox { fill: var(--bg); stroke: var(--chain); stroke-width: 1; }
+.ln { fill: none; stroke-width: 1.7; }
+.dash { stroke-dasharray: 4 4; }
+.sep { stroke: var(--line); stroke-width: 1; }
+.k-ink { stroke: var(--ink); } .k-seq { stroke: var(--seq); } .k-mut { stroke: var(--mut); }
+.k-str { stroke: var(--str); } .k-llr { stroke: var(--llr); } .k-assay { stroke: var(--assay); }
+.f-ink { fill: var(--ink); } .f-seq { fill: var(--seq); } .f-mut { fill: var(--mut); }
+.f-str { fill: var(--str); } .f-llr { fill: var(--llr); } .f-assay { fill: var(--assay); }
+.f-rest { fill: var(--rest); } .f-unused { fill: var(--unused); } .f-bg { fill: var(--bg); }
+.pick { cursor: pointer; }
+.pick .hitbox { fill: var(--ink); fill-opacity: 0; stroke: none; transition: fill-opacity .12s; }
+.pick:hover .hitbox { fill-opacity: .05; }
+.pick:focus { outline: none; }
+.pick:focus-visible .hitbox, .pick.on .hitbox { fill-opacity: .06; stroke: var(--ink); stroke-width: 2.5; stroke-dasharray: 6 4; }
+.t-title { font: 600 14px var(--sans); fill: var(--ink); }
+.t-line { font: 400 12px var(--sans); fill: var(--muted); }
+.t-ink { font: 400 12px var(--sans); fill: var(--ink); }
+.t-small { font: 400 11px var(--sans); fill: var(--muted); }
+.t-chip { font: 500 11px var(--sans); fill: var(--ink); }
+.t-code { font: 400 11px var(--mono); fill: var(--ink); }
+.t-eye { font: 600 10px var(--mono); letter-spacing: .08em; fill: var(--muted); }
+.t-arrow { font: 500 11px var(--sans); fill: var(--muted); }
+.t-num { font: 600 24px var(--display); fill: var(--ink); }
+.t-stage { font: 600 14px var(--sans); fill: var(--ink); }
+.t-bead { font: 500 10px var(--mono); fill: var(--ink); }
+.t-axis { font: 400 11px var(--mono); fill: var(--muted); }
+.chainline { fill: none; stroke: var(--chain); stroke-width: 4; stroke-linecap: round; }
+.bead { fill: var(--bg); stroke: var(--chain); stroke-width: 1.5; }
+.bead-mut { fill: var(--mut); stroke: var(--mut); stroke-width: 1.5; }
+.bead-seq { fill: var(--bg); stroke: var(--seq); stroke-width: 2.5; }
+.bead-str { fill: var(--bg); stroke: var(--str); stroke-width: 2.5; }
+.grid { stroke: var(--line); stroke-width: 1; }
+.meas { fill: var(--bg); stroke: var(--ink); stroke-width: 2; }
+.pred { fill: var(--ink); }
+.conn { stroke: var(--chain); stroke-width: 2; }
+.hit { fill: var(--bg); fill-opacity: 0; }
+
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; counter-reset: step; }
+/* Number sits in a left gutter; every child of the step stays in one content column. */
+ol.steps > li { counter-increment: step; position: relative; display: grid; gap: 10px; padding-left: 60px; max-width: 820px; }
+ol.steps > li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 44px; font: 600 26px/1.1 var(--display);
+  color: var(--muted); border-top: 2px solid var(--ink); padding-top: 6px; font-variant-numeric: tabular-nums; }
+ol.steps > li > * { min-width: 0; }
+.detail { font: 400 13px/1.55 var(--mono); color: var(--muted); background: var(--panel); border-radius: 6px; padding: 8px 12px; overflow-wrap: anywhere; }
+
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; font-size: 14px; min-width: 620px; width: 100%; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { font: 600 12px/1.4 var(--mono); letter-spacing: .04em; color: var(--muted); border-bottom: 1.5px solid var(--ink); }
+tbody th { font-weight: 500; }
+td.num, th.num { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.chip { display: inline-block; font: 500 12px/1.2 var(--sans); padding: 3px 8px; border-radius: 999px; white-space: nowrap; color: var(--ink); }
+.on { background: var(--on-bg); } .off { background: var(--off-bg); } .part { background: var(--part-bg); }
+tfoot td { font-size: 13px; color: var(--muted); border-bottom: 0; }
+td code { font-size: 12.5px; }
+
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px 40px; align-items: start; }
+.two > * { min-width: 0; }
+ul.loss { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+ul.loss li { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 12px; }
+.w { font: 600 14px/1.5 var(--mono); font-variant-numeric: tabular-nums; }
+dl.recipe { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 16px; font-size: 15px; }
+dl.recipe dt { font-weight: 600; }
+dl.recipe dd { margin: 0; }
+/* The explanation opens as a drawer at the bottom of the screen, so the clicked box stays in view. */
+.panel { border: 1px solid var(--line); border-left: 5px solid var(--ink); border-radius: 10px; padding: 16px 18px;
+  display: grid; gap: 10px; background: var(--bg); position: fixed; z-index: 50; left: 50%; transform: translateX(-50%);
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px)); width: min(920px, calc(100% - 32px)); max-height: 46vh;
+  overflow-y: auto; box-shadow: 0 12px 40px var(--shadow-far), 0 2px 8px var(--shadow-near); }
+.panel .tag { padding-right: 76px; }
+.panel[data-stream="seq"] { border-left-color: var(--seq); } .panel[data-stream="mut"] { border-left-color: var(--mut); }
+.panel[data-stream="str"] { border-left-color: var(--str); } .panel[data-stream="llr"] { border-left-color: var(--llr); }
+.panel[data-stream="assay"] { border-left-color: var(--assay); }
+.panel .tag { font: 500 12px/1.4 var(--mono); color: var(--muted); }
+.panel .tag b { color: var(--ink); font-weight: 600; }
+.panel dl { margin: 0; display: grid; gap: 2px; font-size: 15px; line-height: 1.6; max-width: 80ch; }
+.panel dt { font: 600 11px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+.panel dd { margin: 0; }
+.panel-close { position: absolute; top: 10px; right: 12px; font: 500 12px var(--sans); color: var(--muted);
+  background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+.panel-close:hover { color: var(--ink); border-color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 18px; }
+.card { border: 1px solid var(--line); border-top-width: 5px; border-radius: 8px; padding: 14px 16px 16px; display: grid; gap: 8px; align-content: start; min-width: 0; background: var(--bg); }
+.card.b-seq { border-top-color: var(--seq); } .card.b-mut { border-top-color: var(--mut); } .card.b-str { border-top-color: var(--str); }
+.card.b-llr { border-top-color: var(--llr); } .card.b-assay { border-top-color: var(--assay); } .card.b-ink { border-top-color: var(--ink); }
+.card .tag { font: 500 12px/1.4 var(--mono); color: var(--muted); }
+.card .tag b { color: var(--ink); font-weight: 600; }
+.card dl { margin: 0; display: grid; gap: 2px; font-size: 14.5px; line-height: 1.55; }
+.card dt { font: 600 11px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+.card dd { margin: 0; }
+.note { font-size: 14px; color: var(--muted); max-width: 700px; }
+.stats { display: flex; flex-wrap: wrap; gap: 10px 36px; }
+.stats div { display: grid; }
+.stats b { font: 600 24px/1.2 var(--mono); font-variant-numeric: tabular-nums; }
+.stats span { font-size: 13px; color: var(--muted); }
+ul.plain { margin: 0; padding-left: 20px; display: grid; gap: 8px; max-width: 760px; }
+footer { border-top: 1px solid var(--line); padding-top: 16px; font-size: 13px; color: var(--muted); }
+@media (max-width: 520px) {
+  ol.steps > li { padding-left: 44px; }
+  ol.steps > li::before { width: 32px; font-size: 22px; }
+  dl.recipe { grid-template-columns: minmax(0, 1fr); gap: 2px 0; }
+  dl.recipe dd { margin-bottom: 8px; }
+  ul.loss li { grid-template-columns: 60px minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <p class="eyebrow">MIPO-NDD · release 3ce6c2822684 · model <code>mipo</code></p>
+    <h1>How MIPO turns one mutation into a score</h1>
+    <p class="lede">MIPO predicts what a lab experiment would measure for a single amino-acid change in a protein it was never trained on. It reads the protein with a frozen language model, drops a signal on the mutated residue, lets that signal spread to nearby residues in 3D, and converts the result into a score for that specific experiment, together with how unsure it is.</p>
+    <dl class="facts">
+      <div><dt>1,048,794</dt><dd>numbers MIPO learns</dd></div>
+      <div><dt>650M</dt><dd>ESM-2 numbers, kept frozen</dd></div>
+      <div><dt>256</dt><dd>residues looked at per mutation</dd></div>
+      <div><dt>3</dt><dd>rounds of spreading</dd></div>
+      <div><dt>8</dt><dd>numbers in the bottleneck</dd></div>
+      <div><dt>μ, σ</dt><dd>score and uncertainty</dd></div>
+    </dl>
+  </header>
+
+  <section aria-labelledby="overview">
+    <div class="prose stack">
+      <h2 id="overview">The whole model, stage by stage</h2>
+      <p><strong>Click any box for a full explanation of what it does.</strong> Read the numbered stages on the left from top to bottom. The violet line down the middle is the mutation itself. Blue information comes from the protein sequence, green from the 3D structure, pink from ESM-2's own guess, and yellow from the description of the experiment. Grey boxes are MIPO's own layers.</p>
+    </div>
+    <ul class="legend" aria-label="Colour key">
+      <li><span class="swatch" style="border-color:var(--seq)"></span>protein sequence (ESM-2)</li>
+      <li><span class="swatch" style="border-color:var(--mut)"></span>the mutation</li>
+      <li><span class="swatch" style="border-color:var(--str)"></span>3D structure</li>
+      <li><span class="swatch" style="border-color:var(--llr)"></span>zero-shot LLR</li>
+      <li><span class="swatch" style="border-color:var(--assay)"></span>assay description</li>
+      <li><span class="swatch" style="border-color:var(--ink)"></span>MIPO's own layers and outputs</li>
+    </ul>
+    <figure>
+      <div class="scroll">
+        <svg class="diagram" viewBox="0 0 1140 1300" id="flow" role="group" aria-label="MIPO forward pass in eight stages: inputs; prepare (residue context, mutation impulse, residue graph); spread over the graph for three rounds; four summary views; weighted mix; 8-number bottleneck; readout with weights generated from the assay description; outputs per variant, per residue and for checking.">
+          <defs>
+            <marker id="m-ink" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker>
+            <marker id="m-seq" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-seq"/></marker>
+            <marker id="m-mut" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-mut"/></marker>
+            <marker id="m-str" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-str"/></marker>
+            <marker id="m-llr" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-llr"/></marker>
+            <marker id="m-assay" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-assay"/></marker>
+          </defs>
+
+          <!-- Stage gutter -->
+          <line class="sep" x1="20" y1="156" x2="1120" y2="156"/>
+          <line class="sep" x1="20" y1="300" x2="1120" y2="300"/>
+          <line class="sep" x1="20" y1="510" x2="1120" y2="510"/>
+          <line class="sep" x1="20" y1="690" x2="1120" y2="690"/>
+          <line class="sep" x1="20" y1="830" x2="1120" y2="830"/>
+          <line class="sep" x1="20" y1="950" x2="1120" y2="950"/>
+          <line class="sep" x1="20" y1="1070" x2="1120" y2="1070"/>
+          <text class="t-num" x="20" y="52">1</text><text class="t-stage" x="44" y="50">Inputs</text>
+          <text class="t-small" x="20" y="72">what MIPO is given</text><text class="t-small" x="20" y="87">(two more join later)</text>
+          <text class="t-num" x="20" y="192">2</text><text class="t-stage" x="44" y="190">Prepare</text>
+          <text class="t-small" x="20" y="212">turn each input</text><text class="t-small" x="20" y="227">into numbers</text>
+          <text class="t-num" x="20" y="336">3</text><text class="t-stage" x="44" y="334">Spread</text>
+          <text class="t-small" x="20" y="356">3 rounds over the</text><text class="t-small" x="20" y="371">residue graph</text>
+          <text class="t-num" x="20" y="546">4</text><text class="t-stage" x="44" y="544">Summarise</text>
+          <text class="t-small" x="20" y="566">four views of</text><text class="t-small" x="20" y="581">the mutation</text>
+          <text class="t-num" x="20" y="726">5</text><text class="t-stage" x="44" y="724">Mix</text>
+          <text class="t-small" x="20" y="746">weigh the four views</text>
+          <text class="t-num" x="20" y="866">6</text><text class="t-stage" x="44" y="864">Squeeze</text>
+          <text class="t-small" x="20" y="886">keep 8 numbers</text>
+          <text class="t-num" x="20" y="986">7</text><text class="t-stage" x="44" y="984">Read out</text>
+          <text class="t-small" x="20" y="1006">score for this assay</text>
+          <text class="t-num" x="20" y="1106">8</text><text class="t-stage" x="44" y="1104">Outputs</text>
+          <text class="t-small" x="20" y="1126">what you get back</text>
+
+          <!-- Stage 1: inputs -->
+          <rect class="box k-seq" x="170" y="32" width="230" height="108" rx="8"/>
+          <rect class="f-seq" x="184" y="45" width="8" height="8"/><text class="t-eye" x="198" y="53">INPUT</text>
+          <text class="t-title" x="184" y="74">Protein sequence</text>
+          <text class="t-line" x="184" y="94">PTEN, 403 residues</text>
+          <text class="t-line" x="184" y="111">ESM-2 650M reads it once</text>
+          <text class="t-line" x="184" y="128">(frozen, saved to disk)</text>
+
+          <rect class="box k-mut" x="540" y="32" width="280" height="108" rx="8"/>
+          <rect class="f-mut" x="554" y="45" width="8" height="8"/><text class="t-eye" x="568" y="53">INPUT</text>
+          <text class="t-title" x="554" y="74">The mutation</text>
+          <text class="t-line" x="554" y="94">C124S at residue 124</text>
+          <text class="t-line" x="554" y="111">cysteine → serine</text>
+          <text class="t-line" x="554" y="128">(PTEN's catalytic cysteine)</text>
+
+          <rect class="box k-str" x="920" y="32" width="210" height="108" rx="8"/>
+          <rect class="f-str" x="934" y="45" width="8" height="8"/><text class="t-eye" x="948" y="53">INPUT</text>
+          <text class="t-title" x="934" y="74">3D structure</text>
+          <text class="t-line" x="934" y="94">PTEN: 1 structure</text>
+          <text class="t-line" x="934" y="111">(up to 4 allowed)</text>
+          <text class="t-line" x="934" y="128">+ confidence per residue</text>
+
+          <line class="ln k-seq" x1="285" y1="140" x2="285" y2="176" marker-end="url(#m-seq)"/>
+          <text class="t-arrow" x="293" y="162">1,280 numbers each</text>
+          <line class="ln k-mut" x1="680" y1="140" x2="680" y2="176" marker-end="url(#m-mut)"/>
+          <text class="t-arrow" x="688" y="162">what changed</text>
+          <line class="ln k-str" x1="1025" y1="140" x2="1025" y2="176" marker-end="url(#m-str)"/>
+          <text class="t-arrow" x="1033" y="162">coordinates</text>
+
+          <!-- Stage 2: prepare -->
+          <rect class="box k-seq" x="170" y="176" width="230" height="100" rx="8"/>
+          <text class="t-title" x="184" y="204">Residue context</text>
+          <text class="t-line" x="184" y="224">1,280 → 128 numbers</text>
+          <text class="t-line" x="184" y="241">for every residue</text>
+          <text class="t-line" x="184" y="258">(one learned layer)</text>
+
+          <rect class="box k-mut" x="540" y="176" width="280" height="100" rx="8"/>
+          <text class="t-title" x="554" y="204">Mutation impulse</text>
+          <text class="t-line" x="554" y="224">fingerprint + chemistry change</text>
+          <text class="t-line" x="554" y="241">strength set by site context</text>
+          <text class="t-line" x="554" y="258">starts on residue 124 only</text>
+
+          <rect class="box k-str" x="920" y="176" width="210" height="100" rx="8"/>
+          <text class="t-title" x="934" y="204">Residue graph</text>
+          <text class="t-line" x="934" y="224">keeps 256 of 403 residues</text>
+          <text class="t-line" x="934" y="241">16 links per residue</text>
+          <text class="t-line" x="934" y="258">5 numbers per link</text>
+
+          <line class="ln k-seq" x1="400" y1="210" x2="540" y2="210" marker-end="url(#m-seq)"/>
+          <text class="t-arrow" x="470" y="203" text-anchor="middle">site context</text>
+          <path class="ln k-seq" d="M330,276 V420 H540" marker-end="url(#m-seq)"/>
+          <text class="t-arrow" x="415" y="413" text-anchor="middle">guides messages</text>
+          <path class="ln k-mut" d="M540,262 H500 V413 A7,7 0 0 1 500,427 V540 H540" marker-end="url(#m-mut)"/>
+          <text class="t-arrow" x="492" y="462" text-anchor="end">mutation skips</text>
+          <text class="t-arrow" x="492" y="476" text-anchor="end">ahead to ④</text>
+          <line class="ln k-mut" x1="680" y1="276" x2="680" y2="324" marker-end="url(#m-mut)"/>
+          <text class="t-arrow" x="688" y="304">starting signal</text>
+          <path class="ln k-str" d="M920,245 H870 V404 H820" marker-end="url(#m-str)"/>
+          <text class="t-arrow" x="878" y="345">who talks</text>
+          <text class="t-arrow" x="878" y="359">to whom</text>
+          <line class="ln k-seq" x1="285" y1="276" x2="285" y2="530" marker-end="url(#m-seq)"/>
+          <text class="t-arrow" x="293" y="497">same features</text>
+
+          <!-- Stage 3: spread -->
+          <rect class="core" x="540" y="324" width="280" height="160" rx="8"/>
+          <text class="t-eye" x="554" y="342">3 ROUNDS</text>
+          <text class="t-title" x="554" y="361">Response field</text>
+          <rect class="chipbox" x="554" y="372" width="80" height="46" rx="5"/>
+          <text class="t-chip" x="594" y="391" text-anchor="middle">neighbour</text><text class="t-chip" x="594" y="406" text-anchor="middle">messages</text>
+          <rect class="chipbox" x="640" y="372" width="80" height="46" rx="5"/>
+          <text class="t-chip" x="680" y="391" text-anchor="middle">3D</text><text class="t-chip" x="680" y="406" text-anchor="middle">direction</text>
+          <rect class="chipbox" x="726" y="372" width="80" height="46" rx="5"/>
+          <text class="t-chip" x="766" y="391" text-anchor="middle">16 hubs</text><text class="t-chip" x="766" y="406" text-anchor="middle">(landmarks)</text>
+          <line class="ln k-ink" x1="594" y1="418" x2="594" y2="430" marker-end="url(#m-ink)"/>
+          <line class="ln k-ink" x1="680" y1="418" x2="680" y2="430" marker-end="url(#m-ink)"/>
+          <line class="ln k-ink" x1="766" y1="418" x2="766" y2="430" marker-end="url(#m-ink)"/>
+          <rect class="chipbox" x="554" y="430" width="252" height="24" rx="5"/>
+          <text class="t-chip" x="680" y="446" text-anchor="middle">update: old + step × change</text>
+          <text class="t-small" x="680" y="474" text-anchor="middle">×3 → 128 numbers per kept residue</text>
+
+          <line class="ln k-ink" x1="584" y1="484" x2="584" y2="530" marker-end="url(#m-ink)"/>
+          <text class="t-arrow" x="590" y="512">at 124</text>
+          <line class="ln k-ink" x1="648" y1="484" x2="648" y2="530" marker-end="url(#m-ink)"/>
+          <text class="t-arrow" x="654" y="512">average</text>
+
+          <!-- Stage 4: summarise -->
+          <rect class="box k-seq" x="170" y="530" width="230" height="100" rx="8"/>
+          <text class="t-title" x="184" y="558">Sequence summaries</text>
+          <text class="t-line" x="184" y="578">±25-residue window reader</text>
+          <text class="t-line" x="184" y="595">(2-layer transformer)</text>
+          <text class="t-line" x="184" y="612">+ whole-protein average</text>
+
+          <rect class="core" x="540" y="530" width="280" height="136" rx="8"/>
+          <text class="t-title" x="554" y="556">Four views</text>
+          <rect class="chipbox" x="554" y="568" width="60" height="62" rx="5"/>
+          <text class="t-title" x="584" y="587" text-anchor="middle">①</text><text class="t-chip" x="584" y="603" text-anchor="middle">site</text><text class="t-chip" x="584" y="618" text-anchor="middle">view</text>
+          <rect class="chipbox" x="618" y="568" width="60" height="62" rx="5"/>
+          <text class="t-title" x="648" y="587" text-anchor="middle">②</text><text class="t-chip" x="648" y="603" text-anchor="middle">field</text><text class="t-chip" x="648" y="618" text-anchor="middle">average</text>
+          <rect class="chipbox" x="682" y="568" width="60" height="62" rx="5"/>
+          <text class="t-title" x="712" y="587" text-anchor="middle">③</text><text class="t-chip" x="712" y="603" text-anchor="middle">protein</text><text class="t-chip" x="712" y="618" text-anchor="middle">average</text>
+          <rect class="chipbox" x="746" y="568" width="60" height="62" rx="5"/>
+          <text class="t-title" x="776" y="587" text-anchor="middle">④</text><text class="t-chip" x="776" y="603" text-anchor="middle">mutation</text><text class="t-chip" x="776" y="618" text-anchor="middle">+ LLR</text>
+          <text class="t-small" x="554" y="652">each view = 128 numbers</text>
+
+          <rect class="box k-llr" x="920" y="530" width="210" height="108" rx="8"/>
+          <rect class="f-llr" x="934" y="543" width="8" height="8"/><text class="t-eye" x="948" y="551">INPUT</text>
+          <text class="t-title" x="934" y="572">Zero-shot LLR</text>
+          <text class="t-line" x="934" y="592">hide residue 124, ask ESM-2:</text>
+          <text class="t-line" x="934" y="609">how likely is S vs C?</text>
+          <text class="t-line" x="934" y="626">(one number)</text>
+
+          <line class="ln k-seq" x1="400" y1="610" x2="540" y2="610" marker-end="url(#m-seq)"/>
+          <text class="t-arrow" x="470" y="627" text-anchor="middle">window → ①, avg → ③</text>
+          <line class="ln k-llr" x1="920" y1="585" x2="820" y2="585" marker-end="url(#m-llr)"/>
+          <text class="t-arrow" x="870" y="578" text-anchor="middle">LLR → ④</text>
+
+          <line class="ln k-ink" x1="680" y1="666" x2="680" y2="710" marker-end="url(#m-ink)"/>
+          <text class="t-arrow" x="688" y="692">4 × 128 numbers</text>
+
+          <!-- Stage 5: mix -->
+          <rect class="core" x="540" y="710" width="280" height="90" rx="8"/>
+          <text class="t-title" x="554" y="736">Weighted mix</text>
+          <text class="t-line" x="554" y="756">a small network weighs the 4 views</text>
+          <text class="t-line" x="554" y="773">(it also sees 3D confidence at 124)</text>
+          <text class="t-line" x="554" y="790">training: ①–③ dropped 10% of the time</text>
+
+          <rect class="box k-assay" x="920" y="710" width="210" height="108" rx="8"/>
+          <rect class="f-assay" x="934" y="723" width="8" height="8"/><text class="t-eye" x="948" y="731">INPUT</text>
+          <text class="t-title" x="934" y="752">Assay description</text>
+          <text class="t-line" x="934" y="772">task: activity</text>
+          <text class="t-line" x="934" y="789">host, selection, system,</text>
+          <text class="t-line" x="934" y="806">treatment, region</text>
+
+          <line class="ln k-ink" x1="680" y1="800" x2="680" y2="850" marker-end="url(#m-ink)"/>
+          <text class="t-arrow" x="688" y="830">128 numbers</text>
+          <line class="ln k-assay" x1="1025" y1="818" x2="1025" y2="850" marker-end="url(#m-assay)"/>
+          <text class="t-arrow" x="1033" y="840">40-number code</text>
+
+          <!-- Stage 6: squeeze -->
+          <rect class="core" x="540" y="850" width="280" height="80" rx="8"/>
+          <text class="t-title" x="554" y="876">Bottleneck</text>
+          <text class="t-line" x="554" y="896">squeezed to 8 numbers,</text>
+          <text class="t-line" x="554" y="913">each between −1 and 1</text>
+
+          <rect class="box k-assay" x="920" y="850" width="210" height="92" rx="8"/>
+          <text class="t-title" x="934" y="876">Hypernetwork</text>
+          <text class="t-line" x="934" y="896">code 40 → 64 → 18 numbers</text>
+          <text class="t-line" x="934" y="913">= the readout's weights</text>
+          <text class="t-line" x="934" y="930">general one if task unseen</text>
+
+          <line class="ln k-ink" x1="680" y1="930" x2="680" y2="970" marker-end="url(#m-ink)"/>
+          <text class="t-arrow" x="688" y="955">8 numbers</text>
+          <path class="ln k-assay" d="M1025,942 V1015 H820" marker-end="url(#m-assay)"/>
+          <text class="t-arrow" x="922" y="1008" text-anchor="middle">weights</text>
+
+          <!-- Stage 7: read out -->
+          <rect class="core" x="540" y="970" width="280" height="90" rx="8"/>
+          <text class="t-title" x="554" y="996">Readout</text>
+          <text class="t-line" x="554" y="1016">μ = weighted sum of the 8 numbers</text>
+          <text class="t-line" x="554" y="1033">σ = uncertainty (at least 0.05)</text>
+          <text class="t-line" x="554" y="1050">(both on the training scale)</text>
+
+          <line class="ln k-ink" x1="680" y1="1060" x2="680" y2="1090" marker-end="url(#m-ink)"/>
+
+          <!-- Stage 8: outputs -->
+          <rect class="box k-ink" x="170" y="1090" width="230" height="190" rx="8"/>
+          <text class="t-eye" x="184" y="1110">PER RESIDUE · OPTIONAL</text>
+          <text class="t-title" x="184" y="1131">Effect map</text>
+          <text class="t-line" x="184" y="1151">response field from stage 3:</text>
+          <text class="t-line" x="184" y="1168">128 numbers per kept residue</text>
+          <text class="t-line" x="184" y="1185">+ 3D direction vectors</text>
+          <text class="t-code" x="184" y="1215">mipo predict</text>
+          <text class="t-code" x="184" y="1231">  --export-fields</text>
+          <text class="t-code" x="184" y="1247">→ field_*.npz</text>
+
+          <rect class="box k-ink" x="540" y="1090" width="280" height="190" rx="8"/>
+          <text class="t-eye" x="554" y="1110">PER VARIANT</text>
+          <text class="t-title" x="554" y="1131">Prediction</text>
+          <text class="t-line" x="554" y="1151">score μ and uncertainty σ,</text>
+          <text class="t-line" x="554" y="1168">converted to the assay's own units</text>
+          <text class="t-line" x="554" y="1185">90% range: μ ± 1.645 σ</text>
+          <text class="t-line" x="554" y="1202">(calibrated range when possible)</text>
+          <text class="t-code" x="554" y="1231">test_predictions.csv</text>
+          <text class="t-code" x="554" y="1247">→ test_metrics.csv (Spearman)</text>
+          <text class="t-code" x="554" y="1263">→ test_summary.json</text>
+
+          <rect class="box k-ink" x="920" y="1090" width="210" height="190" rx="8"/>
+          <text class="t-eye" x="934" y="1110">FOR CHECKING · OPTIONAL</text>
+          <text class="t-title" x="934" y="1131">What it leaned on</text>
+          <text class="t-line" x="934" y="1151">the 4 view weights (stage 5)</text>
+          <text class="t-line" x="934" y="1168">the 8 numbers (stage 6)</text>
+          <text class="t-code" x="934" y="1231">same field_*.npz</text>
+        
+          <g class="pick" data-key="protein-sequence" role="button" tabindex="0" aria-label="Protein sequence: show explanation"><rect class="hitbox" x="170" y="32" width="230" height="108" rx="8"/></g>
+          <g class="pick" data-key="the-mutation" role="button" tabindex="0" aria-label="The mutation: show explanation"><rect class="hitbox" x="540" y="32" width="280" height="108" rx="8"/></g>
+          <g class="pick" data-key="3d-structure" role="button" tabindex="0" aria-label="3D structure: show explanation"><rect class="hitbox" x="920" y="32" width="210" height="108" rx="8"/></g>
+          <g class="pick" data-key="residue-context" role="button" tabindex="0" aria-label="Residue context: show explanation"><rect class="hitbox" x="170" y="176" width="230" height="100" rx="8"/></g>
+          <g class="pick" data-key="mutation-impulse" role="button" tabindex="0" aria-label="Mutation impulse: show explanation"><rect class="hitbox" x="540" y="176" width="280" height="100" rx="8"/></g>
+          <g class="pick" data-key="residue-graph" role="button" tabindex="0" aria-label="Residue graph: show explanation"><rect class="hitbox" x="920" y="176" width="210" height="100" rx="8"/></g>
+          <g class="pick" data-key="response-field" role="button" tabindex="0" aria-label="Response field: show explanation"><rect class="hitbox" x="540" y="324" width="280" height="160" rx="8"/></g>
+          <g class="pick" data-key="sequence-summaries" role="button" tabindex="0" aria-label="Sequence summaries: show explanation"><rect class="hitbox" x="170" y="530" width="230" height="100" rx="8"/></g>
+          <g class="pick" data-key="four-views" role="button" tabindex="0" aria-label="Four views: show explanation"><rect class="hitbox" x="540" y="530" width="280" height="136" rx="8"/></g>
+          <g class="pick" data-key="zero-shot-llr" role="button" tabindex="0" aria-label="Zero-shot LLR: show explanation"><rect class="hitbox" x="920" y="530" width="210" height="108" rx="8"/></g>
+          <g class="pick" data-key="weighted-mix" role="button" tabindex="0" aria-label="Weighted mix: show explanation"><rect class="hitbox" x="540" y="710" width="280" height="90" rx="8"/></g>
+          <g class="pick" data-key="assay-description" role="button" tabindex="0" aria-label="Assay description: show explanation"><rect class="hitbox" x="920" y="710" width="210" height="108" rx="8"/></g>
+          <g class="pick" data-key="bottleneck" role="button" tabindex="0" aria-label="Bottleneck: show explanation"><rect class="hitbox" x="540" y="850" width="280" height="80" rx="8"/></g>
+          <g class="pick" data-key="hypernetwork" role="button" tabindex="0" aria-label="Hypernetwork: show explanation"><rect class="hitbox" x="920" y="850" width="210" height="92" rx="8"/></g>
+          <g class="pick" data-key="readout" role="button" tabindex="0" aria-label="Readout: show explanation"><rect class="hitbox" x="540" y="970" width="280" height="90" rx="8"/></g>
+          <g class="pick" data-key="effect-map" role="button" tabindex="0" aria-label="Effect map: show explanation"><rect class="hitbox" x="170" y="1090" width="230" height="190" rx="8"/></g>
+          <g class="pick" data-key="prediction" role="button" tabindex="0" aria-label="Prediction: show explanation"><rect class="hitbox" x="540" y="1090" width="280" height="190" rx="8"/></g>
+          <g class="pick" data-key="what-it-leaned-on" role="button" tabindex="0" aria-label="What it leaned on: show explanation"><rect class="hitbox" x="920" y="1090" width="210" height="190" rx="8"/></g>
+        </svg>
+      </div>
+      <aside id="box-panel" class="panel" hidden aria-live="polite">
+        <button class="panel-close" type="button" aria-label="Close explanation">Close</button>
+        <div class="panel-body"></div>
+      </aside>
+      <figcaption><strong>Figure 1.</strong> One prediction, stage by stage. The mutation starts as a signal on residue 124 (stage 2), spreads over a graph of 256 PTEN residues for three rounds (stage 3), is summarised four ways and mixed (stages 4–5), squeezed to 8 numbers (stage 6), and read out with weights that depend on the experiment (stage 7). Training runs write the per-variant outputs; the effect map and the weights come from <code>mipo predict --export-fields</code>. Example input: PTEN C124S in an activity assay. Every box is explained in the cards below.</figcaption>
+    </figure>
+  </section>
+
+  <section aria-labelledby="boxes">
+    <div class="prose stack">
+      <h2 id="boxes">Every box in Figure 1, explained</h2>
+      <p>One card per box, in stage order. The coloured bar on each card matches its colour in Figure 1. The learned-number counts come from the model code and add up to 1,048,794 (plus 414 that exist but are not used in this run: the fixed-heads readout, the shared readout, the LLR correction and the physical-proxy readout).</p>
+    </div>
+    <div class="cards">
+      <article id="card-protein-sequence" class="card b-seq" data-stream="seq">
+        <p class="tag">Stage 1 · Input · learned numbers: <b>0 (frozen)</b></p>
+        <h3>Protein sequence</h3>
+        <dl>
+          <dt>Goes in</dt><dd>The PTEN amino-acid sequence, 403 residues.</dd>
+          <dt>What it does</dt><dd>ESM-2 (650M), a protein language model built by others, reads the whole protein once and writes 1,280 numbers describing every residue. Long proteins are read in overlapping windows of 768. The results are saved to disk, so this is not repeated for each variant. MIPO never changes ESM-2.</dd>
+          <dt>Comes out</dt><dd>403 × 1,280 numbers, saved to disk.</dd>
+        </dl>
+      </article>
+      <article id="card-the-mutation" class="card b-mut" data-stream="mut">
+        <p class="tag">Stage 1 · Input · learned numbers: <b>0</b></p>
+        <h3>The mutation</h3>
+        <dl>
+          <dt>Goes in</dt><dd>Which residue changes, and to what: C124S.</dd>
+          <dt>What it does</dt><dd>Nothing is computed here. It only names the position (residue 124 of the reference sequence used in the experiment) and the two amino acids, cysteine before and serine after.</dd>
+          <dt>Comes out</dt><dd>Position 124, from C, to S.</dd>
+        </dl>
+      </article>
+      <article id="card-3d-structure" class="card b-str" data-stream="str">
+        <p class="tag">Stage 1 · Input · learned numbers: <b>0</b></p>
+        <h3>3D structure</h3>
+        <dl>
+          <dt>Goes in</dt><dd>Coordinates of each residue in 3D, plus a confidence between 0 and 1 for each residue.</dd>
+          <dt>What it does</dt><dd>PTEN has one structure (up to 4 are allowed). The confidence at residue 124 is 0.94. Residues with confidence 0.5 or lower are ignored when measuring distances and directions. If a protein has no structure, MIPO uses chain neighbours only and never invents coordinates.</dd>
+          <dt>Comes out</dt><dd>Coordinates and confidence, passed to the residue graph.</dd>
+        </dl>
+      </article>
+      <article id="card-residue-context" class="card b-seq" data-stream="seq">
+        <p class="tag">Stage 2 · Prepare · learned numbers: <b>164,224</b></p>
+        <h3>Residue context</h3>
+        <dl>
+          <dt>Goes in</dt><dd>Each residue's 1,280 ESM-2 numbers.</dd>
+          <dt>What it does</dt><dd>One learned layer shrinks 1,280 numbers to 128 (then evens them out). This 128-number context is what later parts use to decide which residues matter to each other. The same layer also shrinks the whole-protein average.</dd>
+          <dt>Comes out</dt><dd>128 numbers for every residue.</dd>
+        </dl>
+      </article>
+      <article id="card-mutation-impulse" class="card b-mut" data-stream="mut">
+        <p class="tag">Stage 2 · Prepare · learned numbers: <b>37,088</b></p>
+        <h3>Mutation impulse</h3>
+        <dl>
+          <dt>Goes in</dt><dd>The two amino acids, C and S, plus ESM-2's description of residue 124.</dd>
+          <dt>What it does</dt><dd>Compares C and S two ways: a learned 24-number fingerprint per amino acid, and four fixed chemistry numbers (hydropathy, volume, charge, polar side chain; for C124S: −3.3, −19.5, 0, +1 before scaling). That is 28 numbers of difference. A learned layer turns them into 128 numbers between −1 and 1, and a gate computed from residue 124's context sets how strong the signal is. The signal is placed on residue 124; every other residue starts at zero.</dd>
+          <dt>Comes out</dt><dd>A 128-number signal on residue 124, zeros elsewhere.</dd>
+        </dl>
+      </article>
+      <article id="card-residue-graph" class="card b-str" data-stream="str">
+        <p class="tag">Stage 2 · Prepare · learned numbers: <b>0</b></p>
+        <h3>Residue graph</h3>
+        <dl>
+          <dt>Goes in</dt><dd>The structure and the mutated position.</dd>
+          <dt>What it does</dt><dd>Chooses 256 of PTEN's 403 residues: 51 around the mutation, 19 close to it in 3D, and 186 evenly spaced. Gives each residue 16 links (up to 8 nearest in 3D, the rest nearest along the chain). Puts 5 numbers on every link: distance, how much the distance varies between structures, contact strength, gap along the chain, and confidence. This is ordinary code on the CPU, run for every variant. Nothing is learned.</dd>
+          <dt>Comes out</dt><dd>A graph of 256 residues with 16 links each.</dd>
+        </dl>
+      </article>
+      <article id="card-response-field" class="card b-ink" data-stream="ink">
+        <p class="tag">Stage 3 · Spread · learned numbers: <b>304,566</b></p>
+        <h3>Response field</h3>
+        <dl>
+          <dt>Goes in</dt><dd>The impulse, the graph, and every residue's context.</dd>
+          <dt>What it does</dt><dd>Three rounds. In each round, every residue collects three things. (1) Neighbour messages: a small network scores each of its 16 links from both residues' context and the 5 link numbers; the scores become weights that add to 1, and the neighbours' values are mixed with them. (2) 3D direction: arrows to its linked residues are added up and only the length is kept, so rotating the protein changes nothing. (3) 16 hubs: residues are softly assigned to 16 landmarks that pool their members and pass the result back, so distant residues hear each other in one step. The residue then updates: new = old + step × change. The step size is learned and starts near 0.27. There are no constant terms, so an all-zero field stays zero.</dd>
+          <dt>Comes out</dt><dd>128 numbers on every kept residue: the response field. Each round has its own copy of the layers (about 101,500 learned numbers each).</dd>
+        </dl>
+      </article>
+      <article id="card-sequence-summaries" class="card b-seq" data-stream="seq">
+        <p class="tag">Stage 4 · Summarise · learned numbers: <b>271,488</b></p>
+        <h3>Sequence summaries</h3>
+        <dl>
+          <dt>Goes in</dt><dd>ESM-2's numbers for the 51 residues around 124 (99 to 149), and the whole-protein average.</dd>
+          <dt>What it does</dt><dd>Window reader: shrinks each residue to 128, adds a learned tag for its slot (−25 to +25), and runs 2 transformer layers with 4 attention heads each, so every residue in the window looks at all the others. Only the centre output, residue 124, is kept. The whole-protein average goes through the same shrinking layer as Residue context.</dd>
+          <dt>Comes out</dt><dd>Two 128-number lists, used as views ① and ③.</dd>
+        </dl>
+      </article>
+      <article id="card-zero-shot-llr" class="card b-llr" data-stream="llr">
+        <p class="tag">Stage 4 · Input · learned numbers: <b>16,896</b></p>
+        <h3>Zero-shot LLR</h3>
+        <dl>
+          <dt>Goes in</dt><dd>ESM-2's probabilities for residue 124 when 124 is hidden (computed once and saved).</dd>
+          <dt>What it does</dt><dd>LLR = log p(S) − log p(C) = −12.09 for C124S. Divided by 10 gives −1.209. A second number says the LLR is present (1). A small network turns [−1.209, 1] into 128 numbers.</dd>
+          <dt>Comes out</dt><dd>128 numbers, added to the impulse for view ④.</dd>
+        </dl>
+      </article>
+      <article id="card-four-views" class="card b-ink" data-stream="ink">
+        <p class="tag">Stage 4 · Summarise · learned numbers: <b>0</b></p>
+        <h3>Four views</h3>
+        <dl>
+          <dt>Goes in</dt><dd>Everything from the boxes above.</dd>
+          <dt>What it does</dt><dd>Nothing new is computed; it lines up four lists of 128 numbers so they can be weighed. ① Site: window reader output plus the field at residue 124 (what is around it and what happened to it). ② Field average over all 256 kept residues (the overall effect). ③ Whole-protein average (which protein this is). ④ Impulse plus LLR (the change itself and ESM-2's opinion of it).</dd>
+          <dt>Comes out</dt><dd>4 × 128 numbers.</dd>
+        </dl>
+      </article>
+      <article id="card-weighted-mix" class="card b-ink" data-stream="ink">
+        <p class="tag">Stage 5 · Mix · learned numbers: <b>230,532</b></p>
+        <h3>Weighted mix</h3>
+        <dl>
+          <dt>Goes in</dt><dd>The four views, plus the structure's confidence at residue 124.</dd>
+          <dt>What it does</dt><dd>A small network reads all four views (513 numbers) and outputs four weights that add to 1: which views to trust for this variant. Each view is multiplied by its weight, and a second network (512 to 256 to 128) mixes them. During training, views ① to ③ are switched off at random 10% of the time so the model cannot rely on one source. View ④ is never switched off.</dd>
+          <dt>Comes out</dt><dd>128 numbers, and the 4 weights.</dd>
+        </dl>
+      </article>
+      <article id="card-assay-description" class="card b-assay" data-stream="assay">
+        <p class="tag">Stage 5 · Input · learned numbers: <b>2,248</b></p>
+        <h3>Assay description</h3>
+        <dl>
+          <dt>Goes in</dt><dd>The task (activity, stability, abundance, binding, fitness or consensus) and details such as host, selection, system, treatment and protein region.</dd>
+          <dt>What it does</dt><dd>The task becomes a learned list of 24 numbers. The details become a learned list of 16, averaged over the items. Joined, that is a 40-number code. Gene names and assay IDs are never used. During training, 15% of variants hide their task, so the model also learns a general code for assay types it has not seen.</dd>
+          <dt>Comes out</dt><dd>A 40-number code.</dd>
+        </dl>
+      </article>
+      <article id="card-bottleneck" class="card b-ink" data-stream="ink">
+        <p class="tag">Stage 6 · Squeeze · learned numbers: <b>17,544</b></p>
+        <h3>Bottleneck</h3>
+        <dl>
+          <dt>Goes in</dt><dd>The 128 mixed numbers.</dd>
+          <dt>What it does</dt><dd>A small network (128 to 128 to 8) followed by tanh forces everything through 8 numbers between −1 and 1. The 8 numbers have no names, and every kind of assay reads from the same 8.</dd>
+          <dt>Comes out</dt><dd>8 numbers.</dd>
+        </dl>
+      </article>
+      <article id="card-hypernetwork" class="card b-assay" data-stream="assay">
+        <p class="tag">Stage 6 · Weights · learned numbers: <b>3,794</b></p>
+        <h3>Hypernetwork</h3>
+        <dl>
+          <dt>Goes in</dt><dd>The 40-number assay code.</dd>
+          <dt>What it does</dt><dd>A network that writes the weights of another network. It maps 40 to 64 to 18 numbers. The 18 are, for each of two outputs (score and uncertainty), 8 weights and 1 offset. So the same 8 numbers are read differently for an activity assay than for an abundance assay. If the task is unknown, the code asks for a general readout.</dd>
+          <dt>Comes out</dt><dd>18 numbers: the readout's weights.</dd>
+        </dl>
+      </article>
+      <article id="card-readout" class="card b-ink" data-stream="ink">
+        <p class="tag">Stage 7 · Read out · learned numbers: <b>0 (weights come from the hypernetwork)</b></p>
+        <h3>Readout</h3>
+        <dl>
+          <dt>Goes in</dt><dd>The 8 bottleneck numbers and the 18 weights.</dd>
+          <dt>What it does</dt><dd>μ = (8 weights × 8 numbers, added up) ÷ √8 + offset. σ = softplus(second output) + 0.05, so it is always positive and at least 0.05. Both are on the training scale (each assay rescaled with the training genes' median and spread), and are converted back to the assay's own units afterwards.</dd>
+          <dt>Comes out</dt><dd>Score μ and uncertainty σ.</dd>
+        </dl>
+      </article>
+      <article id="card-prediction" class="card b-ink" data-stream="ink">
+        <p class="tag">Stage 8 · Output · learned numbers: <b>0</b></p>
+        <h3>Prediction</h3>
+        <dl>
+          <dt>Goes in</dt><dd>μ and σ for every variant of the test gene.</dd>
+          <dt>What it does</dt><dd>Saved per variant with the real measurement next to it, in <code>test_predictions.csv</code> (12,343 rows for PTEN). A 90% range is μ ± 1.645 σ. Spearman per assay goes to <code>test_metrics.csv</code>, and the gene's headline score to <code>test_summary.json</code>.</dd>
+          <dt>Comes out</dt><dd>The files above, written by every training run.</dd>
+        </dl>
+      </article>
+      <article id="card-effect-map" class="card b-ink" data-stream="ink">
+        <p class="tag">Stage 8 · Output (optional) · learned numbers: <b>0</b></p>
+        <h3>Effect map</h3>
+        <dl>
+          <dt>Goes in</dt><dd>A saved checkpoint and a list of variants.</dd>
+          <dt>What it does</dt><dd>Run <code>mipo predict --export-fields</code>. It saves the response field from stage 3 (128 numbers per kept residue) and the 3D direction vectors for each variant. Training does not save these.</dd>
+          <dt>Comes out</dt><dd><code>field_*.npz</code> files.</dd>
+        </dl>
+      </article>
+      <article id="card-what-it-leaned-on" class="card b-ink" data-stream="ink">
+        <p class="tag">Stage 8 · Output (optional) · learned numbers: <b>0</b></p>
+        <h3>What it leaned on</h3>
+        <dl>
+          <dt>Goes in</dt><dd>The same command as the effect map.</dd>
+          <dt>What it does</dt><dd>Also saves the 4 view weights from stage 5 and the 8 bottleneck numbers from stage 6, so you can see which sources counted for each variant.</dd>
+          <dt>Comes out</dt><dd>The same <code>field_*.npz</code> files.</dd>
+        </dl>
+      </article>
+    </div>
+    <div class="prose stack">
+      <h3>Words used above</h3>
+      <ul class="plain">
+        <li><strong>MLP:</strong> a small network of two learned layers with a squashing step between them. MIPO has 9 of them.</li>
+        <li><strong>Attention:</strong> a step where each item scores the others, the scores become weights that add to 1, and the items are mixed with those weights. MIPO uses it in the window reader (2 transformer layers × 4 heads = 8 heads) and in a lighter form 7 times: the neighbour weights in each of the 3 rounds, the hub assignment in each of the 3 rounds, and the four view weights.</li>
+        <li><strong>tanh:</strong> squashes any number into the range −1 to 1.</li>
+        <li><strong>Embedding:</strong> a learned list of numbers that stands for a category, such as an amino acid or a task.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="graph">
+    <div class="prose stack">
+      <h2 id="graph">Stage 2 in detail: PTEN's residue graph for C124S</h2>
+      <p>These are the real numbers MIPO computes for C124S, from PTEN's structure in your release. PTEN is too long to use every residue, so MIPO keeps 256 of the 403, chosen in a fixed order until the budget is full.</p>
+    </div>
+    <figure>
+      <div class="scroll">
+        <svg class="diagram" viewBox="0 0 1100 440" role="img" aria-label="Bar of PTEN's 403 residues showing the 256 kept: 51 around residue 124, 19 close to it in 3D, 186 evenly spaced; residues 363 to 403 are not used. Below, residue 124's 16 links: itself, 12 neighbours along the chain from 118 to 130, and three residues close in 3D: F37, L70 and C71.">
+          <text class="t-title" x="20" y="28">Which residues are kept (PTEN, 403 residues)</text>
+          <rect class="f-rest" x="60.00" y="70" width="1.98" height="36"><title>residue 1: evenly spaced</title></rect>
+          <rect class="f-rest" x="62.43" y="70" width="1.98" height="36"><title>residue 2: evenly spaced</title></rect>
+          <rect class="f-unused" x="64.86" y="70" width="1.98" height="36"><title>residue 3: not used</title></rect>
+          <rect class="f-rest" x="67.30" y="70" width="1.98" height="36"><title>residue 4: evenly spaced</title></rect>
+          <rect class="f-rest" x="69.73" y="70" width="1.98" height="36"><title>residue 5: evenly spaced</title></rect>
+          <rect class="f-unused" x="72.16" y="70" width="1.98" height="36"><title>residue 6: not used</title></rect>
+          <rect class="f-rest" x="74.59" y="70" width="1.98" height="36"><title>residue 7: evenly spaced</title></rect>
+          <rect class="f-rest" x="77.02" y="70" width="1.98" height="36"><title>residue 8: evenly spaced</title></rect>
+          <rect class="f-unused" x="79.45" y="70" width="1.98" height="36"><title>residue 9: not used</title></rect>
+          <rect class="f-rest" x="81.89" y="70" width="1.98" height="36"><title>residue 10: evenly spaced</title></rect>
+          <rect class="f-unused" x="84.32" y="70" width="1.98" height="36"><title>residue 11: not used</title></rect>
+          <rect class="f-rest" x="86.75" y="70" width="1.98" height="36"><title>residue 12: evenly spaced</title></rect>
+          <rect class="f-rest" x="89.18" y="70" width="1.98" height="36"><title>residue 13: evenly spaced</title></rect>
+          <rect class="f-unused" x="91.61" y="70" width="1.98" height="36"><title>residue 14: not used</title></rect>
+          <rect class="f-rest" x="94.04" y="70" width="1.98" height="36"><title>residue 15: evenly spaced</title></rect>
+          <rect class="f-rest" x="96.48" y="70" width="1.98" height="36"><title>residue 16: evenly spaced</title></rect>
+          <rect class="f-unused" x="98.91" y="70" width="1.98" height="36"><title>residue 17: not used</title></rect>
+          <rect class="f-rest" x="101.34" y="70" width="1.98" height="36"><title>residue 18: evenly spaced</title></rect>
+          <rect class="f-rest" x="103.77" y="70" width="1.98" height="36"><title>residue 19: evenly spaced</title></rect>
+          <rect class="f-unused" x="106.20" y="70" width="1.98" height="36"><title>residue 20: not used</title></rect>
+          <rect class="f-rest" x="108.64" y="70" width="1.98" height="36"><title>residue 21: evenly spaced</title></rect>
+          <rect class="f-unused" x="111.07" y="70" width="1.98" height="36"><title>residue 22: not used</title></rect>
+          <rect class="f-rest" x="113.50" y="70" width="1.98" height="36"><title>residue 23: evenly spaced</title></rect>
+          <rect class="f-rest" x="115.93" y="70" width="1.98" height="36"><title>residue 24: evenly spaced</title></rect>
+          <rect class="f-unused" x="118.36" y="70" width="1.98" height="36"><title>residue 25: not used</title></rect>
+          <rect class="f-rest" x="120.79" y="70" width="1.98" height="36"><title>residue 26: evenly spaced</title></rect>
+          <rect class="f-rest" x="123.23" y="70" width="1.98" height="36"><title>residue 27: evenly spaced</title></rect>
+          <rect class="f-unused" x="125.66" y="70" width="1.98" height="36"><title>residue 28: not used</title></rect>
+          <rect class="f-rest" x="128.09" y="70" width="1.98" height="36"><title>residue 29: evenly spaced</title></rect>
+          <rect class="f-rest" x="130.52" y="70" width="1.98" height="36"><title>residue 30: evenly spaced</title></rect>
+          <rect class="f-unused" x="132.95" y="70" width="1.98" height="36"><title>residue 31: not used</title></rect>
+          <rect class="f-rest" x="135.38" y="70" width="1.98" height="36"><title>residue 32: evenly spaced</title></rect>
+          <rect class="f-unused" x="137.82" y="70" width="1.98" height="36"><title>residue 33: not used</title></rect>
+          <rect class="f-str" x="140.25" y="70" width="1.98" height="36"><title>residue 34: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="142.68" y="70" width="1.98" height="36"><title>residue 35: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="145.11" y="70" width="1.98" height="36"><title>residue 36: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="147.54" y="70" width="1.98" height="36"><title>residue 37: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="149.98" y="70" width="1.98" height="36"><title>residue 38: close to 124 in 3D</title></rect>
+          <rect class="f-unused" x="152.41" y="70" width="1.98" height="36"><title>residue 39: not used</title></rect>
+          <rect class="f-rest" x="154.84" y="70" width="1.98" height="36"><title>residue 40: evenly spaced</title></rect>
+          <rect class="f-rest" x="157.27" y="70" width="1.98" height="36"><title>residue 41: evenly spaced</title></rect>
+          <rect class="f-unused" x="159.70" y="70" width="1.98" height="36"><title>residue 42: not used</title></rect>
+          <rect class="f-rest" x="162.13" y="70" width="1.98" height="36"><title>residue 43: evenly spaced</title></rect>
+          <rect class="f-unused" x="164.57" y="70" width="1.98" height="36"><title>residue 44: not used</title></rect>
+          <rect class="f-rest" x="167.00" y="70" width="1.98" height="36"><title>residue 45: evenly spaced</title></rect>
+          <rect class="f-rest" x="169.43" y="70" width="1.98" height="36"><title>residue 46: evenly spaced</title></rect>
+          <rect class="f-unused" x="171.86" y="70" width="1.98" height="36"><title>residue 47: not used</title></rect>
+          <rect class="f-rest" x="174.29" y="70" width="1.98" height="36"><title>residue 48: evenly spaced</title></rect>
+          <rect class="f-rest" x="176.72" y="70" width="1.98" height="36"><title>residue 49: evenly spaced</title></rect>
+          <rect class="f-unused" x="179.16" y="70" width="1.98" height="36"><title>residue 50: not used</title></rect>
+          <rect class="f-rest" x="181.59" y="70" width="1.98" height="36"><title>residue 51: evenly spaced</title></rect>
+          <rect class="f-unused" x="184.02" y="70" width="1.98" height="36"><title>residue 52: not used</title></rect>
+          <rect class="f-rest" x="186.45" y="70" width="1.98" height="36"><title>residue 53: evenly spaced</title></rect>
+          <rect class="f-rest" x="188.88" y="70" width="1.98" height="36"><title>residue 54: evenly spaced</title></rect>
+          <rect class="f-unused" x="191.32" y="70" width="1.98" height="36"><title>residue 55: not used</title></rect>
+          <rect class="f-rest" x="193.75" y="70" width="1.98" height="36"><title>residue 56: evenly spaced</title></rect>
+          <rect class="f-rest" x="196.18" y="70" width="1.98" height="36"><title>residue 57: evenly spaced</title></rect>
+          <rect class="f-unused" x="198.61" y="70" width="1.98" height="36"><title>residue 58: not used</title></rect>
+          <rect class="f-rest" x="201.04" y="70" width="1.98" height="36"><title>residue 59: evenly spaced</title></rect>
+          <rect class="f-rest" x="203.47" y="70" width="1.98" height="36"><title>residue 60: evenly spaced</title></rect>
+          <rect class="f-unused" x="205.91" y="70" width="1.98" height="36"><title>residue 61: not used</title></rect>
+          <rect class="f-rest" x="208.34" y="70" width="1.98" height="36"><title>residue 62: evenly spaced</title></rect>
+          <rect class="f-unused" x="210.77" y="70" width="1.98" height="36"><title>residue 63: not used</title></rect>
+          <rect class="f-rest" x="213.20" y="70" width="1.98" height="36"><title>residue 64: evenly spaced</title></rect>
+          <rect class="f-rest" x="215.63" y="70" width="1.98" height="36"><title>residue 65: evenly spaced</title></rect>
+          <rect class="f-unused" x="218.06" y="70" width="1.98" height="36"><title>residue 66: not used</title></rect>
+          <rect class="f-rest" x="220.50" y="70" width="1.98" height="36"><title>residue 67: evenly spaced</title></rect>
+          <rect class="f-str" x="222.93" y="70" width="1.98" height="36"><title>residue 68: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="225.36" y="70" width="1.98" height="36"><title>residue 69: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="227.79" y="70" width="1.98" height="36"><title>residue 70: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="230.22" y="70" width="1.98" height="36"><title>residue 71: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="232.66" y="70" width="1.98" height="36"><title>residue 72: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="235.09" y="70" width="1.98" height="36"><title>residue 73: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="237.52" y="70" width="1.98" height="36"><title>residue 74: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="239.95" y="70" width="1.98" height="36"><title>residue 75: close to 124 in 3D</title></rect>
+          <rect class="f-rest" x="242.38" y="70" width="1.98" height="36"><title>residue 76: evenly spaced</title></rect>
+          <rect class="f-unused" x="244.81" y="70" width="1.98" height="36"><title>residue 77: not used</title></rect>
+          <rect class="f-rest" x="247.25" y="70" width="1.98" height="36"><title>residue 78: evenly spaced</title></rect>
+          <rect class="f-rest" x="249.68" y="70" width="1.98" height="36"><title>residue 79: evenly spaced</title></rect>
+          <rect class="f-unused" x="252.11" y="70" width="1.98" height="36"><title>residue 80: not used</title></rect>
+          <rect class="f-rest" x="254.54" y="70" width="1.98" height="36"><title>residue 81: evenly spaced</title></rect>
+          <rect class="f-rest" x="256.97" y="70" width="1.98" height="36"><title>residue 82: evenly spaced</title></rect>
+          <rect class="f-unused" x="259.40" y="70" width="1.98" height="36"><title>residue 83: not used</title></rect>
+          <rect class="f-rest" x="261.84" y="70" width="1.98" height="36"><title>residue 84: evenly spaced</title></rect>
+          <rect class="f-unused" x="264.27" y="70" width="1.98" height="36"><title>residue 85: not used</title></rect>
+          <rect class="f-rest" x="266.70" y="70" width="1.98" height="36"><title>residue 86: evenly spaced</title></rect>
+          <rect class="f-rest" x="269.13" y="70" width="1.98" height="36"><title>residue 87: evenly spaced</title></rect>
+          <rect class="f-str" x="271.56" y="70" width="1.98" height="36"><title>residue 88: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="274.00" y="70" width="1.98" height="36"><title>residue 89: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="276.43" y="70" width="1.98" height="36"><title>residue 90: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="278.86" y="70" width="1.98" height="36"><title>residue 91: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="281.29" y="70" width="1.98" height="36"><title>residue 92: close to 124 in 3D</title></rect>
+          <rect class="f-str" x="283.72" y="70" width="1.98" height="36"><title>residue 93: close to 124 in 3D</title></rect>
+          <rect class="f-rest" x="286.15" y="70" width="1.98" height="36"><title>residue 94: evenly spaced</title></rect>
+          <rect class="f-rest" x="288.59" y="70" width="1.98" height="36"><title>residue 95: evenly spaced</title></rect>
+          <rect class="f-unused" x="291.02" y="70" width="1.98" height="36"><title>residue 96: not used</title></rect>
+          <rect class="f-rest" x="293.45" y="70" width="1.98" height="36"><title>residue 97: evenly spaced</title></rect>
+          <rect class="f-rest" x="295.88" y="70" width="1.98" height="36"><title>residue 98: evenly spaced</title></rect>
+          <rect class="f-seq" x="298.31" y="70" width="1.98" height="36"><title>residue 99: around the mutation</title></rect>
+          <rect class="f-seq" x="300.74" y="70" width="1.98" height="36"><title>residue 100: around the mutation</title></rect>
+          <rect class="f-seq" x="303.18" y="70" width="1.98" height="36"><title>residue 101: around the mutation</title></rect>
+          <rect class="f-seq" x="305.61" y="70" width="1.98" height="36"><title>residue 102: around the mutation</title></rect>
+          <rect class="f-seq" x="308.04" y="70" width="1.98" height="36"><title>residue 103: around the mutation</title></rect>
+          <rect class="f-seq" x="310.47" y="70" width="1.98" height="36"><title>residue 104: around the mutation</title></rect>
+          <rect class="f-seq" x="312.90" y="70" width="1.98" height="36"><title>residue 105: around the mutation</title></rect>
+          <rect class="f-seq" x="315.33" y="70" width="1.98" height="36"><title>residue 106: around the mutation</title></rect>
+          <rect class="f-seq" x="317.77" y="70" width="1.98" height="36"><title>residue 107: around the mutation</title></rect>
+          <rect class="f-seq" x="320.20" y="70" width="1.98" height="36"><title>residue 108: around the mutation</title></rect>
+          <rect class="f-seq" x="322.63" y="70" width="1.98" height="36"><title>residue 109: around the mutation</title></rect>
+          <rect class="f-seq" x="325.06" y="70" width="1.98" height="36"><title>residue 110: around the mutation</title></rect>
+          <rect class="f-seq" x="327.49" y="70" width="1.98" height="36"><title>residue 111: around the mutation</title></rect>
+          <rect class="f-seq" x="329.93" y="70" width="1.98" height="36"><title>residue 112: around the mutation</title></rect>
+          <rect class="f-seq" x="332.36" y="70" width="1.98" height="36"><title>residue 113: around the mutation</title></rect>
+          <rect class="f-seq" x="334.79" y="70" width="1.98" height="36"><title>residue 114: around the mutation</title></rect>
+          <rect class="f-seq" x="337.22" y="70" width="1.98" height="36"><title>residue 115: around the mutation</title></rect>
+          <rect class="f-seq" x="339.65" y="70" width="1.98" height="36"><title>residue 116: around the mutation</title></rect>
+          <rect class="f-seq" x="342.08" y="70" width="1.98" height="36"><title>residue 117: around the mutation</title></rect>
+          <rect class="f-seq" x="344.52" y="70" width="1.98" height="36"><title>residue 118: around the mutation</title></rect>
+          <rect class="f-seq" x="346.95" y="70" width="1.98" height="36"><title>residue 119: around the mutation</title></rect>
+          <rect class="f-seq" x="349.38" y="70" width="1.98" height="36"><title>residue 120: around the mutation</title></rect>
+          <rect class="f-seq" x="351.81" y="70" width="1.98" height="36"><title>residue 121: around the mutation</title></rect>
+          <rect class="f-seq" x="354.24" y="70" width="1.98" height="36"><title>residue 122: around the mutation</title></rect>
+          <rect class="f-seq" x="356.67" y="70" width="1.98" height="36"><title>residue 123: around the mutation</title></rect>
+          <rect class="f-seq" x="359.11" y="70" width="1.98" height="36"><title>residue 124: around the mutation</title></rect>
+          <rect class="f-seq" x="361.54" y="70" width="1.98" height="36"><title>residue 125: around the mutation</title></rect>
+          <rect class="f-seq" x="363.97" y="70" width="1.98" height="36"><title>residue 126: around the mutation</title></rect>
+          <rect class="f-seq" x="366.40" y="70" width="1.98" height="36"><title>residue 127: around the mutation</title></rect>
+          <rect class="f-seq" x="368.83" y="70" width="1.98" height="36"><title>residue 128: around the mutation</title></rect>
+          <rect class="f-seq" x="371.27" y="70" width="1.98" height="36"><title>residue 129: around the mutation</title></rect>
+          <rect class="f-seq" x="373.70" y="70" width="1.98" height="36"><title>residue 130: around the mutation</title></rect>
+          <rect class="f-seq" x="376.13" y="70" width="1.98" height="36"><title>residue 131: around the mutation</title></rect>
+          <rect class="f-seq" x="378.56" y="70" width="1.98" height="36"><title>residue 132: around the mutation</title></rect>
+          <rect class="f-seq" x="380.99" y="70" width="1.98" height="36"><title>residue 133: around the mutation</title></rect>
+          <rect class="f-seq" x="383.42" y="70" width="1.98" height="36"><title>residue 134: around the mutation</title></rect>
+          <rect class="f-seq" x="385.86" y="70" width="1.98" height="36"><title>residue 135: around the mutation</title></rect>
+          <rect class="f-seq" x="388.29" y="70" width="1.98" height="36"><title>residue 136: around the mutation</title></rect>
+          <rect class="f-seq" x="390.72" y="70" width="1.98" height="36"><title>residue 137: around the mutation</title></rect>
+          <rect class="f-seq" x="393.15" y="70" width="1.98" height="36"><title>residue 138: around the mutation</title></rect>
+          <rect class="f-seq" x="395.58" y="70" width="1.98" height="36"><title>residue 139: around the mutation</title></rect>
+          <rect class="f-seq" x="398.01" y="70" width="1.98" height="36"><title>residue 140: around the mutation</title></rect>
+          <rect class="f-seq" x="400.45" y="70" width="1.98" height="36"><title>residue 141: around the mutation</title></rect>
+          <rect class="f-seq" x="402.88" y="70" width="1.98" height="36"><title>residue 142: around the mutation</title></rect>
+          <rect class="f-seq" x="405.31" y="70" width="1.98" height="36"><title>residue 143: around the mutation</title></rect>
+          <rect class="f-seq" x="407.74" y="70" width="1.98" height="36"><title>residue 144: around the mutation</title></rect>
+          <rect class="f-seq" x="410.17" y="70" width="1.98" height="36"><title>residue 145: around the mutation</title></rect>
+          <rect class="f-seq" x="412.61" y="70" width="1.98" height="36"><title>residue 146: around the mutation</title></rect>
+          <rect class="f-seq" x="415.04" y="70" width="1.98" height="36"><title>residue 147: around the mutation</title></rect>
+          <rect class="f-seq" x="417.47" y="70" width="1.98" height="36"><title>residue 148: around the mutation</title></rect>
+          <rect class="f-seq" x="419.90" y="70" width="1.98" height="36"><title>residue 149: around the mutation</title></rect>
+          <rect class="f-rest" x="422.33" y="70" width="1.98" height="36"><title>residue 150: evenly spaced</title></rect>
+          <rect class="f-unused" x="424.76" y="70" width="1.98" height="36"><title>residue 151: not used</title></rect>
+          <rect class="f-rest" x="427.20" y="70" width="1.98" height="36"><title>residue 152: evenly spaced</title></rect>
+          <rect class="f-rest" x="429.63" y="70" width="1.98" height="36"><title>residue 153: evenly spaced</title></rect>
+          <rect class="f-unused" x="432.06" y="70" width="1.98" height="36"><title>residue 154: not used</title></rect>
+          <rect class="f-rest" x="434.49" y="70" width="1.98" height="36"><title>residue 155: evenly spaced</title></rect>
+          <rect class="f-unused" x="436.92" y="70" width="1.98" height="36"><title>residue 156: not used</title></rect>
+          <rect class="f-rest" x="439.35" y="70" width="1.98" height="36"><title>residue 157: evenly spaced</title></rect>
+          <rect class="f-rest" x="441.79" y="70" width="1.98" height="36"><title>residue 158: evenly spaced</title></rect>
+          <rect class="f-unused" x="444.22" y="70" width="1.98" height="36"><title>residue 159: not used</title></rect>
+          <rect class="f-rest" x="446.65" y="70" width="1.98" height="36"><title>residue 160: evenly spaced</title></rect>
+          <rect class="f-rest" x="449.08" y="70" width="1.98" height="36"><title>residue 161: evenly spaced</title></rect>
+          <rect class="f-unused" x="451.51" y="70" width="1.98" height="36"><title>residue 162: not used</title></rect>
+          <rect class="f-rest" x="453.95" y="70" width="1.98" height="36"><title>residue 163: evenly spaced</title></rect>
+          <rect class="f-rest" x="456.38" y="70" width="1.98" height="36"><title>residue 164: evenly spaced</title></rect>
+          <rect class="f-unused" x="458.81" y="70" width="1.98" height="36"><title>residue 165: not used</title></rect>
+          <rect class="f-rest" x="461.24" y="70" width="1.98" height="36"><title>residue 166: evenly spaced</title></rect>
+          <rect class="f-unused" x="463.67" y="70" width="1.98" height="36"><title>residue 167: not used</title></rect>
+          <rect class="f-rest" x="466.10" y="70" width="1.98" height="36"><title>residue 168: evenly spaced</title></rect>
+          <rect class="f-rest" x="468.54" y="70" width="1.98" height="36"><title>residue 169: evenly spaced</title></rect>
+          <rect class="f-unused" x="470.97" y="70" width="1.98" height="36"><title>residue 170: not used</title></rect>
+          <rect class="f-rest" x="473.40" y="70" width="1.98" height="36"><title>residue 171: evenly spaced</title></rect>
+          <rect class="f-rest" x="475.83" y="70" width="1.98" height="36"><title>residue 172: evenly spaced</title></rect>
+          <rect class="f-unused" x="478.26" y="70" width="1.98" height="36"><title>residue 173: not used</title></rect>
+          <rect class="f-rest" x="480.69" y="70" width="1.98" height="36"><title>residue 174: evenly spaced</title></rect>
+          <rect class="f-rest" x="483.13" y="70" width="1.98" height="36"><title>residue 175: evenly spaced</title></rect>
+          <rect class="f-unused" x="485.56" y="70" width="1.98" height="36"><title>residue 176: not used</title></rect>
+          <rect class="f-rest" x="487.99" y="70" width="1.98" height="36"><title>residue 177: evenly spaced</title></rect>
+          <rect class="f-unused" x="490.42" y="70" width="1.98" height="36"><title>residue 178: not used</title></rect>
+          <rect class="f-rest" x="492.85" y="70" width="1.98" height="36"><title>residue 179: evenly spaced</title></rect>
+          <rect class="f-rest" x="495.29" y="70" width="1.98" height="36"><title>residue 180: evenly spaced</title></rect>
+          <rect class="f-unused" x="497.72" y="70" width="1.98" height="36"><title>residue 181: not used</title></rect>
+          <rect class="f-rest" x="500.15" y="70" width="1.98" height="36"><title>residue 182: evenly spaced</title></rect>
+          <rect class="f-rest" x="502.58" y="70" width="1.98" height="36"><title>residue 183: evenly spaced</title></rect>
+          <rect class="f-unused" x="505.01" y="70" width="1.98" height="36"><title>residue 184: not used</title></rect>
+          <rect class="f-rest" x="507.44" y="70" width="1.98" height="36"><title>residue 185: evenly spaced</title></rect>
+          <rect class="f-unused" x="509.88" y="70" width="1.98" height="36"><title>residue 186: not used</title></rect>
+          <rect class="f-rest" x="512.31" y="70" width="1.98" height="36"><title>residue 187: evenly spaced</title></rect>
+          <rect class="f-rest" x="514.74" y="70" width="1.98" height="36"><title>residue 188: evenly spaced</title></rect>
+          <rect class="f-unused" x="517.17" y="70" width="1.98" height="36"><title>residue 189: not used</title></rect>
+          <rect class="f-rest" x="519.60" y="70" width="1.98" height="36"><title>residue 190: evenly spaced</title></rect>
+          <rect class="f-rest" x="522.03" y="70" width="1.98" height="36"><title>residue 191: evenly spaced</title></rect>
+          <rect class="f-unused" x="524.47" y="70" width="1.98" height="36"><title>residue 192: not used</title></rect>
+          <rect class="f-rest" x="526.90" y="70" width="1.98" height="36"><title>residue 193: evenly spaced</title></rect>
+          <rect class="f-rest" x="529.33" y="70" width="1.98" height="36"><title>residue 194: evenly spaced</title></rect>
+          <rect class="f-unused" x="531.76" y="70" width="1.98" height="36"><title>residue 195: not used</title></rect>
+          <rect class="f-rest" x="534.19" y="70" width="1.98" height="36"><title>residue 196: evenly spaced</title></rect>
+          <rect class="f-unused" x="536.63" y="70" width="1.98" height="36"><title>residue 197: not used</title></rect>
+          <rect class="f-rest" x="539.06" y="70" width="1.98" height="36"><title>residue 198: evenly spaced</title></rect>
+          <rect class="f-rest" x="541.49" y="70" width="1.98" height="36"><title>residue 199: evenly spaced</title></rect>
+          <rect class="f-unused" x="543.92" y="70" width="1.98" height="36"><title>residue 200: not used</title></rect>
+          <rect class="f-rest" x="546.35" y="70" width="1.98" height="36"><title>residue 201: evenly spaced</title></rect>
+          <rect class="f-rest" x="548.78" y="70" width="1.98" height="36"><title>residue 202: evenly spaced</title></rect>
+          <rect class="f-unused" x="551.22" y="70" width="1.98" height="36"><title>residue 203: not used</title></rect>
+          <rect class="f-rest" x="553.65" y="70" width="1.98" height="36"><title>residue 204: evenly spaced</title></rect>
+          <rect class="f-rest" x="556.08" y="70" width="1.98" height="36"><title>residue 205: evenly spaced</title></rect>
+          <rect class="f-unused" x="558.51" y="70" width="1.98" height="36"><title>residue 206: not used</title></rect>
+          <rect class="f-rest" x="560.94" y="70" width="1.98" height="36"><title>residue 207: evenly spaced</title></rect>
+          <rect class="f-unused" x="563.37" y="70" width="1.98" height="36"><title>residue 208: not used</title></rect>
+          <rect class="f-rest" x="565.81" y="70" width="1.98" height="36"><title>residue 209: evenly spaced</title></rect>
+          <rect class="f-rest" x="568.24" y="70" width="1.98" height="36"><title>residue 210: evenly spaced</title></rect>
+          <rect class="f-unused" x="570.67" y="70" width="1.98" height="36"><title>residue 211: not used</title></rect>
+          <rect class="f-rest" x="573.10" y="70" width="1.98" height="36"><title>residue 212: evenly spaced</title></rect>
+          <rect class="f-rest" x="575.53" y="70" width="1.98" height="36"><title>residue 213: evenly spaced</title></rect>
+          <rect class="f-unused" x="577.97" y="70" width="1.98" height="36"><title>residue 214: not used</title></rect>
+          <rect class="f-rest" x="580.40" y="70" width="1.98" height="36"><title>residue 215: evenly spaced</title></rect>
+          <rect class="f-rest" x="582.83" y="70" width="1.98" height="36"><title>residue 216: evenly spaced</title></rect>
+          <rect class="f-unused" x="585.26" y="70" width="1.98" height="36"><title>residue 217: not used</title></rect>
+          <rect class="f-rest" x="587.69" y="70" width="1.98" height="36"><title>residue 218: evenly spaced</title></rect>
+          <rect class="f-unused" x="590.12" y="70" width="1.98" height="36"><title>residue 219: not used</title></rect>
+          <rect class="f-rest" x="592.56" y="70" width="1.98" height="36"><title>residue 220: evenly spaced</title></rect>
+          <rect class="f-rest" x="594.99" y="70" width="1.98" height="36"><title>residue 221: evenly spaced</title></rect>
+          <rect class="f-unused" x="597.42" y="70" width="1.98" height="36"><title>residue 222: not used</title></rect>
+          <rect class="f-rest" x="599.85" y="70" width="1.98" height="36"><title>residue 223: evenly spaced</title></rect>
+          <rect class="f-rest" x="602.28" y="70" width="1.98" height="36"><title>residue 224: evenly spaced</title></rect>
+          <rect class="f-unused" x="604.71" y="70" width="1.98" height="36"><title>residue 225: not used</title></rect>
+          <rect class="f-rest" x="607.15" y="70" width="1.98" height="36"><title>residue 226: evenly spaced</title></rect>
+          <rect class="f-unused" x="609.58" y="70" width="1.98" height="36"><title>residue 227: not used</title></rect>
+          <rect class="f-rest" x="612.01" y="70" width="1.98" height="36"><title>residue 228: evenly spaced</title></rect>
+          <rect class="f-rest" x="614.44" y="70" width="1.98" height="36"><title>residue 229: evenly spaced</title></rect>
+          <rect class="f-unused" x="616.87" y="70" width="1.98" height="36"><title>residue 230: not used</title></rect>
+          <rect class="f-rest" x="619.31" y="70" width="1.98" height="36"><title>residue 231: evenly spaced</title></rect>
+          <rect class="f-rest" x="621.74" y="70" width="1.98" height="36"><title>residue 232: evenly spaced</title></rect>
+          <rect class="f-unused" x="624.17" y="70" width="1.98" height="36"><title>residue 233: not used</title></rect>
+          <rect class="f-rest" x="626.60" y="70" width="1.98" height="36"><title>residue 234: evenly spaced</title></rect>
+          <rect class="f-rest" x="629.03" y="70" width="1.98" height="36"><title>residue 235: evenly spaced</title></rect>
+          <rect class="f-unused" x="631.46" y="70" width="1.98" height="36"><title>residue 236: not used</title></rect>
+          <rect class="f-rest" x="633.90" y="70" width="1.98" height="36"><title>residue 237: evenly spaced</title></rect>
+          <rect class="f-unused" x="636.33" y="70" width="1.98" height="36"><title>residue 238: not used</title></rect>
+          <rect class="f-rest" x="638.76" y="70" width="1.98" height="36"><title>residue 239: evenly spaced</title></rect>
+          <rect class="f-rest" x="641.19" y="70" width="1.98" height="36"><title>residue 240: evenly spaced</title></rect>
+          <rect class="f-unused" x="643.62" y="70" width="1.98" height="36"><title>residue 241: not used</title></rect>
+          <rect class="f-rest" x="646.05" y="70" width="1.98" height="36"><title>residue 242: evenly spaced</title></rect>
+          <rect class="f-rest" x="648.49" y="70" width="1.98" height="36"><title>residue 243: evenly spaced</title></rect>
+          <rect class="f-unused" x="650.92" y="70" width="1.98" height="36"><title>residue 244: not used</title></rect>
+          <rect class="f-rest" x="653.35" y="70" width="1.98" height="36"><title>residue 245: evenly spaced</title></rect>
+          <rect class="f-rest" x="655.78" y="70" width="1.98" height="36"><title>residue 246: evenly spaced</title></rect>
+          <rect class="f-unused" x="658.21" y="70" width="1.98" height="36"><title>residue 247: not used</title></rect>
+          <rect class="f-rest" x="660.65" y="70" width="1.98" height="36"><title>residue 248: evenly spaced</title></rect>
+          <rect class="f-unused" x="663.08" y="70" width="1.98" height="36"><title>residue 249: not used</title></rect>
+          <rect class="f-rest" x="665.51" y="70" width="1.98" height="36"><title>residue 250: evenly spaced</title></rect>
+          <rect class="f-rest" x="667.94" y="70" width="1.98" height="36"><title>residue 251: evenly spaced</title></rect>
+          <rect class="f-unused" x="670.37" y="70" width="1.98" height="36"><title>residue 252: not used</title></rect>
+          <rect class="f-rest" x="672.80" y="70" width="1.98" height="36"><title>residue 253: evenly spaced</title></rect>
+          <rect class="f-rest" x="675.24" y="70" width="1.98" height="36"><title>residue 254: evenly spaced</title></rect>
+          <rect class="f-unused" x="677.67" y="70" width="1.98" height="36"><title>residue 255: not used</title></rect>
+          <rect class="f-rest" x="680.10" y="70" width="1.98" height="36"><title>residue 256: evenly spaced</title></rect>
+          <rect class="f-rest" x="682.53" y="70" width="1.98" height="36"><title>residue 257: evenly spaced</title></rect>
+          <rect class="f-unused" x="684.96" y="70" width="1.98" height="36"><title>residue 258: not used</title></rect>
+          <rect class="f-rest" x="687.39" y="70" width="1.98" height="36"><title>residue 259: evenly spaced</title></rect>
+          <rect class="f-unused" x="689.83" y="70" width="1.98" height="36"><title>residue 260: not used</title></rect>
+          <rect class="f-rest" x="692.26" y="70" width="1.98" height="36"><title>residue 261: evenly spaced</title></rect>
+          <rect class="f-rest" x="694.69" y="70" width="1.98" height="36"><title>residue 262: evenly spaced</title></rect>
+          <rect class="f-unused" x="697.12" y="70" width="1.98" height="36"><title>residue 263: not used</title></rect>
+          <rect class="f-rest" x="699.55" y="70" width="1.98" height="36"><title>residue 264: evenly spaced</title></rect>
+          <rect class="f-rest" x="701.99" y="70" width="1.98" height="36"><title>residue 265: evenly spaced</title></rect>
+          <rect class="f-unused" x="704.42" y="70" width="1.98" height="36"><title>residue 266: not used</title></rect>
+          <rect class="f-rest" x="706.85" y="70" width="1.98" height="36"><title>residue 267: evenly spaced</title></rect>
+          <rect class="f-unused" x="709.28" y="70" width="1.98" height="36"><title>residue 268: not used</title></rect>
+          <rect class="f-rest" x="711.71" y="70" width="1.98" height="36"><title>residue 269: evenly spaced</title></rect>
+          <rect class="f-rest" x="714.14" y="70" width="1.98" height="36"><title>residue 270: evenly spaced</title></rect>
+          <rect class="f-unused" x="716.58" y="70" width="1.98" height="36"><title>residue 271: not used</title></rect>
+          <rect class="f-rest" x="719.01" y="70" width="1.98" height="36"><title>residue 272: evenly spaced</title></rect>
+          <rect class="f-rest" x="721.44" y="70" width="1.98" height="36"><title>residue 273: evenly spaced</title></rect>
+          <rect class="f-unused" x="723.87" y="70" width="1.98" height="36"><title>residue 274: not used</title></rect>
+          <rect class="f-rest" x="726.30" y="70" width="1.98" height="36"><title>residue 275: evenly spaced</title></rect>
+          <rect class="f-rest" x="728.73" y="70" width="1.98" height="36"><title>residue 276: evenly spaced</title></rect>
+          <rect class="f-unused" x="731.17" y="70" width="1.98" height="36"><title>residue 277: not used</title></rect>
+          <rect class="f-rest" x="733.60" y="70" width="1.98" height="36"><title>residue 278: evenly spaced</title></rect>
+          <rect class="f-unused" x="736.03" y="70" width="1.98" height="36"><title>residue 279: not used</title></rect>
+          <rect class="f-rest" x="738.46" y="70" width="1.98" height="36"><title>residue 280: evenly spaced</title></rect>
+          <rect class="f-rest" x="740.89" y="70" width="1.98" height="36"><title>residue 281: evenly spaced</title></rect>
+          <rect class="f-unused" x="743.33" y="70" width="1.98" height="36"><title>residue 282: not used</title></rect>
+          <rect class="f-rest" x="745.76" y="70" width="1.98" height="36"><title>residue 283: evenly spaced</title></rect>
+          <rect class="f-rest" x="748.19" y="70" width="1.98" height="36"><title>residue 284: evenly spaced</title></rect>
+          <rect class="f-unused" x="750.62" y="70" width="1.98" height="36"><title>residue 285: not used</title></rect>
+          <rect class="f-rest" x="753.05" y="70" width="1.98" height="36"><title>residue 286: evenly spaced</title></rect>
+          <rect class="f-rest" x="755.48" y="70" width="1.98" height="36"><title>residue 287: evenly spaced</title></rect>
+          <rect class="f-unused" x="757.92" y="70" width="1.98" height="36"><title>residue 288: not used</title></rect>
+          <rect class="f-rest" x="760.35" y="70" width="1.98" height="36"><title>residue 289: evenly spaced</title></rect>
+          <rect class="f-unused" x="762.78" y="70" width="1.98" height="36"><title>residue 290: not used</title></rect>
+          <rect class="f-rest" x="765.21" y="70" width="1.98" height="36"><title>residue 291: evenly spaced</title></rect>
+          <rect class="f-rest" x="767.64" y="70" width="1.98" height="36"><title>residue 292: evenly spaced</title></rect>
+          <rect class="f-unused" x="770.07" y="70" width="1.98" height="36"><title>residue 293: not used</title></rect>
+          <rect class="f-rest" x="772.51" y="70" width="1.98" height="36"><title>residue 294: evenly spaced</title></rect>
+          <rect class="f-rest" x="774.94" y="70" width="1.98" height="36"><title>residue 295: evenly spaced</title></rect>
+          <rect class="f-unused" x="777.37" y="70" width="1.98" height="36"><title>residue 296: not used</title></rect>
+          <rect class="f-rest" x="779.80" y="70" width="1.98" height="36"><title>residue 297: evenly spaced</title></rect>
+          <rect class="f-rest" x="782.23" y="70" width="1.98" height="36"><title>residue 298: evenly spaced</title></rect>
+          <rect class="f-unused" x="784.67" y="70" width="1.98" height="36"><title>residue 299: not used</title></rect>
+          <rect class="f-rest" x="787.10" y="70" width="1.98" height="36"><title>residue 300: evenly spaced</title></rect>
+          <rect class="f-unused" x="789.53" y="70" width="1.98" height="36"><title>residue 301: not used</title></rect>
+          <rect class="f-rest" x="791.96" y="70" width="1.98" height="36"><title>residue 302: evenly spaced</title></rect>
+          <rect class="f-rest" x="794.39" y="70" width="1.98" height="36"><title>residue 303: evenly spaced</title></rect>
+          <rect class="f-unused" x="796.82" y="70" width="1.98" height="36"><title>residue 304: not used</title></rect>
+          <rect class="f-rest" x="799.26" y="70" width="1.98" height="36"><title>residue 305: evenly spaced</title></rect>
+          <rect class="f-rest" x="801.69" y="70" width="1.98" height="36"><title>residue 306: evenly spaced</title></rect>
+          <rect class="f-unused" x="804.12" y="70" width="1.98" height="36"><title>residue 307: not used</title></rect>
+          <rect class="f-rest" x="806.55" y="70" width="1.98" height="36"><title>residue 308: evenly spaced</title></rect>
+          <rect class="f-rest" x="808.98" y="70" width="1.98" height="36"><title>residue 309: evenly spaced</title></rect>
+          <rect class="f-unused" x="811.41" y="70" width="1.98" height="36"><title>residue 310: not used</title></rect>
+          <rect class="f-rest" x="813.85" y="70" width="1.98" height="36"><title>residue 311: evenly spaced</title></rect>
+          <rect class="f-unused" x="816.28" y="70" width="1.98" height="36"><title>residue 312: not used</title></rect>
+          <rect class="f-rest" x="818.71" y="70" width="1.98" height="36"><title>residue 313: evenly spaced</title></rect>
+          <rect class="f-rest" x="821.14" y="70" width="1.98" height="36"><title>residue 314: evenly spaced</title></rect>
+          <rect class="f-unused" x="823.57" y="70" width="1.98" height="36"><title>residue 315: not used</title></rect>
+          <rect class="f-rest" x="826.00" y="70" width="1.98" height="36"><title>residue 316: evenly spaced</title></rect>
+          <rect class="f-rest" x="828.44" y="70" width="1.98" height="36"><title>residue 317: evenly spaced</title></rect>
+          <rect class="f-unused" x="830.87" y="70" width="1.98" height="36"><title>residue 318: not used</title></rect>
+          <rect class="f-rest" x="833.30" y="70" width="1.98" height="36"><title>residue 319: evenly spaced</title></rect>
+          <rect class="f-unused" x="835.73" y="70" width="1.98" height="36"><title>residue 320: not used</title></rect>
+          <rect class="f-rest" x="838.16" y="70" width="1.98" height="36"><title>residue 321: evenly spaced</title></rect>
+          <rect class="f-rest" x="840.60" y="70" width="1.98" height="36"><title>residue 322: evenly spaced</title></rect>
+          <rect class="f-unused" x="843.03" y="70" width="1.98" height="36"><title>residue 323: not used</title></rect>
+          <rect class="f-rest" x="845.46" y="70" width="1.98" height="36"><title>residue 324: evenly spaced</title></rect>
+          <rect class="f-rest" x="847.89" y="70" width="1.98" height="36"><title>residue 325: evenly spaced</title></rect>
+          <rect class="f-unused" x="850.32" y="70" width="1.98" height="36"><title>residue 326: not used</title></rect>
+          <rect class="f-rest" x="852.75" y="70" width="1.98" height="36"><title>residue 327: evenly spaced</title></rect>
+          <rect class="f-rest" x="855.19" y="70" width="1.98" height="36"><title>residue 328: evenly spaced</title></rect>
+          <rect class="f-unused" x="857.62" y="70" width="1.98" height="36"><title>residue 329: not used</title></rect>
+          <rect class="f-rest" x="860.05" y="70" width="1.98" height="36"><title>residue 330: evenly spaced</title></rect>
+          <rect class="f-unused" x="862.48" y="70" width="1.98" height="36"><title>residue 331: not used</title></rect>
+          <rect class="f-rest" x="864.91" y="70" width="1.98" height="36"><title>residue 332: evenly spaced</title></rect>
+          <rect class="f-rest" x="867.34" y="70" width="1.98" height="36"><title>residue 333: evenly spaced</title></rect>
+          <rect class="f-unused" x="869.78" y="70" width="1.98" height="36"><title>residue 334: not used</title></rect>
+          <rect class="f-rest" x="872.21" y="70" width="1.98" height="36"><title>residue 335: evenly spaced</title></rect>
+          <rect class="f-rest" x="874.64" y="70" width="1.98" height="36"><title>residue 336: evenly spaced</title></rect>
+          <rect class="f-unused" x="877.07" y="70" width="1.98" height="36"><title>residue 337: not used</title></rect>
+          <rect class="f-rest" x="879.50" y="70" width="1.98" height="36"><title>residue 338: evenly spaced</title></rect>
+          <rect class="f-rest" x="881.94" y="70" width="1.98" height="36"><title>residue 339: evenly spaced</title></rect>
+          <rect class="f-unused" x="884.37" y="70" width="1.98" height="36"><title>residue 340: not used</title></rect>
+          <rect class="f-rest" x="886.80" y="70" width="1.98" height="36"><title>residue 341: evenly spaced</title></rect>
+          <rect class="f-unused" x="889.23" y="70" width="1.98" height="36"><title>residue 342: not used</title></rect>
+          <rect class="f-rest" x="891.66" y="70" width="1.98" height="36"><title>residue 343: evenly spaced</title></rect>
+          <rect class="f-rest" x="894.09" y="70" width="1.98" height="36"><title>residue 344: evenly spaced</title></rect>
+          <rect class="f-unused" x="896.53" y="70" width="1.98" height="36"><title>residue 345: not used</title></rect>
+          <rect class="f-rest" x="898.96" y="70" width="1.98" height="36"><title>residue 346: evenly spaced</title></rect>
+          <rect class="f-rest" x="901.39" y="70" width="1.98" height="36"><title>residue 347: evenly spaced</title></rect>
+          <rect class="f-unused" x="903.82" y="70" width="1.98" height="36"><title>residue 348: not used</title></rect>
+          <rect class="f-rest" x="906.25" y="70" width="1.98" height="36"><title>residue 349: evenly spaced</title></rect>
+          <rect class="f-rest" x="908.68" y="70" width="1.98" height="36"><title>residue 350: evenly spaced</title></rect>
+          <rect class="f-unused" x="911.12" y="70" width="1.98" height="36"><title>residue 351: not used</title></rect>
+          <rect class="f-rest" x="913.55" y="70" width="1.98" height="36"><title>residue 352: evenly spaced</title></rect>
+          <rect class="f-unused" x="915.98" y="70" width="1.98" height="36"><title>residue 353: not used</title></rect>
+          <rect class="f-rest" x="918.41" y="70" width="1.98" height="36"><title>residue 354: evenly spaced</title></rect>
+          <rect class="f-rest" x="920.84" y="70" width="1.98" height="36"><title>residue 355: evenly spaced</title></rect>
+          <rect class="f-unused" x="923.28" y="70" width="1.98" height="36"><title>residue 356: not used</title></rect>
+          <rect class="f-rest" x="925.71" y="70" width="1.98" height="36"><title>residue 357: evenly spaced</title></rect>
+          <rect class="f-rest" x="928.14" y="70" width="1.98" height="36"><title>residue 358: evenly spaced</title></rect>
+          <rect class="f-unused" x="930.57" y="70" width="1.98" height="36"><title>residue 359: not used</title></rect>
+          <rect class="f-rest" x="933.00" y="70" width="1.98" height="36"><title>residue 360: evenly spaced</title></rect>
+          <rect class="f-unused" x="935.43" y="70" width="1.98" height="36"><title>residue 361: not used</title></rect>
+          <rect class="f-rest" x="937.87" y="70" width="1.98" height="36"><title>residue 362: evenly spaced</title></rect>
+          <rect class="f-unused" x="940.30" y="70" width="1.98" height="36"><title>residue 363: not used</title></rect>
+          <rect class="f-unused" x="942.73" y="70" width="1.98" height="36"><title>residue 364: not used</title></rect>
+          <rect class="f-unused" x="945.16" y="70" width="1.98" height="36"><title>residue 365: not used</title></rect>
+          <rect class="f-unused" x="947.59" y="70" width="1.98" height="36"><title>residue 366: not used</title></rect>
+          <rect class="f-unused" x="950.02" y="70" width="1.98" height="36"><title>residue 367: not used</title></rect>
+          <rect class="f-unused" x="952.46" y="70" width="1.98" height="36"><title>residue 368: not used</title></rect>
+          <rect class="f-unused" x="954.89" y="70" width="1.98" height="36"><title>residue 369: not used</title></rect>
+          <rect class="f-unused" x="957.32" y="70" width="1.98" height="36"><title>residue 370: not used</title></rect>
+          <rect class="f-unused" x="959.75" y="70" width="1.98" height="36"><title>residue 371: not used</title></rect>
+          <rect class="f-unused" x="962.18" y="70" width="1.98" height="36"><title>residue 372: not used</title></rect>
+          <rect class="f-unused" x="964.62" y="70" width="1.98" height="36"><title>residue 373: not used</title></rect>
+          <rect class="f-unused" x="967.05" y="70" width="1.98" height="36"><title>residue 374: not used</title></rect>
+          <rect class="f-unused" x="969.48" y="70" width="1.98" height="36"><title>residue 375: not used</title></rect>
+          <rect class="f-unused" x="971.91" y="70" width="1.98" height="36"><title>residue 376: not used</title></rect>
+          <rect class="f-unused" x="974.34" y="70" width="1.98" height="36"><title>residue 377: not used</title></rect>
+          <rect class="f-unused" x="976.77" y="70" width="1.98" height="36"><title>residue 378: not used</title></rect>
+          <rect class="f-unused" x="979.21" y="70" width="1.98" height="36"><title>residue 379: not used</title></rect>
+          <rect class="f-unused" x="981.64" y="70" width="1.98" height="36"><title>residue 380: not used</title></rect>
+          <rect class="f-unused" x="984.07" y="70" width="1.98" height="36"><title>residue 381: not used</title></rect>
+          <rect class="f-unused" x="986.50" y="70" width="1.98" height="36"><title>residue 382: not used</title></rect>
+          <rect class="f-unused" x="988.93" y="70" width="1.98" height="36"><title>residue 383: not used</title></rect>
+          <rect class="f-unused" x="991.36" y="70" width="1.98" height="36"><title>residue 384: not used</title></rect>
+          <rect class="f-unused" x="993.80" y="70" width="1.98" height="36"><title>residue 385: not used</title></rect>
+          <rect class="f-unused" x="996.23" y="70" width="1.98" height="36"><title>residue 386: not used</title></rect>
+          <rect class="f-unused" x="998.66" y="70" width="1.98" height="36"><title>residue 387: not used</title></rect>
+          <rect class="f-unused" x="1001.09" y="70" width="1.98" height="36"><title>residue 388: not used</title></rect>
+          <rect class="f-unused" x="1003.52" y="70" width="1.98" height="36"><title>residue 389: not used</title></rect>
+          <rect class="f-unused" x="1005.96" y="70" width="1.98" height="36"><title>residue 390: not used</title></rect>
+          <rect class="f-unused" x="1008.39" y="70" width="1.98" height="36"><title>residue 391: not used</title></rect>
+          <rect class="f-unused" x="1010.82" y="70" width="1.98" height="36"><title>residue 392: not used</title></rect>
+          <rect class="f-unused" x="1013.25" y="70" width="1.98" height="36"><title>residue 393: not used</title></rect>
+          <rect class="f-unused" x="1015.68" y="70" width="1.98" height="36"><title>residue 394: not used</title></rect>
+          <rect class="f-unused" x="1018.11" y="70" width="1.98" height="36"><title>residue 395: not used</title></rect>
+          <rect class="f-unused" x="1020.55" y="70" width="1.98" height="36"><title>residue 396: not used</title></rect>
+          <rect class="f-unused" x="1022.98" y="70" width="1.98" height="36"><title>residue 397: not used</title></rect>
+          <rect class="f-unused" x="1025.41" y="70" width="1.98" height="36"><title>residue 398: not used</title></rect>
+          <rect class="f-unused" x="1027.84" y="70" width="1.98" height="36"><title>residue 399: not used</title></rect>
+          <rect class="f-unused" x="1030.27" y="70" width="1.98" height="36"><title>residue 400: not used</title></rect>
+          <rect class="f-unused" x="1032.70" y="70" width="1.98" height="36"><title>residue 401: not used</title></rect>
+          <rect class="f-unused" x="1035.14" y="70" width="1.98" height="36"><title>residue 402: not used</title></rect>
+          <rect class="f-unused" x="1037.57" y="70" width="1.98" height="36"><title>residue 403: not used</title></rect>
+          <polygon class="f-mut" points="354.32,56 366.32,56 360.32,66"/><text class="t-ink" x="360.32" y="50" text-anchor="middle">124 (C124S)</text>
+          <text class="t-small" x="1040" y="62" text-anchor="end">363–403 not used</text>
+          <line class="grid" x1="61.22" y1="108" x2="61.22" y2="114"/><text class="t-axis" x="61.22" y="128" text-anchor="middle">1</text><line class="grid" x1="301.96" y1="108" x2="301.96" y2="114"/><text class="t-axis" x="301.96" y="128" text-anchor="middle">100</text><line class="grid" x1="545.14" y1="108" x2="545.14" y2="114"/><text class="t-axis" x="545.14" y="128" text-anchor="middle">200</text><line class="grid" x1="788.31" y1="108" x2="788.31" y2="114"/><text class="t-axis" x="788.31" y="128" text-anchor="middle">300</text><line class="grid" x1="1038.78" y1="108" x2="1038.78" y2="114"/><text class="t-axis" x="1038.78" y="128" text-anchor="middle">403</text>
+          <rect class="f-seq" x="60" y="150" width="12" height="12" rx="2"/><text class="t-ink" x="80" y="160">51 around the mutation (99–149)</text><rect class="f-str" x="560" y="150" width="12" height="12" rx="2"/><text class="t-ink" x="580" y="160">19 close to 124 in 3D (34–38, 68–75, 88–93)</text><rect class="f-rest" x="60" y="176" width="12" height="12" rx="2"/><text class="t-ink" x="80" y="186">186 evenly spaced</text><rect class="f-unused" x="560" y="176" width="12" height="12" rx="2"/><text class="t-ink" x="580" y="186">147 not used (41 at the end, 363–403, and 106 gaps)</text>
+
+          <line class="sep" x1="20" y1="208" x2="1080" y2="208"/>
+          <text class="t-title" x="20" y="238">Residue 124's 16 links</text>
+          <path class="chainline" d="M200,350 H680"/>
+          <line class="ln k-str dash" x1="440" y1="350" x2="360" y2="280"/>
+          <line class="ln k-str dash" x1="440" y1="350" x2="440" y2="280"/>
+          <line class="ln k-str dash" x1="440" y1="350" x2="520" y2="280"/>
+          <text class="t-arrow" x="388" y="320" text-anchor="end">5.7 Å</text>
+          <text class="t-arrow" x="447" y="320">4.9 Å</text>
+          <text class="t-arrow" x="494" y="320">5.1 Å</text>
+          <circle class="bead-str" cx="360" cy="280" r="16"/><text class="t-bead" x="360" y="284" text-anchor="middle">F37</text>
+          <circle class="bead-str" cx="440" cy="280" r="16"/><text class="t-bead" x="440" y="284" text-anchor="middle">L70</text>
+          <circle class="bead-str" cx="520" cy="280" r="16"/><text class="t-bead" x="520" y="284" text-anchor="middle">C71</text>
+          <circle class="bead-seq" cx="200" cy="350" r="16"/><text class="t-bead" x="200" y="354" text-anchor="middle">118</text>
+          <circle class="bead-seq" cx="240" cy="350" r="16"/><text class="t-bead" x="240" y="354" text-anchor="middle">119</text>
+          <circle class="bead-seq" cx="280" cy="350" r="16"/><text class="t-bead" x="280" y="354" text-anchor="middle">120</text>
+          <circle class="bead-seq" cx="320" cy="350" r="16"/><text class="t-bead" x="320" y="354" text-anchor="middle">121</text>
+          <circle class="bead-seq" cx="360" cy="350" r="16"/><text class="t-bead" x="360" y="354" text-anchor="middle">122</text>
+          <circle class="bead-seq" cx="400" cy="350" r="16"/><text class="t-bead" x="400" y="354" text-anchor="middle">123</text>
+          <circle class="bead-mut" cx="440" cy="350" r="16"/><text class="t-bead" x="440" y="354" text-anchor="middle" style="fill:var(--bg)">124</text>
+          <circle class="bead-seq" cx="480" cy="350" r="16"/><text class="t-bead" x="480" y="354" text-anchor="middle">125</text>
+          <circle class="bead-seq" cx="520" cy="350" r="16"/><text class="t-bead" x="520" y="354" text-anchor="middle">126</text>
+          <circle class="bead-seq" cx="560" cy="350" r="16"/><text class="t-bead" x="560" y="354" text-anchor="middle">127</text>
+          <circle class="bead-seq" cx="600" cy="350" r="16"/><text class="t-bead" x="600" y="354" text-anchor="middle">128</text>
+          <circle class="bead-seq" cx="640" cy="350" r="16"/><text class="t-bead" x="640" y="354" text-anchor="middle">129</text>
+          <circle class="bead-seq" cx="680" cy="350" r="16"/><text class="t-bead" x="680" y="354" text-anchor="middle">130</text>
+          <text class="t-ink" x="200" y="398">along the chain: 118–130 (12 links)</text>
+          <text class="t-ink" x="200" y="416">close in 3D, far along the chain: F37, L70, C71 (3 links) · plus 124 itself</text>
+
+          <rect class="box k-str" x="760" y="250" width="320" height="170" rx="8"/>
+          <text class="t-title" x="776" y="276">The 5 numbers on link 124 → L70</text>
+          <text class="t-line" x="776" y="300">distance</text><text class="t-code" x="1064" y="300" text-anchor="end">4.9 Å (÷16 = 0.31)</text>
+          <text class="t-line" x="776" y="322">spread across structures</text><text class="t-code" x="1064" y="322" text-anchor="end">0 (one structure)</text>
+          <text class="t-line" x="776" y="344">contact strength e^(−d/8)</text><text class="t-code" x="1064" y="344" text-anchor="end">0.54</text>
+          <text class="t-line" x="776" y="366">gap along the chain</text><text class="t-code" x="1064" y="366" text-anchor="end">54 → capped at 1</text>
+          <text class="t-line" x="776" y="388">confidence (124 × 70)</text><text class="t-code" x="1064" y="388" text-anchor="end">0.94 × 0.99 = 0.93</text>
+          <text class="t-small" x="776" y="410">3D links need confidence &gt; 0.5 at both ends</text>
+        </svg>
+      </div>
+      <figcaption><strong>Figure 2.</strong> Top: every tick is one PTEN residue, drawn to scale. MIPO first takes the 51 residues within 25 positions of 124, then the residues closest to 124 in 3D (19 new ones, around the active site), then evenly spaced residues from the start of the protein until 256 are kept, so residues 363–403 are not used for this mutation. Bottom: the 3D search also found 123, 125, 126 and 127 (3.8–5.8 Å); they are shown with the chain links.</figcaption>
+    </figure>
+  </section>
+
+  <section aria-labelledby="round">
+    <div class="prose stack">
+      <h2 id="round">Stage 3 in detail: one round of spreading</h2>
+      <p>This is where MIPO differs most from a plain model on ESM-2 features. In each round every kept residue updates its 128 numbers from three sources at once.</p>
+    </div>
+    <figure>
+      <div class="scroll">
+        <svg class="diagram" viewBox="0 0 1100 300" role="img" aria-label="In each round a residue combines neighbour messages, a 3D direction signal and messages from 16 shared hubs into an update. Residue 124 starts with the impulse and all others start at zero; after round 1 its linked residues carry part of the signal, and the hubs reach every kept residue.">
+          <defs>
+            <marker id="m2-ink" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker>
+          </defs>
+          <rect class="box k-ink" x="30" y="24" width="320" height="76" rx="8"/>
+          <text class="t-title" x="46" y="50">Neighbour messages</text>
+          <text class="t-line" x="46" y="69">weighted mix of the 16 linked residues</text>
+          <text class="t-line" x="46" y="86">weights: both contexts + 5 link numbers</text>
+
+          <rect class="box k-str" x="30" y="114" width="320" height="76" rx="8"/>
+          <text class="t-title" x="46" y="140">3D direction</text>
+          <text class="t-line" x="46" y="159">arrows to linked residues, summed;</text>
+          <text class="t-line" x="46" y="176">only the length is kept (rotation-proof)</text>
+
+          <rect class="box k-ink" x="30" y="204" width="320" height="76" rx="8"/>
+          <text class="t-title" x="46" y="230">16 hubs (landmarks)</text>
+          <text class="t-line" x="46" y="249">every residue pools into hubs and hears</text>
+          <text class="t-line" x="46" y="266">back: long reach in a single step</text>
+
+          <line class="ln k-ink" x1="350" y1="62" x2="430" y2="138" marker-end="url(#m2-ink)"/>
+          <line class="ln k-ink" x1="350" y1="152" x2="430" y2="152" marker-end="url(#m2-ink)"/>
+          <line class="ln k-ink" x1="350" y1="242" x2="430" y2="166" marker-end="url(#m2-ink)"/>
+
+          <rect class="core" x="430" y="112" width="230" height="80" rx="8"/>
+          <text class="t-title" x="446" y="138">Update</text>
+          <text class="t-line" x="446" y="157">new = old + step × change</text>
+          <text class="t-line" x="446" y="174">no bias: zero in → zero out</text>
+          <path class="ln k-ink" d="M545,192 V222 H470 V200" marker-end="url(#m2-ink)"/>
+          <text class="t-arrow" x="552" y="238">repeat: 3 rounds</text>
+
+          <line class="ln k-ink" x1="660" y1="152" x2="730" y2="152" marker-end="url(#m2-ink)"/>
+          <rect class="core" x="730" y="60" width="340" height="184" rx="8"/>
+          <text class="t-title" x="746" y="86">How the signal travels</text>
+          <text class="t-line" x="746" y="108">before round 1: only residue 124 is non-zero</text>
+          <text class="t-line" x="746" y="128">round 1: its 15 linked residues (118–130,</text>
+          <text class="t-line" x="746" y="145">F37, L70, C71) receive part of it; the hubs</text>
+          <text class="t-line" x="746" y="162">pass a share to every kept residue</text>
+          <text class="t-line" x="746" y="182">rounds 2–3: neighbours of neighbours</text>
+          <text class="t-line" x="746" y="199">receive it too</text>
+          <text class="t-line" x="746" y="222">result: the response field (128 per residue)</text>
+        </svg>
+      </div>
+      <figcaption><strong>Figure 3.</strong> The three sources feed one update, repeated three times. The step size is learned (it starts at about 0.27), and nothing in the update adds a constant, so a mutation that changes nothing leaves every residue at zero. The field is learned, not measured allostery.</figcaption>
+    </figure>
+  </section>
+
+  <section aria-labelledby="steps">
+    <h2 id="steps" class="prose">Step by step, in plain words</h2>
+    <ol class="steps">
+      <li>
+        <h3>Read the protein</h3>
+        <p>ESM-2 is a protein language model trained by others on millions of sequences. MIPO uses it as a fixed reader: it describes every residue of PTEN with 1,280 numbers, and MIPO never changes ESM-2 itself. MIPO shrinks each description to 128 numbers and also keeps the average over the whole protein.</p>
+        <p class="detail">ESM-2 t33 650M, cached once per exact sequence. Long proteins are read in 768-residue windows with 128 overlap. Projection: Linear 1,280 → 128 + LayerNorm.</p>
+      </li>
+      <li>
+        <h3>Describe the mutation</h3>
+        <p>MIPO compares serine with cysteine in two ways. It has a learned 24-number fingerprint for each amino acid, and it has four fixed chemistry numbers. For C124S the chemistry changes like this:</p>
+        <div class="table-wrap">
+          <table style="min-width:440px;max-width:700px">
+            <thead><tr><th>Property</th><th class="num">Cysteine</th><th class="num">Serine</th><th class="num">Change</th></tr></thead>
+            <tbody>
+              <tr><th>Hydropathy (Kyte–Doolittle)</th><td class="num">2.5</td><td class="num">−0.8</td><td class="num">−3.3</td></tr>
+              <tr><th>Side-chain volume (Å³)</th><td class="num">108.5</td><td class="num">89.0</td><td class="num">−19.5</td></tr>
+              <tr><th>Charge at neutral pH</th><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+              <tr><th>Polar side chain</th><td class="num">no</td><td class="num">yes</td><td class="num">+1</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These 28 differences become a 128-number <em>impulse</em>. How strong it is depends on what ESM-2 says about residue 124. The impulse sits on residue 124 only; every other residue starts at zero.</p>
+        <p class="detail">impulse = tanh(W·[Δ fingerprint (24), Δ chemistry (4)]) × sigmoid(MLP(context of 124)). W has no bias term. Chemistry is scaled (hydropathy ÷ 5, volume ÷ 200); these are descriptors, not energies.</p>
+      </li>
+      <li>
+        <h3>Build the residue graph</h3>
+        <p>For PTEN C124S, MIPO keeps 256 residues: 51 around the mutation, 19 more that are close to it in 3D, and 186 evenly spaced ones (Figure 2). Each kept residue gets 16 links: up to 8 nearest in 3D, using only confidently placed residues, and the rest nearest along the chain. Every link carries five numbers.</p>
+        <p class="detail">Node budget 256; confidence threshold 0.5; up to 4 structures (PTEN has 1). Direction arrows only for confident pairs closer than 16 Å. Missing structure → chain links only, never invented coordinates. Built on the CPU for every variant.</p>
+      </li>
+      <li>
+        <h3>Spread the effect, three times</h3>
+        <p>In each round, every residue updates its value from its linked residues, from a 3D direction signal, and from 16 shared hubs (Figure 3). After three rounds the values form the <em>response field</em>: MIPO's guess of how much each kept residue is affected.</p>
+        <p class="detail">new = old + sigmoid(step) × tanh(U·[old, neighbour mix, hub message, 3D length]). Hubs cost residues × 16, not residues².</p>
+      </li>
+      <li>
+        <h3>Summarise four ways</h3>
+        <p><strong>①</strong> the site: a small transformer reads the 25 residues on each side of 124, plus the field value at 124; <strong>②</strong> the field averaged over all kept residues; <strong>③</strong> the whole-protein average from step 1; <strong>④</strong> the impulse plus the zero-shot LLR, ESM-2's own guess of how likely serine is at 124 compared with cysteine when residue 124 is hidden.</p>
+        <p class="detail">Window reader: 2 transformer layers, 4 heads, relative positions only. LLR = log p(S) − log p(C) with 124 masked, scaled ÷ 10, plus a "present" flag, → MLP → 128.</p>
+      </li>
+      <li>
+        <h3>Mix the four views</h3>
+        <p>A small network gives each view a weight; it also looks at how confident the structure is at residue 124. During training, views ① to ③ are randomly switched off 10% of the time, so the model cannot lean on a single source. View ④ is always kept.</p>
+        <p class="detail">Gates: softmax over 4 from MLP(4 × 128 + 1). Mixing: MLP 512 → 256 → 128.</p>
+      </li>
+      <li>
+        <h3>Squeeze to 8 numbers</h3>
+        <p>The mix is squeezed to 8 numbers between −1 and 1. They have no names; they are a compact description of what the mutation does, and every kind of assay reads from the same 8 numbers.</p>
+        <p class="detail">MLP 128 → 128 → 8, then tanh. The 8 coordinates are not labelled biology (folding, binding, …); the data cannot identify that.</p>
+      </li>
+      <li>
+        <h3>Read out for this assay</h3>
+        <p>MIPO turns the assay description into a 40-number code, and the hypernetwork turns that code into the weights of the final readout, which gives μ and σ. Gene names and assay IDs are never inputs. During training, 15% of variants hide their task, so the model also learns a general readout for assay types it has not seen.</p>
+        <p class="detail">Code = task embedding (24) + mean of metadata embeddings (16). Hypernetwork MLP 40 → 64 → 18 = weights and bias for μ and σ. μ = w·z / √8 + b; σ = softplus(·) + 0.05.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="outputs">
+    <div class="prose stack">
+      <h2 id="outputs">What comes out</h2>
+      <p>Every training run scores its held-out test gene and writes the results to its run folder. The effect map and the view weights are not saved during training; you get them by running <code>mipo predict --export-fields</code> with a saved checkpoint.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Output</th><th>What it means</th><th>Where to find it</th></tr></thead>
+        <tbody>
+          <tr><th>Score μ</th><td>The predicted measurement, on the training scale and converted back to the assay's own units</td><td><code>test_predictions.csv</code>: <code>mu</code>, <code>prediction_score_units</code></td></tr>
+          <tr><th>Uncertainty σ</th><td>How unsure MIPO is. A 90% range is μ ± 1.645 σ</td><td><code>test_predictions.csv</code>: <code>sigma</code>, <code>sigma_score_units</code></td></tr>
+          <tr><th>Calibrated 90% range</th><td>The range stretched to match calibration genes; only when at least 3 calibration genes share the task</td><td><code>interval_low</code>, <code>interval_high</code> (empty when not available)</td></tr>
+          <tr><th>Scores per assay</th><td>Spearman (is the order right?), Pearson, error, and how often the 90% range caught the measurement</td><td><code>test_metrics.csv</code></td></tr>
+          <tr><th>One number per gene</th><td>Spearman averaged over the gene's assays: the headline test score</td><td><code>test_summary.json</code>: <code>macro_gene_spearman</code></td></tr>
+          <tr><th>Training history</th><td>Loss and validation Spearman for each epoch, and which epoch was kept</td><td><code>history.json</code>, <code>training_status.json</code></td></tr>
+          <tr><th>Effect map</th><td>The response field (128 numbers per kept residue) and the 3D direction vectors</td><td><code>mipo predict --export-fields</code> → <code>field_*.npz</code></td></tr>
+          <tr><th>View weights, 8 numbers</th><td>How much each of the four views counted, and the bottleneck values</td><td>same <code>field_*.npz</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose stack" style="margin-top:14px">
+      <h3>A real example: PTEN, held out in fold 6</h3>
+      <p>MIPO (seed 42, trained on the DGX) never saw any PTEN measurement. It kept the weights from epoch 3 and stopped after epoch 10 because the validation score stopped improving. It was then scored once on PTEN's two assays. Below, <strong>real</strong> means the value measured in the published experiment (Mighell et al. 2018 for activity, Matreyek et al. 2021 for abundance), and <strong>MIPO</strong> means our model's prediction.</p>
+    </div>
+    <div class="stats">
+      <div><b>0.519</b><span>test Spearman for PTEN</span></div>
+      <div><b>0.572</b><span>best validation Spearman (epoch 3)</span></div>
+      <div><b>12,343</b><span>PTEN variants scored</span></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Assay</th><th>Measures</th><th class="num">Variants</th><th class="num">Spearman</th><th class="num">90% range caught</th></tr></thead>
+        <tbody>
+          <tr><th>Mighell 2018</th><td>phosphatase activity</td><td class="num">7,260</td><td class="num">0.540</td><td class="num">75.2%</td></tr>
+          <tr><th>Matreyek 2021</th><td>abundance (how much protein is made and kept)</td><td class="num">5,083</td><td class="num">0.497</td><td class="num">99.6%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure>
+      <div class="scroll">
+        <svg class="diagram" viewBox="0 0 1100 280" role="img" aria-label="Rank of four PTEN variants among all variants in each assay, real measurement versus MIPO prediction. Activity: C124S measured 0.5, predicted 7.0; G129E 0.1 and 19.9; R130G 19.9 and 24.7; K289E 77.6 and 91.8. Abundance: C124S measured 88.0, predicted 6.1; G129E 36.1 and 23.5; R130G 94.2 and 18.1; K289E 65.6 and 93.5.">
+          <text class="t-title" x="110" y="30">Activity (Mighell 2018)</text>
+          <line class="grid" x1="110.0" y1="48" x2="110.0" y2="206"/><text class="t-axis" x="110.0" y="222" text-anchor="middle">0</text>
+          <line class="grid" x1="207.5" y1="48" x2="207.5" y2="206"/><text class="t-axis" x="207.5" y="222" text-anchor="middle">25</text>
+          <line class="grid" x1="305.0" y1="48" x2="305.0" y2="206"/><text class="t-axis" x="305.0" y="222" text-anchor="middle">50</text>
+          <line class="grid" x1="402.5" y1="48" x2="402.5" y2="206"/><text class="t-axis" x="402.5" y="222" text-anchor="middle">75</text>
+          <line class="grid" x1="500.0" y1="48" x2="500.0" y2="206"/><text class="t-axis" x="500.0" y="222" text-anchor="middle">100</text>
+          <text class="t-small" x="305.0" y="240" text-anchor="middle">rank among all variants (0 = lowest score)</text>
+          <text class="t-ink" x="96" y="74" text-anchor="end">C124S</text>
+          <line class="conn" x1="112.0" y1="70" x2="137.2" y2="70"/>
+          <g><title>C124S activity: real measurement, rank 0.5 (score -4.90)</title><circle class="hit" cx="112.0" cy="70" r="12"/><circle class="meas" cx="112.0" cy="70" r="6"/></g>
+          <g><title>C124S activity: MIPO prediction, rank 7.0 (μ -0.95)</title><circle class="hit" cx="137.2" cy="70" r="12"/><polygon class="pred" points="137.2,63 144.2,70 137.2,77 130.2,70"/></g>
+          <text class="t-ink" x="96" y="114" text-anchor="end">G129E</text>
+          <line class="conn" x1="110.3" y1="110" x2="187.5" y2="110"/>
+          <g><title>G129E activity: real measurement, rank 0.1 (score -5.41)</title><circle class="hit" cx="110.3" cy="110" r="12"/><circle class="meas" cx="110.3" cy="110" r="6"/></g>
+          <g><title>G129E activity: MIPO prediction, rank 19.9 (μ -0.81)</title><circle class="hit" cx="187.5" cy="110" r="12"/><polygon class="pred" points="187.5,103 194.5,110 187.5,117 180.5,110"/></g>
+          <text class="t-ink" x="96" y="154" text-anchor="end">R130G</text>
+          <line class="conn" x1="187.7" y1="150" x2="206.4" y2="150"/>
+          <g><title>R130G activity: real measurement, rank 19.9 (score -2.14)</title><circle class="hit" cx="187.7" cy="150" r="12"/><circle class="meas" cx="187.7" cy="150" r="6"/></g>
+          <g><title>R130G activity: MIPO prediction, rank 24.7 (μ -0.74)</title><circle class="hit" cx="206.4" cy="150" r="12"/><polygon class="pred" points="206.4,143 213.4,150 206.4,157 199.4,150"/></g>
+          <text class="t-ink" x="96" y="194" text-anchor="end">K289E</text>
+          <line class="conn" x1="412.6" y1="190" x2="468.1" y2="190"/>
+          <g><title>K289E activity: real measurement, rank 77.6 (score 0.14)</title><circle class="hit" cx="412.6" cy="190" r="12"/><circle class="meas" cx="412.6" cy="190" r="6"/></g>
+          <g><title>K289E activity: MIPO prediction, rank 91.8 (μ 0.41)</title><circle class="hit" cx="468.1" cy="190" r="12"/><polygon class="pred" points="468.1,183 475.1,190 468.1,197 461.1,190"/></g>
+          <text class="t-title" x="640" y="30">Abundance (Matreyek 2021)</text>
+          <line class="grid" x1="640.0" y1="48" x2="640.0" y2="206"/><text class="t-axis" x="640.0" y="222" text-anchor="middle">0</text>
+          <line class="grid" x1="737.5" y1="48" x2="737.5" y2="206"/><text class="t-axis" x="737.5" y="222" text-anchor="middle">25</text>
+          <line class="grid" x1="835.0" y1="48" x2="835.0" y2="206"/><text class="t-axis" x="835.0" y="222" text-anchor="middle">50</text>
+          <line class="grid" x1="932.5" y1="48" x2="932.5" y2="206"/><text class="t-axis" x="932.5" y="222" text-anchor="middle">75</text>
+          <line class="grid" x1="1030.0" y1="48" x2="1030.0" y2="206"/><text class="t-axis" x="1030.0" y="222" text-anchor="middle">100</text>
+          <text class="t-small" x="835.0" y="240" text-anchor="middle">rank among all variants (0 = lowest score)</text>
+          <text class="t-ink" x="626" y="74" text-anchor="end">C124S</text>
+          <line class="conn" x1="983.4" y1="70" x2="663.8" y2="70"/>
+          <g><title>C124S abundance: real measurement, rank 88.0 (score 1.05)</title><circle class="hit" cx="983.4" cy="70" r="12"/><circle class="meas" cx="983.4" cy="70" r="6"/></g>
+          <g><title>C124S abundance: MIPO prediction, rank 6.1 (μ -0.44)</title><circle class="hit" cx="663.8" cy="70" r="12"/><polygon class="pred" points="663.8,63 670.8,70 663.8,77 656.8,70"/></g>
+          <text class="t-ink" x="626" y="114" text-anchor="end">G129E</text>
+          <line class="conn" x1="780.9" y1="110" x2="731.5" y2="110"/>
+          <g><title>G129E abundance: real measurement, rank 36.1 (score 0.64)</title><circle class="hit" cx="780.9" cy="110" r="12"/><circle class="meas" cx="780.9" cy="110" r="6"/></g>
+          <g><title>G129E abundance: MIPO prediction, rank 23.4 (μ -0.21)</title><circle class="hit" cx="731.5" cy="110" r="12"/><polygon class="pred" points="731.5,103 738.5,110 731.5,117 724.5,110"/></g>
+          <text class="t-ink" x="626" y="154" text-anchor="end">R130G</text>
+          <line class="conn" x1="1007.5" y1="150" x2="710.4" y2="150"/>
+          <g><title>R130G abundance: real measurement, rank 94.2 (score 1.12)</title><circle class="hit" cx="1007.5" cy="150" r="12"/><circle class="meas" cx="1007.5" cy="150" r="6"/></g>
+          <g><title>R130G abundance: MIPO prediction, rank 18.1 (μ -0.28)</title><circle class="hit" cx="710.4" cy="150" r="12"/><polygon class="pred" points="710.4,143 717.4,150 710.4,157 703.4,150"/></g>
+          <text class="t-ink" x="626" y="194" text-anchor="end">K289E</text>
+          <line class="conn" x1="895.9" y1="190" x2="1004.7" y2="190"/>
+          <g><title>K289E abundance: real measurement, rank 65.6 (score 0.89)</title><circle class="hit" cx="895.9" cy="190" r="12"/><circle class="meas" cx="895.9" cy="190" r="6"/></g>
+          <g><title>K289E abundance: MIPO prediction, rank 93.5 (μ 0.83)</title><circle class="hit" cx="1004.7" cy="190" r="12"/><polygon class="pred" points="1004.7,183 1011.7,190 1004.7,197 997.7,190"/></g>
+          <circle class="meas" cx="116" cy="262" r="6"/><text class="t-ink" x="130" y="266">real measurement (published experiment)</text>
+          <polygon class="pred" points="410,255 417,262 410,269 403,262"/><text class="t-ink" x="425" y="266">our prediction (MIPO)</text>
+        </svg>
+      </div>
+      <figcaption><strong>Figure 4.</strong> Where each variant ranks among all variants in the same assay (0 = lowest score, 100 = highest), in the real experiment (circle) and in our MIPO prediction (diamond). The closer the two marks, the better. Spearman rewards getting this order right. C124S, G129E and R130G sit in PTEN's catalytic loop; K289E is outside it. Hover a mark for its value.</figcaption>
+    </figure>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Variant</th><th>Assay</th><th class="num">Real (experiment)</th><th class="num">MIPO prediction μ</th><th class="num">90% range</th><th class="num">Rank, real</th><th class="num">Rank, MIPO</th></tr></thead>
+        <tbody>
+          <tr><th>C124S</th><td>activity</td><td class="num">−4.90</td><td class="num">−0.95</td><td class="num">−2.51 to 0.61</td><td class="num">0.5</td><td class="num">7.0</td></tr>
+          <tr><th>G129E</th><td>activity</td><td class="num">−5.41</td><td class="num">−0.81</td><td class="num">−2.26 to 0.64</td><td class="num">0.1</td><td class="num">19.9</td></tr>
+          <tr><th>R130G</th><td>activity</td><td class="num">−2.14</td><td class="num">−0.74</td><td class="num">−2.23 to 0.74</td><td class="num">19.9</td><td class="num">24.7</td></tr>
+          <tr><th>K289E</th><td>activity</td><td class="num">0.14</td><td class="num">0.41</td><td class="num">−0.75 to 1.57</td><td class="num">77.6</td><td class="num">91.8</td></tr>
+          <tr><th>C124S</th><td>abundance</td><td class="num">1.05</td><td class="num">−0.44</td><td class="num">−2.16 to 1.28</td><td class="num">88.0</td><td class="num">6.1</td></tr>
+          <tr><th>G129E</th><td>abundance</td><td class="num">0.64</td><td class="num">−0.21</td><td class="num">−1.89 to 1.47</td><td class="num">36.1</td><td class="num">23.5</td></tr>
+          <tr><th>R130G</th><td>abundance</td><td class="num">1.12</td><td class="num">−0.28</td><td class="num">−1.86 to 1.29</td><td class="num">94.2</td><td class="num">18.1</td></tr>
+          <tr><th>K289E</th><td>abundance</td><td class="num">0.89</td><td class="num">0.83</td><td class="num">−0.04 to 1.69</td><td class="num">65.6</td><td class="num">93.5</td></tr>
+        </tbody>
+        <tfoot><tr><td colspan="7">Values are in each assay's own units (<code>score_value</code>, <code>prediction_score_units</code>). 90% range = μ ± 1.645 σ; no calibrated range was available for PTEN. Rank = percentile among all variants in that assay.</td></tr></tfoot>
+      </table>
+    </div>
+    <ul class="plain">
+      <li><strong>Activity: mostly right.</strong> MIPO puts the three catalytic-loop mutations near the bottom and K289E near the top, as the experiment measured.</li>
+      <li><strong>Abundance: the catalytic mutations go wrong.</strong> MIPO also ranks C124S and R130G low for abundance, but the experiment measured them among the most abundant variants (88th and 94th). A dead enzyme can still be a stable protein. Separating these two effects is what the model is designed to learn; for these variants it has not.</li>
+      <li><strong>The order is closer than the values.</strong> C124S activity was measured at −4.90 and predicted at −0.95, outside its 90% range. Across all activity variants the range caught 75% of measurements instead of 90%, and for abundance 99.6%. On a new gene, treat the ranges as guides.</li>
+      <li>This is one seed of one fold. The model comparison comes from all 120 runs (<code>matched_comparison.csv</code> after the last run).</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="ablations">
+    <div class="prose stack">
+      <h2 id="ablations">What the three comparison models remove</h2>
+      <p>Your run trains MIPO next to three reduced versions on the same folds and seeds. Each removes one idea, so a difference in Spearman shows whether that idea helps on genes the model has never seen.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Part of the model</th><th>mipo (full)</th><th>esm_mlp</th><th>no_structure</th><th>no_global_kernel</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>Mutation impulse (amino-acid fingerprint)</th><td><span class="chip on">used</span></td><td><span class="chip on">used</span></td><td><span class="chip on">used</span></td><td><span class="chip on">used</span></td></tr>
+          <tr><th>Chemistry change</th><td><span class="chip on">used</span></td><td><span class="chip off">removed</span></td><td><span class="chip on">used</span></td><td><span class="chip on">used</span></td></tr>
+          <tr><th>Spreading over the residue graph</th><td><span class="chip on">used</span></td><td><span class="chip off">removed</span></td><td><span class="chip part">chain links only</span></td><td><span class="chip on">used</span></td></tr>
+          <tr><th>3D geometry (distances, directions)</th><td><span class="chip on">used</span></td><td><span class="chip off">removed</span></td><td><span class="chip off">removed</span></td><td><span class="chip on">used</span></td></tr>
+          <tr><th>16 hubs for long reach</th><td><span class="chip on">used</span></td><td><span class="chip off">removed</span></td><td><span class="chip on">used</span></td><td><span class="chip off">removed</span></td></tr>
+          <tr><th>±25-residue window reader</th><td><span class="chip on">used</span></td><td><span class="chip part">residue 124 only</span></td><td><span class="chip on">used</span></td><td><span class="chip on">used</span></td></tr>
+          <tr><th>Protein average + zero-shot LLR</th><td><span class="chip on">used</span></td><td><span class="chip on">used</span></td><td><span class="chip on">used</span></td><td><span class="chip on">used</span></td></tr>
+          <tr><th>Assay-aware readout</th><td><span class="chip on">used</span></td><td><span class="chip on">used</span></td><td><span class="chip on">used</span></td><td><span class="chip on">used</span></td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>Question it answers</td><td>the full model</td><td>Is the extra machinery better than a simple model on ESM-2 features?</td><td>Does 3D structure help?</td><td>Do long-range hubs help?</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="learning">
+    <h2 id="learning" class="prose">How it learns</h2>
+    <div class="two">
+      <div class="stack" style="gap:14px">
+        <h3>What each prediction is scored on</h3>
+        <ul class="loss">
+          <li><span class="w">1</span><span><strong>Fit the score and be honest about uncertainty.</strong> Gaussian likelihood: being wrong while claiming a small σ costs the most.</span></li>
+          <li><span class="w">0.1</span><span><strong>Limit the pull of outliers.</strong> Huber error on the score.</span></li>
+          <li><span class="w">0.2</span><span><strong>Get the order right.</strong> For pairs of variants from the same assay, the higher measured one should get the higher prediction. This matches the Spearman correlation used to judge the model.</span></li>
+          <li><span class="w">1e-5</span><span><strong>Keep the field small.</strong> A tiny penalty on the size of the response field.</span></li>
+          <li><span class="w">0.1</span><span><strong>Physical proxies</strong> (contact change, flexibility): built in, but inactive in this run because no paired mutant structures were supplied.</span></li>
+        </ul>
+      </div>
+      <div class="stack" style="gap:14px">
+        <h3>Training recipe in this run</h3>
+        <dl class="recipe">
+          <dt>Batch</dt><dd>8 variants from one assay (pick a task, then a gene, then one of its assays)</dd>
+          <dt>Update</dt><dd>every 4 batches, so 32 variants</dd>
+          <dt>Epoch</dt><dd>3,000 batches = 24,000 variant draws</dd>
+          <dt>Length</dt><dd>up to 20 epochs; stop after 6 without improvement</dd>
+          <dt>Optimiser</dt><dd>AdamW, learning rate 0.0003 easing to 0.000015, gradients clipped at 1</dd>
+          <dt>Precision</dt><dd>full 32-bit; mixed precision collapsed the predictions on the DGX (fold 4)</dd>
+          <dt>Best epoch</dt><dd>highest validation Spearman: within each assay, averaged per gene, then across the 5 validation genes</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="run">
+    <div class="prose stack">
+      <h2 id="run">Where the model sits in your run</h2>
+      <p>Each of the 10 folds holds out one test gene (CYP2C9, GCK, HLA-A, KCNE1, KCNJ2, KRAS, PTEN, SLC22A1, SRC or VKORC1). The model trains on 481 genes, picks its best epoch on 5 validation genes, sets its uncertainty ranges on 3 calibration genes, and is scored once on the test gene. Four models × three seeds × ten folds make 120 training runs.</p>
+      <p>Stage 2's graph is built on the CPU for every variant, and the GPU finishes its part of a batch in about 0.03 seconds. That is why the GPU sits mostly idle and why several runs share one GPU at the same time.</p>
+      <p class="note">Two test genes have a close relative among the training genes: KRAS (HRAS, 86% identical) and SRC (FYN, 77%). Their scores partly reflect transfer within a protein family. The other eight test genes have no close relative in training.</p>
+    </div>
+  </section>
+
+  <footer>Built from the release code (<code>mipo/model.py</code>, <code>data.py</code>, <code>losses.py</code>, <code>train.py</code>, <code>inference.py</code>, <code>ARCHITECTURE.md</code>; release 3ce6c2822684) and PTEN's structure in <code>v4/resources</code>. Results: <code>runs/mipo/seed_42/fold_06</code> from the DGX backup (<code>test_predictions.csv</code>, <code>test_metrics.csv</code>, <code>test_summary.json</code>, <code>training_status.json</code>).</footer>
+</main>
+<script>
+(function () {
+  var svg = document.getElementById('flow');
+  var panel = document.getElementById('box-panel');
+  if (!svg || !panel) return;
+  var body = panel.querySelector('.panel-body');
+
+  function show(key) {
+    var card = document.getElementById('card-' + key);
+    if (!card) return;
+    var picks = svg.querySelectorAll('.pick');
+    for (var i = 0; i < picks.length; i++) {
+      picks[i].classList.toggle('on', picks[i].getAttribute('data-key') === key);
+    }
+    body.innerHTML = card.innerHTML;
+    panel.setAttribute('data-stream', card.getAttribute('data-stream') || 'ink');
+    panel.hidden = false;
+  }
+
+  function hide() {
+    panel.hidden = true;
+    var on = svg.querySelectorAll('.pick.on');
+    for (var i = 0; i < on.length; i++) on[i].classList.remove('on');
+  }
+
+  svg.addEventListener('click', function (e) {
+    var g = e.target.closest ? e.target.closest('.pick') : null;
+    if (g) show(g.getAttribute('data-key'));
+  });
+  svg.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+    var g = e.target.closest ? e.target.closest('.pick') : null;
+    if (g) { e.preventDefault(); show(g.getAttribute('data-key')); }
+  });
+  panel.querySelector('.panel-close').addEventListener('click', hide);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) hide(); });
+})();
+</script>
+</body>
+</html>

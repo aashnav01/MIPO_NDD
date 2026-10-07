@@ -1,0 +1,63 @@
+gene,consensus_rows,rank,status,urn,title,offset,overlap,rho,coverage,doi
+ADSL,8784,0.0,weak_or_unrelated,urn:mavedb:00001257-a-1,ADSL High Expression (Dox+),0.0,8532.0,0.8946970607195147,0.9713114754098361,10.1101/2025.08.15.670494
+ADSL,8784,1.0,weak_or_unrelated,urn:mavedb:00001257-0-1,ADSL Estimated Enzyme Activities,0.0,8432.0,0.8921094508478625,0.9599271402550091,10.1101/2025.08.15.670494
+ADSL,8784,2.0,weak_or_unrelated,urn:mavedb:00001257-a-3,ADSL Low Expression (Dox+),0.0,8176.0,0.8889015223387855,0.930783242258652,10.1101/2025.08.15.670494
+ADSL,8784,3.0,weak_or_unrelated,urn:mavedb:00001257-a-2,"ADSL High Expression (Dox-, Control)",0.0,8532.0,0.822350832789742,0.9713114754098361,10.1101/2025.08.15.670494
+AIRE,9790,,no_matching_target_gene_in_mavedb,,,,,,,
+ASPA,5843,0.0,rank_identical_source,urn:mavedb:00000657-a-1,Aspartoacylase (ASPA) cellular abundance,0.0,5843.0,0.9999999999999999,1.0,10.1038/s41467-024-48481-0
+ASPA,5843,1.0,weak_or_unrelated,urn:mavedb:00000657-b-1,Aspartoacylase (ASPA) cellular toxicity,0.0,5840.0,-0.7713862445138657,0.9994865651206571,10.1038/s41467-024-48481-0
+BRCA1,7045,0.0,weak_or_unrelated,urn:mavedb:00000081-a-2,BRCA1 RING and BRCT domains mean HDR fluorescence score,0.0,2749.0,0.7848586649791884,0.39020581973030516,10.1016/j.ajhg.2018.07.016
+BRCA1,7045,1.0,weak_or_unrelated,urn:mavedb:00000081-a-1,BRCA1 RING and BRCT domains depletion scores,0.0,1055.0,-0.44752504522808556,0.1497515968772179,10.1016/j.ajhg.2018.07.016
+BRCA1,7045,2.0,weak_or_unrelated,urn:mavedb:00001222-a-2,Scores from growth assay of BRCA1 variants,-30.0,115.0,0.10825376785291566,0.016323633782824698,10.1016/j.ajhg.2022.01.019
+BRCA1,7045,3.0,weak_or_unrelated,urn:mavedb:00001222-b-2,Scores from multiplexed functional assay of BRCA1 variants,-30.0,176.0,0.07398415144177857,0.024982256919801278,10.1016/j.ajhg.2022.01.019
+BRCA2,462,0.0,rank_identical_source,urn:mavedb:00001224-a-1,Scores from arrayed screen of BRCA2 homology directed repair function in VC-8 cells,0.0,462.0,0.9999999999999998,1.0,10.1016/j.ajhg.2024.02.002
+CBS,10450,0.0,weak_or_unrelated,urn:mavedb:00000005-a-4,CBS low-B6 imputed and refined,0.0,10450.0,0.9565345531349586,1.0,10.1186/s13073-020-0711-1
+CBS,10450,1.0,weak_or_unrelated,urn:mavedb:00000005-a-3,CBS high-B6 imputed and refined,0.0,10450.0,0.9521714697483761,1.0,10.1186/s13073-020-0711-1
+CBS,10450,2.0,weak_or_unrelated,urn:mavedb:00000005-a-6,CBS high-B6,0.0,6991.0,0.9332589157124019,0.6689952153110048,10.1186/s13073-020-0711-1
+CBS,10450,3.0,weak_or_unrelated,urn:mavedb:00000005-a-5,CBS low-B6,0.0,7217.0,0.9210089168367334,0.690622009569378,10.1186/s13073-020-0711-1
+CRX,5284,0.0,rank_identical_source,urn:mavedb:00001227-a-2,Scores from deep mutational scanning CRX transcription factor in HEK 293-derived cells,0.0,5284.0,1.0,1.0,10.1101/gr.279415.124
+FKRP,2878,0.0,rank_identical_source,urn:mavedb:00001197-a-5,FKRP variants effects on alpha-DG glycosylation,0.0,2878.0,0.9999999999999999,1.0,10.1101/2023.07.12.548370
+HMGCR,16853,0.0,weak_or_unrelated,urn:mavedb:00000035-a-3,HMGCR atorvastatin imputed and refined,0.0,16853.0,0.9715462437446587,1.0,
+HMGCR,16853,1.0,weak_or_unrelated,urn:mavedb:00000035-a-1,HMGCR rosuvastatin imputed and refined,0.0,16853.0,0.9574720121739848,1.0,
+HMGCR,16853,2.0,weak_or_unrelated,urn:mavedb:00000035-a-2,HMGCR no statin imputed and refined,0.0,16853.0,0.9487773225498165,1.0,
+JAG1,1969,,no_matching_target_gene_in_mavedb,,,,,,,
+KCNE1,2328,0.0,weak_or_unrelated,urn:mavedb:00000674-a-2,Trafficking scores for KCNE1 in the presence of KCNQ1,0.0,2320.0,0.8839799809559347,0.9965635738831615,10.1101/2023.04.28.538612
+KCNE1,2328,1.0,weak_or_unrelated,urn:mavedb:00000674-c-1,Trafficking scores for KCNE1 in the absence of KCNQ1,0.0,2305.0,0.8233992615463198,0.9901202749140894,10.1101/2023.04.28.538612
+KCNE1,2328,2.0,weak_or_unrelated,urn:mavedb:00000674-b-1,Functional MAVE scores for KCNE1,0.0,2301.0,0.42743310285735037,0.9884020618556701,10.1101/2023.04.28.538612
+KCNQ1,62,0.0,rank_identical_source,urn:mavedb:00000094-a-15,Normalized currents of 62 KCNQ1 missense SNVs in the homozygous state.,0.0,62.0,1.0,1.0,
+KCNQ2,301,0.0,weak_or_unrelated,urn:mavedb:00000664-a-4,4. Current densities at +40 mV of 301 missense variants co-expressed with wild-type KCNQ2 in CHO cells,0.0,301.0,0.8628498049525131,1.0,
+KCNQ2,301,1.0,weak_or_unrelated,urn:mavedb:00000664-a-1,1. Current densities at +40 mV of 301 missense variants expressed in CHO cells alone,0.0,301.0,0.8374368672668366,1.0,
+KCNQ2,301,2.0,weak_or_unrelated,urn:mavedb:00000664-a-6,6. Current densities at -40 mV of 301 missense variants co-expressed with wild-type KCNQ2 in CHO cells,0.0,301.0,0.8192438141752474,1.0,
+KCNQ2,301,3.0,weak_or_unrelated,urn:mavedb:00000664-a-3,3. Current densities at -40 mV of 301 missense variants expressed in CHO cells alone,0.0,301.0,0.8013891507723352,1.0,
+KRAS,3320,0.0,weak_or_unrelated,urn:mavedb:00000115-a-25,binding fitness from KRAS-RAF1RDB bindingPCA of KRAS block2,0.0,1047.0,0.9387291316558123,0.3153614457831325,
+KRAS,3320,1.0,weak_or_unrelated,urn:mavedb:00000115-a-20,binding fitness from KRAS-RALGDSRDB bindingPCA of KRAS block2,0.0,922.0,0.9362149205269769,0.277710843373494,
+KRAS,3320,2.0,weak_or_unrelated,urn:mavedb:00000115-a-11,binding fitness from KRAS-DARPin K27 bindingPCA of KRAS block2,0.0,1103.0,0.9230550719296076,0.3322289156626506,
+KRAS,3320,3.0,weak_or_unrelated,urn:mavedb:00000115-a-22,binding fitness from KRAS-RAF1RDB bindingPCA of KRAS block1,0.0,1189.0,0.9095217606373793,0.3581325301204819,
+LARGE1,4484,0.0,rank_identical_source,urn:mavedb:00001254-a-1,LARGE1 variants effects on alpha-DG glycosylation,0.0,4484.0,0.9999999999999998,1.0,10.1101/2023.07.12.548370
+MAPK1,6810,0.0,rank_identical_source,urn:mavedb:00000103-b-1,MAPK1 DOX,0.0,6810.0,-1.0,1.0,10.1016/j.celrep.2016.09.061
+MAPK1,6810,1.0,weak_or_unrelated,urn:mavedb:00000103-a-1,MAP1K ETP,0.0,6810.0,-0.7942423716454599,1.0,10.1016/j.celrep.2016.09.061
+MAPK1,6810,2.0,weak_or_unrelated,urn:mavedb:00000103-c-1,MAPK1 SCH772984,0.0,6810.0,-0.5191985440169709,1.0,10.1016/j.celrep.2016.09.061
+MAPK1,6810,3.0,weak_or_unrelated,urn:mavedb:00000103-d-1,MAPK1 VRT-11E,0.0,6810.0,-0.4686730025606971,1.0,10.1016/j.celrep.2016.09.061
+MTHFR,12464,0.0,weak_or_unrelated,urn:mavedb:00000049-a-4,MTHFR at 12ug/ml folate in WT background,0.0,12464.0,0.8883006567105793,1.0,
+MTHFR,12464,1.0,weak_or_unrelated,urn:mavedb:00000049-a-6,MTHFR at 25ug/ml folate in WT background,0.0,12464.0,0.8839008300067879,1.0,
+MTHFR,12464,2.0,weak_or_unrelated,urn:mavedb:00000049-a-2,MTHFR at 25ug/ml folate in A222V background,0.0,12445.0,0.8764522953886175,0.9984756097560976,
+MTHFR,12464,3.0,weak_or_unrelated,urn:mavedb:00000049-a-3,MTHFR at 100ug/ml folate in A222V background,0.0,12445.0,0.8762956453185169,0.9984756097560976,
+OTC,1570,0.0,rank_identical_source,urn:mavedb:00000112-a-1,SNV-accessible missense variant scores for OTC,0.0,1570.0,0.9999999999999999,1.0,10.1016/j.ajhg.2023.03.019
+PALB2,6718,0.0,strong_partial,urn:mavedb:00001278-a-1,Scores from site-saturation functional screen of PALB2 missense variants in mES cells,0.0,6718.0,0.9965249757398876,1.0,10.1038/s41467-025-67252-z
+PALB2,6718,1.0,weak_or_unrelated,urn:mavedb:00001278-b-1,SGE Functional scores of PALB2 variants in exon 10,0.0,170.0,0.8695223649559063,0.0253051503423638,10.1038/s41467-025-67252-z
+PAX6,2719,0.0,weak_or_unrelated,urn:mavedb:00000665-b-1,pax6_blx_geneticin,0.0,2693.0,0.9000036670397192,0.9904376609047444,10.1038/s44320-024-00043-8
+PAX6,2719,1.0,weak_or_unrelated,urn:mavedb:00000665-a-1,pax6_le9_geneticin,0.0,2709.0,0.8986104211631241,0.9963221772710555,10.1038/s44320-024-00043-8
+PAX6,2719,2.0,weak_or_unrelated,urn:mavedb:00000665-c-1,pax6_le9_no_geneticin,0.0,2710.0,-0.679612570280708,0.99668995954395,10.1038/s44320-024-00043-8
+PAX6,2719,3.0,weak_or_unrelated,urn:mavedb:00000665-d-1,pax6_blx_no_geneticin,0.0,2687.0,-0.678613486598655,0.9882309672673777,10.1038/s44320-024-00043-8
+PSAT1,1915,0.0,strong_partial,urn:mavedb:00000107-b-1,A SNV-accessible mutational scan of human PSAT1 using functional complementation in yeast.,0.0,1914.0,0.9934615321046156,0.9994778067885117,
+PSAT1,1915,1.0,weak_or_unrelated,urn:mavedb:00000107-a-1,PSAT1 200 Solid Growth Assay,0.0,197.0,0.9388414341278737,0.10287206266318538,10.1002/jimd.12227
+PTEN,7504,0.0,weak_or_unrelated,urn:mavedb:00000102-0-1,PTEN VAMP-seq Combined,0.0,5083.0,0.9420904417301643,0.6773720682302772,10.1186/s13073-021-00984-x
+PTEN,7504,1.0,weak_or_unrelated,urn:mavedb:00000013-a-1,PTEN VAMP-seq,0.0,4112.0,0.871052046613866,0.5479744136460555,10.1038/s41588-018-0122-z
+PTEN,7504,2.0,weak_or_unrelated,urn:mavedb:00000101-a-1,PTEN VAMP-seq Fill-in,0.0,4185.0,0.7986833533295506,0.5577025586353944,10.1186/s13073-021-00984-x
+PTEN,7504,3.0,weak_or_unrelated,urn:mavedb:00000054-a-1,PTEN lipid phosphatase scores,0.0,7260.0,0.7484108290772377,0.9674840085287847,10.1016/j.ajhg.2018.03.018
+SPOP,6261,0.0,rank_identical_source,urn:mavedb:00001258-a-1,Selection of loss-of-function SPOP via yeast survival assay,0.0,6261.0,-1.0,1.0,
+SUMO1,1919,0.0,rank_identical_source,urn:mavedb:00000001-b-2,SUMO1 DMS-TileSeq,0.0,1778.0,0.9999201440894244,0.9265242313705054,10.15252/msb.20177908
+SUMO1,1919,1.0,rank_identical_source,urn:mavedb:00000001-b-1,SUMO1 imputed and refined,0.0,1919.0,0.999905634669169,1.0,10.15252/msb.20177908
+TSC2,9001,0.0,strong_partial,urn:mavedb:00001267-0-1,TSC2 Combined Scores,0.0,8891.0,0.9919982206523033,0.9877791356515943,
+TSC2,9001,1.0,weak_or_unrelated,urn:mavedb:00001267-0-3,TSC2 Updated Combined Scores,0.0,8946.0,0.9886973569837557,0.9938895678257972,
+TSC2,9001,2.0,weak_or_unrelated,urn:mavedb:00001201-a-1,TSC2 functional assay using prime editing in HAP1s,0.0,128.0,-0.7929522981138984,0.014220642150872126,

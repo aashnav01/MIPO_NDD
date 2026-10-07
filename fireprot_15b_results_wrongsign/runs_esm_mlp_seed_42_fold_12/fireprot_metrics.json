@@ -1,0 +1,63 @@
+{
+  "llr": {
+    "pooled_z_spearman": 0.32741265226942795,
+    "direction_accuracy": 0.634671079851055,
+    "n_rows": 2417,
+    "n_pooled": 2418
+  },
+  "mu": {
+    "pooled_z_spearman": 0.3684221077086874,
+    "direction_accuracy": 0.6752172114191146,
+    "n_rows": 2417,
+    "n_pooled": 2418
+  },
+  "field_probe": {
+    "pooled_z_spearman": null,
+    "direction_accuracy": null,
+    "n_rows": 0,
+    "n_pooled": 0
+  },
+  "_pooled_groups": 72,
+  "_excluded_groups": [
+    {
+      "gene": "FP_1AQH",
+      "n": 1,
+      "reason": "singleton"
+    },
+    {
+      "gene": "FP_1BNL",
+      "n": 1,
+      "reason": "singleton"
+    },
+    {
+      "gene": "FP_1BRF",
+      "n": 1,
+      "reason": "singleton"
+    },
+    {
+      "gene": "FP_1FRD",
+      "n": 1,
+      "reason": "singleton"
+    },
+    {
+      "gene": "FP_1QGV",
+      "n": 1,
+      "reason": "singleton"
+    },
+    {
+      "gene": "FP_1QND",
+      "n": 1,
+      "reason": "singleton"
+    },
+    {
+      "gene": "FP_1RRO",
+      "n": 2,
+      "reason": "zero_target_variance"
+    },
+    {
+      "gene": "FP_3BLS_1KE4",
+      "n": 1,
+      "reason": "singleton"
+    }
+  ]
+}

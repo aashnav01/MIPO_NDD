@@ -1,0 +1,15 @@
+{
+  "model": "mipo", "hidden": 128, "mechanisms": 8,
+  "field_layers": 3, "sequence_layers": 2, "anchors": 16,
+  "window_radius": 25, "max_nodes": 256, "neighbors": 16, "max_conformers": 4,
+  "structure": true, "global_kernel": true, "chemistry": true,
+  "use_llr": false, "require_llr": false, "dropout": 0.1,
+  "modality_dropout": 0.1, "batch_size": 8, "grad_accum": 4,
+  "steps_per_epoch": 500, "lr": 0.0002, "seed": 42,
+  "ranking_weight": 0.2, "patience": 5, "amp": true,
+  "stages": [
+    {"name": "generic_and_legacy_auxiliary", "epochs": 5, "tiers": ["E_GENERIC_HUMAN_DMS", "A_LEGACY_CONSENSUS"], "ndd_filter": "unverified"},
+    {"name": "family_teachers", "epochs": 3, "tiers": ["D_NDD_FAMILY_TEACHER"], "ndd_filter": "any"},
+    {"name": "verified_ndd", "epochs": 8, "tiers": ["A_LEGACY_CONSENSUS", "B_DIRECT_NDD_FUNCTIONAL", "C_DIRECT_NDD_STABILITY"], "ndd_filter": "verified", "freeze_backbone": true}
+  ]
+}

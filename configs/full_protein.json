@@ -1,0 +1,12 @@
+{
+  "model": "mipo", "hidden": 128, "mechanisms": 8,
+  "field_layers": 3, "sequence_layers": 2, "anchors": 16,
+  "window_radius": 25, "max_nodes": 0, "neighbors": 16, "max_conformers": 8,
+  "structure": true, "global_kernel": true, "chemistry": true,
+  "use_llr": true, "require_llr": true,
+  "dropout": 0.1, "modality_dropout": 0.1,
+  "batch_size": 2, "grad_accum": 8, "steps_per_epoch": 1000,
+  "epochs": 12, "lr": 0.0003, "weight_decay": 0.01,
+  "ranking_weight": 0.2, "field_weight": 0.00001,
+  "clip_grad": 1.0, "patience": 4, "amp": true, "seed": 42
+}

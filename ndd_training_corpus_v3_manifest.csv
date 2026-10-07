@@ -1,0 +1,66 @@
+gene,corpus_layer,data_status,loaded_variant_rows,protein_group,assay_type_or_plan,expected_or_known_rows,notes
+ADSL,A_NDD_GOLD,loaded_variant_level,8784,,,8784,Physical rows present in ndd_training_corpus_v3.csv
+AIRE,A_NDD_GOLD,loaded_variant_level,9790,,,9790,Physical rows present in ndd_training_corpus_v3.csv
+ASPA,A_NDD_GOLD,loaded_variant_level,5843,,,5843,Physical rows present in ndd_training_corpus_v3.csv
+BRCA1,A_NDD_GOLD,loaded_variant_level,7045,,,7045,Physical rows present in ndd_training_corpus_v3.csv
+BRCA2,A_NDD_GOLD,loaded_variant_level,462,,,462,Physical rows present in ndd_training_corpus_v3.csv
+CBS,A_NDD_GOLD,loaded_variant_level,10450,,,10450,Physical rows present in ndd_training_corpus_v3.csv
+CRX,A_NDD_GOLD,loaded_variant_level,5284,,,5284,Physical rows present in ndd_training_corpus_v3.csv
+DLG4,B_DIRECT_NDD_FUNCTIONAL,loaded_variant_level,1280,,,1280,Physical rows present in ndd_training_corpus_v3.csv
+FKRP,A_NDD_GOLD,loaded_variant_level,2878,,,2878,Physical rows present in ndd_training_corpus_v3.csv
+GDI1,B_DIRECT_NDD_FUNCTIONAL,loaded_variant_level,1154,,,1154,Physical rows present in ndd_training_corpus_v3.csv
+HMGCR,A_NDD_GOLD,loaded_variant_level,16853,,,16853,Physical rows present in ndd_training_corpus_v3.csv
+HRAS,B_DIRECT_NDD_FUNCTIONAL,loaded_variant_level,3134,,,3134,Physical rows present in ndd_training_corpus_v3.csv
+JAG1,A_NDD_GOLD,loaded_variant_level,1969,,,1969,Physical rows present in ndd_training_corpus_v3.csv
+KCNE1,A_NDD_GOLD,loaded_variant_level,2328,,,2328,Physical rows present in ndd_training_corpus_v3.csv
+KCNQ1,A_NDD_GOLD,loaded_variant_level,62,,,62,Physical rows present in ndd_training_corpus_v3.csv
+KCNQ2,A_NDD_GOLD,loaded_variant_level,301,,,301,Physical rows present in ndd_training_corpus_v3.csv
+KRAS,A_NDD_GOLD,loaded_variant_level,3320,,,3320,Physical rows present in ndd_training_corpus_v3.csv
+LARGE1,A_NDD_GOLD,loaded_variant_level,4484,,,4484,Physical rows present in ndd_training_corpus_v3.csv
+MAPK1,A_NDD_GOLD,loaded_variant_level,6810,,,6810,Physical rows present in ndd_training_corpus_v3.csv
+MTHFR,A_NDD_GOLD,loaded_variant_level,12464,,,12464,Physical rows present in ndd_training_corpus_v3.csv
+OTC,A_NDD_GOLD,loaded_variant_level,1570,,,1570,Physical rows present in ndd_training_corpus_v3.csv
+PALB2,A_NDD_GOLD,loaded_variant_level,6718,,,6718,Physical rows present in ndd_training_corpus_v3.csv
+PAX6,A_NDD_GOLD,loaded_variant_level,2719,,,2719,Physical rows present in ndd_training_corpus_v3.csv
+PSAT1,A_NDD_GOLD,loaded_variant_level,1915,,,1915,Physical rows present in ndd_training_corpus_v3.csv
+PTEN,A_NDD_GOLD,loaded_variant_level,7504,,,7504,Physical rows present in ndd_training_corpus_v3.csv
+SHOC2,B_DIRECT_NDD_FUNCTIONAL,loaded_variant_level,10972,,,10972,Physical rows present in ndd_training_corpus_v3.csv
+SPOP,A_NDD_GOLD,loaded_variant_level,6261,,,6261,Physical rows present in ndd_training_corpus_v3.csv
+SUMO1,A_NDD_GOLD,loaded_variant_level,1919,,,1919,Physical rows present in ndd_training_corpus_v3.csv
+TPK1,B_DIRECT_NDD_FUNCTIONAL,loaded_variant_level,3181,,,3181,Physical rows present in ndd_training_corpus_v3.csv
+TSC2,A_NDD_GOLD,loaded_variant_level,9001,,,9001,Physical rows present in ndd_training_corpus_v3.csv
+UBR5,C_DIRECT_NDD_STABILITY,loaded_variant_level,1094,,,1094,Physical rows present in ndd_training_corpus_v3.csv
+PPM1D,B_SECONDARY_DIRECT_NDD,assay_identified_not_loaded,0,DNA_damage_phosphatase,functional_reporter,7889,secondary_direct_ndd_mechanism_mismatch
+CALM1,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,calcium_signaling,organismal_fitness,1813,teacher
+SCN5A,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,voltage_gated_sodium,organismal_fitness,224,teacher
+KCNH2,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,voltage_gated_potassium,activity,200,teacher
+KCNJ2,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,inward_rectifier_potassium,activity+expression,13880,teacher
+SLC6A4,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,neurotransmitter_transporter,activity,11576,teacher
+SLC22A1,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,multi_pass_transporter,activity+expression,19897,teacher
+ADRB2,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,gpcr,activity,7800,teacher
+EPHB2,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,synaptic_receptor_rtk,stability,1239,teacher
+SRC,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,kinase,activity,7009,teacher
+MET,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,receptor_tyrosine_kinase,activity,5393,teacher
+UBE4B,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,ubiquitin_proteostasis,stability+activity,2017,teacher
+HECTD1,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,ubiquitin_proteostasis,stability,1244,teacher
+NPC1,D_NDD_FAMILY_TEACHER,assay_identified_not_loaded,0,lysosomal_membrane_trafficking,activity,637,teacher
+SCN2A,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,ion_channel,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+SCN8A,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,ion_channel,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+KCNB1,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,ion_channel,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+CACNA1A,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,ion_channel,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+CACNA1C,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,ion_channel,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+GRIN1,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,glutamate_receptor,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+GRIN2A,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,glutamate_receptor,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+GRIN2B,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,glutamate_receptor,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+GABRA1,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,gaba_receptor,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+SLC6A1,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,transporter,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+STXBP1,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,synaptic_release,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+SYNGAP1,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,synaptic_rasgap,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+SHANK3,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,synaptic_scaffold,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+MECP2,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,chromatin,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+CHD8,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,chromatin,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+DDX3X,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,rna_helicase,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+SETD5,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,chromatin,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+UBE3A,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,ubiquitin_proteostasis,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+ATP1A3,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,ion_transport,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.
+CSNK2B,B_DIRECT_NDD_WATCHLIST,mavedb_literature_search_required,0,kinase,search current MaveDB / recent MAVE literature,,High-priority direct NDD gene; no physical assay rows loaded in current runtime.

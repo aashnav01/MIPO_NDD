@@ -1,0 +1,33 @@
+{
+  "source_sha256": "9fc238ea9a499f78694f5334a32284a2ab89d1b009a122fcf3a425a70878df2b",
+  "rows": 157549,
+  "genes": 31,
+  "assays": 31,
+  "tiers": {
+    "A_NDD_GOLD": 136734,
+    "B_DIRECT_NDD_FUNCTIONAL": 19721,
+    "C_DIRECT_NDD_STABILITY": 1094
+  },
+  "task_rows": {
+    "consensus": 136734,
+    "fitness": 16587,
+    "activity": 3134,
+    "stability": 1094
+  },
+  "task_genes": {
+    "activity": 1,
+    "consensus": 25,
+    "fitness": 4,
+    "stability": 1
+  },
+  "genes_with_multiple_tasks": 0,
+  "existing_llr_missing": {
+    "llr_650M": 20815,
+    "llr_150M": 20815
+  },
+  "notes": [
+    "train_target_0_1 is not used: its normalization provenance is unverified.",
+    "Consensus labels are not reconstructed activity/abundance labels.",
+    "A task present in one gene has no same-task supervision when that gene is held out."
+  ]
+}

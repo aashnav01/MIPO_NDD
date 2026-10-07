@@ -1,0 +1,219 @@
+{
+  "ADSL": {
+    "sequence_key": "f6777a97981f41e0e1e7a3da",
+    "length": 484,
+    "structure": true,
+    "structure_sha256": "c4d9ff44cb5d3484148b854e4652d83dcf7dd1ef8539e07aefa48206aa13a133",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "AIRE": {
+    "sequence_key": "e6aac992e36aace49968814f",
+    "length": 545,
+    "structure": true,
+    "structure_sha256": "161bfdbfe8a73d8cf1594c7fafe19d7af97a511c3753fbaa95b80d496ed07c0a",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "ASPA": {
+    "sequence_key": "fd33f71103705a115325f7cb",
+    "length": 313,
+    "structure": true,
+    "structure_sha256": "d8133435a285a73ceef8658d539378a0fbd7428e58fe5bf0727c81604854b540",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "BRCA1": {
+    "sequence_key": "80d7199c8d1550a5ba838704",
+    "length": 1863,
+    "structure": true,
+    "structure_sha256": "c87569568d976b1508a25e38b826cd5046bd30db2fb6de83d4df08042b54936c",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "BRCA2": {
+    "sequence_key": "02fa9247ce635b2ffc79a7b9",
+    "length": 3418,
+    "structure": false,
+    "structure_sha256": null,
+    "source": "sequence-only fallback: 404 Client Error: Not Found for url: https://alphafold.ebi.ac.uk/api/prediction/P51587"
+  },
+  "CBS": {
+    "sequence_key": "1e7cf97e465052ebc9f35a7b",
+    "length": 551,
+    "structure": true,
+    "structure_sha256": "c3dfd2bc2fdcd5a6d7329b15d1ade11d19deb5538586a9544376fa701aa40ca3",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "CRX": {
+    "sequence_key": "e4f3ee088fb57f78bb68bea8",
+    "length": 299,
+    "structure": true,
+    "structure_sha256": "6b0a1fa1d12391b669ff1ffb9967f4fc44c9f2e31057d392590668072fe53a36",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "DLG4": {
+    "sequence_key": "eaa4e0dc7e76ccef71fba73b",
+    "length": 724,
+    "structure": true,
+    "structure_sha256": "a8bd6eb3520c252f69392b9f359c2f3b82f0532b57fb7d3024792d01cf31a67a",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "FKRP": {
+    "sequence_key": "8ef7e7ee077b56a673b9009a",
+    "length": 495,
+    "structure": true,
+    "structure_sha256": "17a59a2fd3216a0ee0d85225ade25035f891acff786e2cb75790a356c4e459d7",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "GDI1": {
+    "sequence_key": "151cd778d4fb53f442fb1fce",
+    "length": 447,
+    "structure": true,
+    "structure_sha256": "17cbcacbf97ff96a5c1ed6877c48638b450c2ec18ede494f0774b435c2c5e108",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "HMGCR": {
+    "sequence_key": "53ca26e9a4eeb6dc55931307",
+    "length": 888,
+    "structure": true,
+    "structure_sha256": "d519519e446914b7682b7282c0b3d660266f6c74b183f05c935524273c56ec01",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "HRAS": {
+    "sequence_key": "d9360238882c010c8474ef1e",
+    "length": 189,
+    "structure": true,
+    "structure_sha256": "dbd96305a503d9a13c97c1121e0b4f38bee11537d82f370199d7a7490bc66f47",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "JAG1": {
+    "sequence_key": "9e09344716f80e5ff5d1f913",
+    "length": 1218,
+    "structure": true,
+    "structure_sha256": "b64e12b40ea111418047bc5565e5f2863821d9367d78c7917c9089620eef74f3",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "KCNE1": {
+    "sequence_key": "07505bc0d400eb52c0f69a9e",
+    "length": 129,
+    "structure": true,
+    "structure_sha256": "e75c947e1a52469b3cdc21fc439c02896a224fad36c052a366d9261228c7fe8e",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "KCNQ1": {
+    "sequence_key": "5cec1050068dcd45ac8aa773",
+    "length": 676,
+    "structure": true,
+    "structure_sha256": "56a01cae4b3ca822988f5d94f62c0d17ad1fe21f31934642d9c3015777a1c11b",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "KCNQ2": {
+    "sequence_key": "a3002bf1c1ab1c7b8d77ea77",
+    "length": 872,
+    "structure": true,
+    "structure_sha256": "5f442a9ba1258167747470b7c007fa33e790796c366ed5b7d7ff111caabca08c",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "KRAS": {
+    "sequence_key": "9a0ed04ef46e15865a90f9dd",
+    "length": 188,
+    "structure": true,
+    "structure_sha256": "d29e00d98b13a0201cb9fb7e009cde85987ada0b83a5fe4b3e15177d5778d746",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "LARGE1": {
+    "sequence_key": "69e472d470289dbdc90a4451",
+    "length": 756,
+    "structure": true,
+    "structure_sha256": "85cec63fca9a3f63bacd24993141474d9378661c795d9ce0b80efbdec65337fd",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "MAPK1": {
+    "sequence_key": "1670aefbe2d9baf3412d2325",
+    "length": 360,
+    "structure": true,
+    "structure_sha256": "07169da869c168e6dafedcc7799251f2bdc4e116a4fedf8ba84ddb74638041a6",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "MTHFR": {
+    "sequence_key": "afd5e62b903eb642953b991f",
+    "length": 656,
+    "structure": true,
+    "structure_sha256": "2675bfd28ebbdd6052047766b5075ab7e2bb934c21a1cadea6e82fa866a56704",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "OTC": {
+    "sequence_key": "35d9672d82f6d9568b8af25a",
+    "length": 354,
+    "structure": true,
+    "structure_sha256": "c35ebe85d1ba9cc96953beac480884020cfeba2f93deef4a3d8eca14ff09d4b6",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "PALB2": {
+    "sequence_key": "848e1c837f05f81497688db3",
+    "length": 1186,
+    "structure": true,
+    "structure_sha256": "355bc0d164dd650deb4b8c71d6148a88417581ed0bc4e59eb1398fec797ba8ee",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "PAX6": {
+    "sequence_key": "aebeb991234cd8a3f1f91195",
+    "length": 422,
+    "structure": true,
+    "structure_sha256": "3773a5beb832c0d4b3fb3a613341c80903df49679a9ab194fbd414e1d14384af",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "PSAT1": {
+    "sequence_key": "47ac6e9f63a78f48d4b7c469",
+    "length": 370,
+    "structure": true,
+    "structure_sha256": "2ccb4ac85662ea7f395b8d67d4184a5a5d10348573abbb219fd17586d560387a",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "PTEN": {
+    "sequence_key": "2675a6cc946076d703429778",
+    "length": 403,
+    "structure": true,
+    "structure_sha256": "df1665a7ce50ce60b4689ad44a57c81c7e1ba2a9d58f581eb21f41d1d28e33bb",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "SHOC2": {
+    "sequence_key": "f7c01224ad8e3f540f734629",
+    "length": 582,
+    "structure": true,
+    "structure_sha256": "88878ed0d6063621dd8fad0fd896208ee5a32241aa02a15b804272b281a4e333",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "SPOP": {
+    "sequence_key": "9947d2c5b5ddc2893700fa69",
+    "length": 374,
+    "structure": true,
+    "structure_sha256": "eda798e9f76d22601f901290ec0b7190f1dde5c266b5af758aa0d5e1d8dc2c12",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "SUMO1": {
+    "sequence_key": "2f67b0398c769dc5deb575f4",
+    "length": 101,
+    "structure": true,
+    "structure_sha256": "d0eecf6f743a8ff06c76b48da4116d92f06c8418137792d978b1a6d8654cfc6f",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "TPK1": {
+    "sequence_key": "f0559a57916fe3476edde5fc",
+    "length": 243,
+    "structure": true,
+    "structure_sha256": "75ca0998a524a3f76ca5d879a5099d41a7b4f09881ee1a5779b5daed15e627af",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "TSC2": {
+    "sequence_key": "6c6795ffc0f62a83401b3f75",
+    "length": 1807,
+    "structure": true,
+    "structure_sha256": "856fe53b97d8d8916bbe069d1506d4ddb703fa84c20d109e6449b4c128e2462c",
+    "source": "AlphaFold exact full-sequence match"
+  },
+  "UBR5": {
+    "sequence_key": "864587b8306f76b5780c58ce",
+    "length": 58,
+    "structure": true,
+    "structure_sha256": "e92ff0486fcbf6c9b2ce209d96a0e446a733a77f8c6788d6176d10f57230c8d6",
+    "source": "Experimental PDB 1I2T: exact first 58 residues of chain A, excluding terminal AHG tag; confidence mask=1, not pLDDT"
+  }
+}
